@@ -23,6 +23,7 @@ color = Color(0.176471, 0, 0, 1)
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 
 [node name="MobTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_eeujy")
