@@ -27,6 +27,7 @@ radius = 11.0
 height = 52.0
 
 [node name="LightBeam" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_abjyj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
