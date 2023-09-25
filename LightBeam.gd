@@ -1,5 +1,5 @@
 extends RigidBody2D
 
-	
-func penis():
-	pass
+func _ready():
+	$AnimatedSprite2D.play("move")
+

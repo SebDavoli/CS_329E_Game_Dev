@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4vn8cnmr8g63"]
+[gd_scene load_steps=5 format=3 uid="uid://b4vn8cnmr8g63"]
 
 [ext_resource type="Texture2D" uid="uid://mkf6vtytdre7" path="res://Mobs/Shadow_no_backgroudn.png" id="1_25v2p"]
+[ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
 animations = [{
@@ -13,9 +14,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
+radius = 31.8198
+height = 77.7817
+
 [node name="Mob" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
+script = ExtResource("1_y7x5m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.28, 0)
@@ -24,5 +30,11 @@ sprite_frames = SubResource("SpriteFrames_mhvt5")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_tk2hs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2, 6)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
