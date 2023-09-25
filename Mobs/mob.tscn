@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4vn8cnmr8g63"]
+
+[ext_resource type="Texture2D" uid="uid://mkf6vtytdre7" path="res://Mobs/Shadow_no_backgroudn.png" id="1_25v2p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_25v2p")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.28, 0)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_mhvt5")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
