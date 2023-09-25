@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://87g0ds8r8t20"]
+
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
+[ext_resource type="PackedScene" uid="uid://b4q0dtmmepuaf" path="res://temp_bg.tscn" id="1_lb3dl"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 659.0
+color = Color(0.176471, 0, 0, 1)
+
+[node name="TempBG" parent="." instance=ExtResource("1_lb3dl")]
+
+[node name="Sola" parent="." instance=ExtResource("1_6hoop")]
+position = Vector2(557, 377)

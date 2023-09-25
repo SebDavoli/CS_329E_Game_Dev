@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dclqtr0cdqdc3"]
+
+[ext_resource type="Script" path="res://LightBeam.gd" id="1_abjyj"]
+[ext_resource type="Texture2D" uid="uid://b8ghanc82ywtw" path="res://Projectiles/LightBeam1.png" id="2_seouj"]
+[ext_resource type="Texture2D" uid="uid://2esnkmox6t06" path="res://Projectiles/LightBeam2.png" id="3_kchin"]
+[ext_resource type="Texture2D" uid="uid://be4jhmk1vsoin" path="res://Projectiles/LightBeam3.png" id="4_6p1o1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbe1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_seouj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kchin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6p1o1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlhj4"]
+radius = 11.0
+height = 52.0
+
+[node name="LightBeam" type="RigidBody2D"]
+script = ExtResource("1_abjyj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_rbe1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mlhj4")
