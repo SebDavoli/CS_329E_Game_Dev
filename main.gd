@@ -1,11 +1,11 @@
 extends Node2D
 @export var mob_scene: PackedScene
-#var score
+var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_game()
-	pass # Replace with function body.
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

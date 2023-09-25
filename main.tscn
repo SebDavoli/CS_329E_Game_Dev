@@ -7,9 +7,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1149, 360, 0, 0, 0, 0, 1147, 651, 0, 0, 0, 0, 1, 657, 0, 0, 0, 0, 3, 357, 0, 0, 0, 0, 1149, 360)
+"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1153, 651, 0, 0, 0, 0, -6, 649, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
 }
-point_count = 5
+point_count = 6
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -29,5 +29,5 @@ position = Vector2(557, 377)
 curve = SubResource("Curve2D_eeujy")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(1149, 360)
-rotation = 1.57767
+position = Vector2(-3, -8)
+rotation = 0.00173611
