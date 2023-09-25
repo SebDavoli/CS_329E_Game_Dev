@@ -1,1 +1,4 @@
-# CS_329E_Game_Dev Team 10
+# Speed Way Survival - CS329E Team 10
+
+Survive the Speedway at its most dangerous hour!
+
