@@ -1,5 +1,5 @@
 extends RigidBody2D
 
 func _ready():
-	$AnimatedSprite2D.play("move")
+	$AnimatedSprite2D.play("default")
 

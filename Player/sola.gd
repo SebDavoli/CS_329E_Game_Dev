@@ -26,6 +26,8 @@ func _process(delta):
 		$AnimatedSprite2D.play("walk_up")
 	if Input.is_action_just_released("attack"):
 		speed_shine()
+	
+
 		
 	
 	if velocity.length() > 0:

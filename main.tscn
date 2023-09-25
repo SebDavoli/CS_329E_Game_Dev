@@ -21,6 +21,7 @@ color = Color(0.176471, 0, 0, 1)
 [node name="TempBG" parent="." instance=ExtResource("1_lb3dl")]
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
+position = Vector2(242, 157)
 
 [node name="MobTimer" type="Timer" parent="."]
 autostart = true
