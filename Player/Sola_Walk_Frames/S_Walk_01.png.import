@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Speedway Survival/Player/Sola_Walk_Frames/S_Walk_09.png.import
-uid="uid://yvhpvr6kr8qj"
-path="res://.godot/imported/S_Walk_09.png-c0f9b9cd109423b3744d8b5c080a4836.ctex"
-========
-uid="uid://cs4wycrhtq14"
+uid="uid://cm5bjbf20pcm5"
 path="res://.godot/imported/S_Walk_01.png-f0a98fc90c9297da4b4762cab8677643.ctex"
->>>>>>>> c417e30 (Kalem: Taking Rachel's branch and organizing it into a project structure to move forward with):Player/Sola_Walk_Frames/S_Walk_01.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Speedway Survival/Player/Sola_Walk_Frames/S_Walk_09.png.import
-source_file="res://Player/Sola_Walk_Frames/S_Walk_09.png"
-dest_files=["res://.godot/imported/S_Walk_09.png-c0f9b9cd109423b3744d8b5c080a4836.ctex"]
-========
 source_file="res://Player/Sola_Walk_Frames/S_Walk_01.png"
 dest_files=["res://.godot/imported/S_Walk_01.png-f0a98fc90c9297da4b4762cab8677643.ctex"]
->>>>>>>> c417e30 (Kalem: Taking Rachel's branch and organizing it into a project structure to move forward with):Player/Sola_Walk_Frames/S_Walk_01.png.import
 
 [params]
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://4ehixoj5k31m"]
 
-[ext_resource type="Texture2D" uid="uid://7i8gnteun7kf" path="res://Player/Sola_Walk_Frames/S_Walk_02.png" id="1_mqwwo"]
+[ext_resource type="Texture2D" uid="uid://dyfkw8cu24lcs" path="res://Player/Sola_Walk_Frames/S_Walk_02.png" id="1_mqwwo"]
 [ext_resource type="Texture2D" uid="uid://dl6uhr7fxaokw" path="res://Player/Sola_Walk_Frames/S_Walk_03.png" id="2_c0em6"]
 [ext_resource type="Script" path="res://Player/sola.gd" id="2_wwx7e"]
-[ext_resource type="Texture2D" uid="uid://cs4wycrhtq14" path="res://Player/Sola_Walk_Frames/S_Walk_01.png" id="3_tv8on"]
+[ext_resource type="Texture2D" uid="uid://cm5bjbf20pcm5" path="res://Player/Sola_Walk_Frames/S_Walk_01.png" id="3_tv8on"]
 [ext_resource type="Texture2D" uid="uid://cxlsblnnt20i2" path="res://Player/Sola_Walk_Frames/S_Walk_05.png" id="4_u0pq4"]
 [ext_resource type="Texture2D" uid="uid://dvqx44o5cir4v" path="res://Player/Sola_Walk_Frames/S_Walk_06.png" id="5_a32tg"]
 [ext_resource type="Texture2D" uid="uid://dhupgthp4rmal" path="res://Player/Sola_Walk_Frames/S_Walk_04.png" id="6_3a60g"]
 [ext_resource type="Texture2D" uid="uid://cvglgkq83gp6u" path="res://Player/Sola_Walk_Frames/S_Walk_08.png" id="7_ova3j"]
-[ext_resource type="Texture2D" uid="uid://yvhpvr6kr8qj" path="res://Player/Sola_Walk_Frames/S_Walk_09.png" id="8_yvufl"]
+[ext_resource type="Texture2D" uid="uid://djmgdv3lqfbvn" path="res://Player/Sola_Walk_Frames/S_Walk_09.png" id="8_yvufl"]
 [ext_resource type="Texture2D" uid="uid://bfs4iuiyuk6hf" path="res://Player/Sola_Walk_Frames/S_Walk_07.png" id="9_dvti2"]
 [ext_resource type="Texture2D" uid="uid://c6ad3xrqqmp3m" path="res://Player/Sola_Walk_Frames/S_Walk_11.png" id="10_hd8lx"]
 [ext_resource type="Texture2D" uid="uid://biifl776cmjfl" path="res://Player/Sola_Walk_Frames/S_Walk_12.png" id="11_eno03"]
@@ -89,3 +89,6 @@ animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_riry5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(50, 0)

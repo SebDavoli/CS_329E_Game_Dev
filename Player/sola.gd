@@ -3,11 +3,10 @@ extends Area2D
 
 @export var speed = 200
 var screen_size
+var light = preload("res://light_beam.tscn")
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,7 +23,8 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 		$AnimatedSprite2D.play("walk_up")
-		
+	if Input.is_action_just_released("attack"):
+		pass
 		
 	
 	if velocity.length() > 0:
