@@ -1,6 +1,7 @@
 extends Node2D
 @export var mob_scene: PackedScene
 var score
+signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
