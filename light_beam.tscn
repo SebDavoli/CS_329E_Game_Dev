@@ -28,6 +28,8 @@ height = 52.0
 
 [node name="LightBeam" type="RigidBody2D" groups=["light"]]
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_abjyj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

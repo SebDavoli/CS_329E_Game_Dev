@@ -7,13 +7,8 @@ signal hit
 func _ready():
 	$MobTimer.start()
 	
-	
-	
 func new_game():
 	score = 0
-
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

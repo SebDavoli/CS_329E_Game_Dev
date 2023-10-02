@@ -10,8 +10,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(delta):
+	get_parent().get_node("Sola")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -19,6 +19,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_body_entered(body):
+	print("help")
 	if body is Light:
 		queue_free()
 		hide()
