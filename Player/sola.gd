@@ -57,7 +57,3 @@ func speed_shine():
 	get_parent().add_child(beam_instance)
 	beam_instance.global_position = $Marker2D.global_position
 	beam_instance.velocity = $Marker2D.position
-
-
-func _on_hit():
-	pass # Replace with function body.

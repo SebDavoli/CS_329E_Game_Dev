@@ -36,3 +36,6 @@ func _on_mob_timer_timeout():
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	add_child(mob)
+
+func game_over():
+	$MobTimer.stop()
