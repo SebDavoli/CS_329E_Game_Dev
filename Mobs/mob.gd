@@ -11,7 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	get_parent().get_node("Sola")
+#	get_parent().get_node("Sola")
+	pass
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
