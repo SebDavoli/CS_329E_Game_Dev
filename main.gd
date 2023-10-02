@@ -6,6 +6,7 @@ signal hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MobTimer.start()
+	$BGM.play()
 	
 func new_game():
 	score = 0
@@ -39,3 +40,4 @@ func _on_mob_timer_timeout():
 
 func game_over():
 	$MobTimer.stop()
+	$BGM.stop()
