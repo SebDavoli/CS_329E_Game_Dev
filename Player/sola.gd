@@ -11,6 +11,7 @@ var beam = preload("res://light_beam.tscn")
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	screen_size = get_viewport_rect().size
+	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,6 +55,11 @@ func _on_body_entered(body):
 		hide()
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled",true)
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
 
 func speed_shine():
 	var beam_instance = beam.instantiate()

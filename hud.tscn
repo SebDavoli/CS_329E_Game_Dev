@@ -6,16 +6,25 @@
 script = ExtResource("1_htbqm")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 979.0
+offset_top = 11.0
+offset_right = 1137.0
+offset_bottom = 117.0
 
 [node name="Message" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 287.0
+offset_top = 42.0
+offset_right = 855.0
+offset_bottom = 323.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 438.0
+offset_top = 539.0
+offset_right = 657.0
+offset_bottom = 616.0
+text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
 
