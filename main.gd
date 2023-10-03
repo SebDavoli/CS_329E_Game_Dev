@@ -28,13 +28,25 @@ func _on_mob_timer_timeout():
 	
 	var direction = mob_spawn_location.rotation + PI / 2
 	
-	mob.position = mob_spawn_location.position
+	# vector between sola and mob (from mob to sola for direction)
+	var dir = $Sola2.position - mob_spawn_location.position
 	
-	direction += randf_range(-PI / 4, PI / 4)
+	'''
+	print("Dir:")
+	print(dir)
+	print("direction:")
+	print(direction)
+	'''
+	
+	mob.position = mob_spawn_location.position
+	var mob_pos = mob.position
+	
+	#direction += randf_range(-PI / 8, PI / 8)
 	mob.rotation = direction
 
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
+	var velocity = mob_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
+	
+	mob.linear_velocity = velocity
 	
 	add_child(mob)
 
