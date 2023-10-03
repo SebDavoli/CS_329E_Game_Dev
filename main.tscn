@@ -32,6 +32,7 @@ color = Color(0.176471, 0, 0, 1)
 position = Vector2(593, 576)
 
 [node name="MobTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="MobPath" type="Path2D" parent="."]

@@ -31,13 +31,6 @@ func _on_mob_timer_timeout():
 	# vector between sola and mob (from mob to sola for direction)
 	var dir = $Sola2.position - mob_spawn_location.position
 	
-	'''
-	print("Dir:")
-	print(dir)
-	print("direction:")
-	print(direction)
-	'''
-	
 	mob.position = mob_spawn_location.position
 	var mob_pos = mob.position
 	
