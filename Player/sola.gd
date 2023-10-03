@@ -6,6 +6,9 @@ var screen_size
 var beam_speed = 1000
 var beam = preload("res://light_beam.tscn")
 
+# Movement limits (add as many as you want Team 10):
+var y_max = 400
+
 @onready var head = $Marker2D
 
 func _ready():
@@ -46,10 +49,16 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 
-		
+	# Implementing and Limiting player movement
 	position += velocity * delta
+	
+	if position.y < y_max:
+		position = Vector2(position.x,y_max)
+	
+	# Limiting movement to within the screen
 	position = position.clamp(Vector2.ZERO, screen_size)
-
+	
+	
 func _on_body_entered(body):
 	if body is Mob:
 		hide()

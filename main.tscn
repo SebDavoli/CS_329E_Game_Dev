@@ -36,6 +36,7 @@ position = Vector2(593, 576)
 position = Vector2(559, 559)
 
 [node name="MobTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="."]
