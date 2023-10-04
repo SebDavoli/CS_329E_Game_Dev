@@ -16,6 +16,8 @@ offset_left = 287.0
 offset_top = 42.0
 offset_right = 855.0
 offset_bottom = 323.0
+theme_override_font_sizes/font_size = 50
+text = "Speedway Survival"
 horizontal_alignment = 1
 vertical_alignment = 1
 

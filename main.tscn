@@ -36,13 +36,12 @@ position = Vector2(593, 576)
 position = Vector2(559, 559)
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2(-3.07248, 8.22693)

@@ -1,30 +1,28 @@
 extends Node2D
 @export var mob_scene: PackedScene
 var score
-signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MobTimer.start()
-	$BGM.play()
+	pass
+	
+func _process(delta):
+	pass
+	
+func game_over():
+	$ScoreTimer.stop()
+	$MobTimer.stop()
+	$BGM.stop()
+	$HUD.show_game_over()
 	
 func new_game():
 	score = 0
-	$Player.start($StartPosition.position)
+	$Sola2.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 	$BGM.play()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_released("spawn"):
-		mob_spawn()
-
-func mob_spawn():
-	pass
-
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
@@ -48,11 +46,6 @@ func _on_mob_timer_timeout():
 	mob.linear_velocity = velocity
 	
 	add_child(mob)
-
-func game_over():
-	$MobTimer.stop()
-	$BGM.stop()
-	$HUD.show_game_over()
 
 func _on_start_timer_timeout():
 	$MobTimer.start()
