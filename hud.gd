@@ -18,10 +18,8 @@ func show_game_over():
 	
 	await $MessageTimer.timeout
 	
-	$Message.text = "Retry?"
-	$Message.show()
-	
-	await get_tree().create_timer(1.0).timeout
+	$Retry.text = "Retry?"
+	$Retry.show()
 	$StartButton.show()
 
 func update_score(score):
@@ -30,6 +28,7 @@ func update_score(score):
 func _on_start_button_pressed():
 	$StartButton.hide()
 	$Message.hide()
+	$Retry.hide()
 	start_game.emit()
 
 func _on_message_timer_timeout():

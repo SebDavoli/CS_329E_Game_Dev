@@ -22,13 +22,16 @@ func _process(delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		$Marker2D.position = Vector2(50, 0)	
+		
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-		$Marker2D.position = Vector2(-50, 0)			
+		$Marker2D.position = Vector2(-50, 0)
+					
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		$AnimatedSprite2D.play("walk_down")
 		$Marker2D.position = Vector2(0,50)	
+		
 		
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1	
@@ -76,3 +79,11 @@ func speed_shine():
 	get_parent().add_child(beam_instance)
 	beam_instance.global_position = $Marker2D.global_position
 	beam_instance.velocity = $Marker2D.position
+	if$Marker2D.position == Vector2(50, 0):
+		beam_instance.rotation = 0;
+	elif$Marker2D.position == Vector2(-50, 0):
+		beam_instance.rotation = -110;
+	elif$Marker2D.position == Vector2(0, 50):
+		beam_instance.rotation = -80;
+	elif$Marker2D.position == Vector2(0, -50):
+		beam_instance.rotation = 80;

@@ -21,6 +21,15 @@ text = "Speedway Survival"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Retry" type="Label" parent="."]
+offset_left = 257.0
+offset_top = 49.0
+offset_right = 906.0
+offset_bottom = 332.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StartButton" type="Button" parent="."]
 offset_left = 438.0
 offset_top = 539.0

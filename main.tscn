@@ -18,23 +18,6 @@ point_count = 7
 script = ExtResource("1_o3cul")
 mob_scene = ExtResource("2_m72c7")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1149.0
-offset_bottom = 647.0
-texture = ExtResource("3_ac5dm")
-expand_mode = 1
-
-[node name="ColorRect" type="ColorRect" parent="."]
-color = Color(0.176471, 0, 0, 1)
-
-[node name="TempBG" parent="." instance=ExtResource("1_lb3dl")]
-
-[node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
-position = Vector2(593, 576)
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(559, 559)
-
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="ScoreTimer" type="Timer" parent="."]
@@ -58,8 +41,27 @@ stream = ExtResource("6_d2l6y")
 
 [node name="HUD" parent="." instance=ExtResource("7_uhbq1")]
 
-[connection signal="hit" from="Sola2" to="." method="game_over"]
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
+color = Color(0.176471, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("3_ac5dm")
+expand_mode = 1
+
+[node name="TempBG" parent="ColorRect/TextureRect" instance=ExtResource("1_lb3dl")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(559, 559)
+
+[node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
+position = Vector2(593, 576)
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="hit" from="Sola2" to="." method="game_over"]
