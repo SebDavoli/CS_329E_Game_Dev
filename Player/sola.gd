@@ -1,5 +1,6 @@
 extends Area2D
 signal hit
+signal damage
 
 @export var speed = 200
 var screen_size
@@ -45,6 +46,7 @@ func _process(delta):
 		
 	if Input.is_action_just_released("attack"):
 		speed_shine()
+		$ShootEffect.play()
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -63,10 +65,9 @@ func _process(delta):
 	
 	
 func _on_body_entered(body):
-	if body is Mob:
-		hide()
-		hit.emit()
-		$CollisionShape2D.set_deferred("disabled",true)
+	if body.is_in_group("mobs"):
+		damage.emit()
+#		
 
 func start(pos):
 	position = pos

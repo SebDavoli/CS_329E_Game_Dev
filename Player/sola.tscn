@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=22 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://btn2yai4nlkfi" path="res://Player/Sola_Walk_Frames/S_Walk_02.png" id="1_mqwwo"]
 [ext_resource type="Texture2D" uid="uid://bn1613d4r8oxy" path="res://Art/Sola_walk_1.png" id="2_a1lvk"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cbne14mk11lc3" path="res://Art/Sola_walk_10.png" id="11_7je7p"]
 [ext_resource type="Texture2D" uid="uid://biifl776cmjfl" path="res://Player/Sola_Walk_Frames/S_Walk_12.png" id="11_eno03"]
 [ext_resource type="Texture2D" uid="uid://do3xaov0t3dc" path="res://Player/Sola_Walk_Frames/S_Walk_10.png" id="12_8k2fs"]
+[ext_resource type="AudioStream" uid="uid://tj10u3rbh2gg" path="res://Music/shoot.mp3" id="19_yweb0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tndsa"]
 animations = [{
@@ -112,5 +113,8 @@ shape = SubResource("CapsuleShape2D_riry5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(50, 0)
+
+[node name="ShootEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_yweb0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

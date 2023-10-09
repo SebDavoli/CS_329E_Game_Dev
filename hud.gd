@@ -3,7 +3,7 @@ extends CanvasLayer
 signal start_game
 
 func _ready():
-	pass
+	$Controls.hide()
 
 func _process(delta):
 	pass
@@ -22,8 +22,8 @@ func show_game_over():
 	$Retry.show()
 	$StartButton.show()
 
-func update_score(score):
-	$ScoreLabel.text = str(score)
+func update_health(health):
+	$HealthLabel.text = str(health)
 
 func _on_start_button_pressed():
 	$StartButton.hide()

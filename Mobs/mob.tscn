@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4vn8cnmr8g63"]
+[gd_scene load_steps=6 format=3 uid="uid://b4vn8cnmr8g63"]
 
 [ext_resource type="Texture2D" uid="uid://mkf6vtytdre7" path="res://Mobs/Shadow_no_backgroudn.png" id="1_25v2p"]
 [ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
+[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="3_cynd5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
 animations = [{
@@ -41,6 +42,8 @@ position = Vector2(2, 6)
 
 [node name="Area2D" type="Area2D" parent="."]
 
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cynd5")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

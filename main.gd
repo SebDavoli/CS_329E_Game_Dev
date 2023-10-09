@@ -1,6 +1,6 @@
 extends Node2D
 @export var mob_scene: PackedScene
-var score
+var health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,13 +16,23 @@ func game_over():
 	$HUD.show_game_over()
 	
 func new_game():
-	score = 0
+	health = 100
 	$Sola2.start($StartPosition.position)
 	$StartTimer.start()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
-	get_tree().call_group("mobs", "queue_free")
+	$HUD.update_health(health)
+	$HUD.show_message("Where am I?")
 	$BGM.play()
+	await $HUD/MessageTimer.timeout
+	$HUD/Controls.show()
+#	get_tree().call_group("mobs", "queue_free")
+
+func change_health():
+	health = health - 20
+	$HUD.update_health(health)
+	if health <= 0:
+		$Sola2.hide()
+		$Sola2/CollisionShape2D.set_deferred("disabled",true)
+		game_over()
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
@@ -48,6 +58,7 @@ func _on_mob_timer_timeout():
 	add_child(mob)
 
 func _on_start_timer_timeout():
+	$HUD/Controls.hide()
 	$MobTimer.start()
 	$ScoreTimer.start()
 
