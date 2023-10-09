@@ -110,3 +110,19 @@ func charged_shine():
 
 func _on_charge_timer_timeout():
 	charged_shine()
+
+func Light_Drift():
+	var drift_instance = drift.instantiate()
+	
+	get_parent().add_child(drift_instance)
+	drift_instance.global_position = $Marker2D.global_position
+	drift_instance.velocity = $Marker2D.position
+	if$Marker2D.position == Vector2(50, 0):
+		drift_instance.rotation = 0;
+	elif$Marker2D.position == Vector2(-50, 0):
+		drift_instance.rotation = -110;
+	elif$Marker2D.position == Vector2(0, 50):
+		drift_instance.rotation = -80;
+	elif$Marker2D.position == Vector2(0, -50):
+		drift_instance.rotation = 80;
+		
