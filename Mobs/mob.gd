@@ -20,11 +20,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_body_entered(body):
-	print("help")
+	print(str(body))
 	if body is Light:
 		queue_free()
 		hide()
 		$CollisionShape2D.set_deferred("disabled",true)
-
-func handle_hit():
-	print("help")

@@ -97,20 +97,28 @@ animations = [{
 radius = 17.0
 height = 50.0
 
-[node name="Sola" type="Area2D"]
+[node name="Sola" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 position = Vector2(553, 316)
+collision_layer = 10
+collision_mask = 0
 script = ExtResource("2_wwx7e")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tndsa")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_riry5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(50, 0)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_riry5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

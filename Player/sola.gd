@@ -1,19 +1,32 @@
-extends Area2D
-signal hit
+class_name Sola
+extends CharacterBody2D
 
 @export var speed = 200
-var screen_size
+var viewport_size
+var target_aspect_ratio
+var is_captured
+var camera: Camera2D
 var beam_speed = 1000
 var beam = preload("res://light_beam.tscn")
+
+signal captured
 
 @onready var head = $Marker2D
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
-	screen_size = get_viewport_rect().size
+	viewport_size = get_viewport_rect().size
+	target_aspect_ratio = viewport_size.aspect()
+	is_captured = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if is_captured:
+		return
+	var new_viewport_size = get_viewport_rect().size
+	camera.zoom *= new_viewport_size / viewport_size
+	viewport_size = new_viewport_size
+		
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -46,18 +59,23 @@ func _process(delta):
 		$AnimatedSprite2D.stop()
 
 		
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#var new_position = position + 
+	#position = new_position
+	move_and_collide((velocity * delta))
 
-func _on_body_entered(body):
-	if body is Mob:
-		hide()
-		hit.emit()
-		$CollisionShape2D.set_deferred("disabled",true)
 
 func speed_shine():
+	if is_captured:
+		return
 	var beam_instance = beam.instantiate()
 #	beam_instance.look_at(get_global_mouse_position())
 	get_parent().add_child(beam_instance)
 	beam_instance.global_position = $Marker2D.global_position
 	beam_instance.velocity = $Marker2D.position
+
+
+func _on_area_2d_body_entered(body):
+	if body is Mob:
+		hide()
+		is_captured = true
+		captured.emit()

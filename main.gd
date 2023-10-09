@@ -1,12 +1,12 @@
 extends Node2D
 @export var mob_scene: PackedScene
 var score
-signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MobTimer.start()
 	$BGM.play()
+	$Sola.camera = $Sola/Camera2D
 	
 func new_game():
 	score = 0
@@ -41,3 +41,6 @@ func _on_mob_timer_timeout():
 func game_over():
 	$MobTimer.stop()
 	$BGM.stop()
+
+func _on_sola_captured():
+	game_over()
