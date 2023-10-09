@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4vn8cnmr8g63"]
+[gd_scene load_steps=13 format=3 uid="uid://b4vn8cnmr8g63"]
 
 [ext_resource type="Texture2D" uid="uid://mkf6vtytdre7" path="res://Mobs/Shadow_no_backgroudn.png" id="1_25v2p"]
 [ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
-[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="3_cynd5"]
+[ext_resource type="AudioStream" uid="uid://bsc6xmeqdghsj" path="res://Music/Shadow-Death-1.wav" id="3_8vj6e"]
+[ext_resource type="AudioStream" uid="uid://cbd0h0v5ut5ax" path="res://Music/Shadow-Scream-1.wav" id="3_x8ggj"]
+[ext_resource type="AudioStream" uid="uid://d1i0hkil1vso1" path="res://Music/Shadow-Death-2.wav" id="4_excte"]
+[ext_resource type="AudioStream" uid="uid://d1va4og4j6wya" path="res://Music/Shadow-Scream-2.wav" id="4_qirjd"]
+[ext_resource type="AudioStream" uid="uid://b186kg5uvqh78" path="res://Music/Shadow-Scream-3.wav" id="5_h157l"]
+[ext_resource type="AudioStream" uid="uid://dj6ec61ebobrp" path="res://Music/Shadow-Scream-4.wav" id="6_gxg45"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
 animations = [{
@@ -18,6 +23,24 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
 radius = 31.8198
 height = 77.7817
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sfnua"]
+streams_count = 2
+stream_0/stream = ExtResource("3_8vj6e")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_excte")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ni8uh"]
+streams_count = 4
+stream_0/stream = ExtResource("3_x8ggj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_qirjd")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_h157l")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_gxg45")
+stream_3/weight = 1.0
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_mask = 0
@@ -43,7 +66,13 @@ position = Vector2(2, 6)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_cynd5")
+stream = SubResource("AudioStreamRandomizer_sfnua")
+
+[node name="Spawn" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3.11005, -8.0444)
+scale = Vector2(1.01223, 0.977813)
+stream = SubResource("AudioStreamRandomizer_ni8uh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="finished" from="Death" to="." method="_on_death_finished"]

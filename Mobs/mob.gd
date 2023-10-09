@@ -4,6 +4,7 @@ extends RigidBody2D
 
 func _ready():
 	$AnimatedSprite2D.play("move")
+	$Spawn.play()
 
 func _physics_process(delta):
 	pass
@@ -13,12 +14,15 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_body_entered(body):
-	$Death.play()
 	if body.is_in_group("light"):
-		print("help")
-		queue_free()
-		hide()
+		linear_velocity = Vector2(0, 0)
+		$Death.play()
 		$CollisionShape2D.set_deferred("disabled",true)
 
 func handle_hit():
 	print("enemy hit")
+
+
+func _on_death_finished():
+	queue_free()
+	hide()

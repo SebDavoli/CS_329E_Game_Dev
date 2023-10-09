@@ -38,6 +38,7 @@ rotation = 0.00173611
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
 stream = ExtResource("6_d2l6y")
+autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource("7_uhbq1")]
 
