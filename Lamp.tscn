@@ -8,9 +8,8 @@
 radius = 74.2859
 height = 902.857
 
-[node name="Lamp" type="RigidBody2D"]
+[node name="Lamp" type="StaticBody2D"]
 position = Vector2(221, 269)
-gravity_scale = 0.0
 script = ExtResource("1_f2786")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,7 +21,7 @@ scale = Vector2(0.15, 0.15)
 shape = SubResource("CapsuleShape2D_nwxxy")
 
 [node name="LampLight" type="Area2D" parent="."]
-visibility_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LampLight"]
 position = Vector2(0, 19.25)
@@ -32,5 +31,7 @@ texture = ExtResource("3_xxd4b")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LampLight"]
 build_mode = 1
 polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
+
+[connection signal="Light_Drift_Ready" from="." to="." method="_on_light_drift_ready"]
 
 [connection signal="area_entered" from="LampLight" to="." method="_on_lamp_light_area_entered"]
