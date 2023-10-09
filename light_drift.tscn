@@ -1,7 +1,3 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg6nuwlse4via"]
-
-[ext_resource type="Texture2D" uid="uid://cjqrrbs8g612g" path="res://Art/Light_Drift_1.png" id="1_cx4e2"]
-[ext_resource type="Texture2D" uid="uid://chqhwp86uhl00" path="res://Art/Light_Drift_2.png" id="2_32flx"]
 [ext_resource type="Texture2D" uid="uid://b4mpem7oyy2s8" path="res://Art/Light_Drift_3.png" id="3_dqv8l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckjfh"]
@@ -25,7 +21,8 @@ animations = [{
 radius = 31.0
 height = 78.0
 
-[node name="LightDrift" type="Area2D"]
+[node name="LightDrift" type="RigidBody2D"]
+script = ExtResource("1_hibem")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -37,3 +34,6 @@ frame_progress = 0.135648
 position = Vector2(-1, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vyd77")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
