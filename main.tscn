@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=10 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="PackedScene" uid="uid://b4q0dtmmepuaf" path="res://temp_bg.tscn" id="1_lb3dl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://eta4mnkpn21x" path="res://Art/Wave_1_Temp_BG.png" id="3_ac5dm"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_v3ayi"]
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
@@ -59,6 +60,18 @@ position = Vector2(559, 559)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(593, 576)
+
+[node name="Lamp" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(118, 493)
+
+[node name="Lamp2" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(312, 489)
+
+[node name="Lamp3" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(790, 489)
+
+[node name="Lamp4" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(979, 489)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

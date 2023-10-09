@@ -46,8 +46,8 @@ func _process(delta):
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
 	
-	if Input.is_action_pressed("attack"):
-		$ChargeTimer.start()
+#	if Input.is_action_pressed("attack"):
+#		$ChargeTimer.start()
 	
 	if Input.is_action_just_released("attack"):
 		speed_shine()
