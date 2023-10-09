@@ -7,7 +7,7 @@ var screen_size
 var beam_speed = 1000
 var beam = preload("res://light_beam.tscn")
 var drift = preload("res://light_drift.tscn")
-var velocity = Vector2(0, 0)
+#var velocity = Vector2(0, 0)
 
 # Movement limits (add as many as you want Team 10):
 var y_max = 400
