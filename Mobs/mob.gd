@@ -22,8 +22,3 @@ func _on_body_entered(body):
 
 func handle_hit():
 	print("enemy hit")
-	print(str(body))
-	if body is Light:
-		queue_free()
-		hide()
-		$CollisionShape2D.set_deferred("disabled",true)

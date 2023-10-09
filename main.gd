@@ -14,13 +14,6 @@ func game_over():
 	$MobTimer.stop()
 	$BGM.stop()
 	$HUD.show_game_over()
-var score
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$MobTimer.start()
-	$BGM.play()
-	$Sola.camera = $Sola/Camera2D
 	
 func new_game():
 	health = 100
@@ -71,9 +64,3 @@ func _on_start_timer_timeout():
 
 func _on_score_timer_timeout():
 	pass # Replace with function body.
-func game_over():
-	$MobTimer.stop()
-	$BGM.stop()
-
-func _on_sola_captured():
-	game_over()

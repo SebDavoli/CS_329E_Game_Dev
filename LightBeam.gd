@@ -10,3 +10,10 @@ func _ready():
 
 func _process(delta):
 	move_and_collide(velocity.normalized() * delta * speed)
+
+func _on_body_entered(body: Node):
+	if body.has_method("handle_hit"):
+		body.handle_hit
+		get_tree().call_group("light", "queue_free")
+		hide()
+		$CollisionShape2D.set_deferred("disabled",true)
