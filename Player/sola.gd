@@ -43,7 +43,10 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
-		
+	
+	if Input.is_action_pressed("attack"):
+		$ChargeTimer.start()
+	
 	if Input.is_action_just_released("attack"):
 		speed_shine()
 		$ShootEffect.play()
@@ -88,3 +91,22 @@ func speed_shine():
 		beam_instance.rotation = -80;
 	elif$Marker2D.position == Vector2(0, -50):
 		beam_instance.rotation = 80;
+
+func charged_shine():
+	var beam_instance = beam.instantiate()
+#	beam_instance.look_at(get_global_mouse_position())
+	get_parent().add_child(beam_instance)
+	beam_instance.global_position = $Marker2D.global_position
+	beam_instance.velocity = $Marker2D.position
+#	beam_instance.scale = (1.5,1.5)
+	if$Marker2D.position == Vector2(50, 0):
+		beam_instance.rotation = 0;
+	elif$Marker2D.position == Vector2(-50, 0):
+		beam_instance.rotation = -110;
+	elif$Marker2D.position == Vector2(0, 50):
+		beam_instance.rotation = -80;
+	elif$Marker2D.position == Vector2(0, -50):
+		beam_instance.rotation = 80;
+
+func _on_charge_timer_timeout():
+	charged_shine()
