@@ -1,6 +1,7 @@
 extends Node2D
 @export var mob_scene: PackedScene
 var health
+var num_mob1 = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,28 +36,30 @@ func change_health():
 		game_over()
 
 func _on_mob_timer_timeout():
-	var mob = mob_scene.instantiate()
+	num_mob1 += 1
+	if num_mob1 < 11:
+		var mob = mob_scene.instantiate()
 	
-	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.progress_ratio = randf()
+		var mob_spawn_location = $MobPath/MobSpawnLocation
+		mob_spawn_location.progress_ratio = randf()
 	
-	var direction = mob_spawn_location.rotation + PI / 2
+		var direction = mob_spawn_location.rotation + PI / 2
 	
-	# vector between sola and mob (from mob to sola for direction)
-	var dir = $Sola2.position - mob_spawn_location.position
-	var dir_angle = tan(dir.y/dir.x)
+		# vector between sola and mob (from mob to sola for direction)
+		var dir = $Sola2.position - mob_spawn_location.position
+		var dir_angle = tan(dir.y/dir.x)
 	
-	mob.position = mob_spawn_location.position
-	var mob_pos = mob.position
+		mob.position = mob_spawn_location.position
+		var mob_pos = mob.position
 	
-	#direction += randf_range(-PI / 8, PI / 8)
-	mob.rotation = dir_angle
+		#direction += randf_range(-PI / 8, PI / 8)
+		mob.rotation = dir_angle
 
-	var velocity = mob_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
+		var velocity = mob_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
 	
-	mob.linear_velocity = velocity
+		mob.linear_velocity = velocity
 	
-	add_child(mob)
+		add_child(mob)
 
 func _on_start_timer_timeout():
 	$HUD/Controls.hide()

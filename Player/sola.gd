@@ -62,9 +62,7 @@ func _process(delta):
 	# Implementing and Limiting player movement
 	position += velocity * delta
 	
-	if position.y < y_max:
-		position = Vector2(position.x,y_max)
-	
+
 	# Limiting movement to within the screen
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
