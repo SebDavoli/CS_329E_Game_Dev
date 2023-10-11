@@ -3,3 +3,6 @@ res://main.gd
 res://hud.tscn
 res://Player/sola.tscn
 res://Mobs/mob.tscn
+res://Mobs/mob.gd
+res://mob2.tscn
+res://mob2.gd

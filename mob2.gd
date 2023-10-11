@@ -1,9 +1,9 @@
-class_name Mob
+class_name Mob2
 extends RigidBody2D
-@export var mob_scene: PackedScene
+@export var mob2_scene: PackedScene
 
 func _ready():
-	$AnimatedSprite2D.play("move")
+	$AnimatedSprite2D.play("move2")
 
 func _physics_process(delta):
 	pass
