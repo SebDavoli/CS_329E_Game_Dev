@@ -5,7 +5,7 @@ var num_mob1 = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var my_random_number = randi() % 8 + 1
 	
 func _process(delta):
 	pass

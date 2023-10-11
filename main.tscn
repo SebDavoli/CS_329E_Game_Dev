@@ -28,6 +28,8 @@ wait_time = 4.0
 wait_time = 3.0
 one_shot = true
 
+[node name="LightTimer" type="Timer" parent="."]
+
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2(-3.07248, 8.22693)
 scale = Vector2(0.987921, 1.02269)
@@ -74,6 +76,18 @@ position = Vector2(790, 489)
 
 [node name="Lamp4" parent="." instance=ExtResource("8_v3ayi")]
 position = Vector2(979, 489)
+
+[node name="Lamp5" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(125, 209)
+
+[node name="Lamp6" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(325, 206)
+
+[node name="Lamp7" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(795, 209)
+
+[node name="Lamp8" parent="." instance=ExtResource("8_v3ayi")]
+position = Vector2(977, 210)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
