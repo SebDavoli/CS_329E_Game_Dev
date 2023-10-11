@@ -2,10 +2,27 @@ extends Node2D
 @export var mob_scene: PackedScene
 var health
 var num_mob1 = 0
+var rand_num
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var my_random_number = randi() % 8 + 1
+	rand_num = randi() % 8 + 1
+	$Lamp/LampLight.hide()
+	$Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp2/LampLight.hide()
+	$Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp3/LampLight.hide()
+	$Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp4/LampLight.hide()
+	$Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp5/LampLight.hide()
+	$Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp6/LampLight.hide()
+	$Lamp6/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp7/LampLight.hide()
+	$Lamp7/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp8/LampLight.hide()
+	$Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
 	pass
@@ -18,6 +35,7 @@ func game_over():
 	
 func new_game():
 	health = 100
+	$LightTimer.start()
 	$Sola2.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_health(health)
@@ -68,3 +86,49 @@ func _on_start_timer_timeout():
 
 func _on_score_timer_timeout():
 	pass # Replace with function body.
+
+
+func _on_light_timer_timeout():
+	$Lamp/LampLight.hide()
+	$Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp2/LampLight.hide()
+	$Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp3/LampLight.hide()
+	$Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp4/LampLight.hide()
+	$Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp5/LampLight.hide()
+	$Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp6/LampLight.hide()
+	$Lamp6/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp7/LampLight.hide()
+	$Lamp7/LampLight/CollisionPolygon2D.disabled = true
+	$Lamp8/LampLight.hide()
+	$Lamp8/LampLight/CollisionPolygon2D.disabled = true
+	
+	if rand_num == 1:
+		$Lamp/LampLight.show()
+		$Lamp/LampLight/CollisionPolygon2D.disabled = false
+		
+	elif rand_num == 2:
+		$Lamp2/LampLight.show()
+		$Lamp2/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 3:
+		$Lamp3/LampLight.show()
+		$Lamp3/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 4:
+		$Lamp4/LampLight.show()
+		$Lamp4/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 5:
+		$Lamp5/LampLight.show()
+		$Lamp5/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 6:
+		$Lamp6/LampLight.show()
+		$Lamp6/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 7:
+		$Lamp7/LampLight.show()
+		$Lamp7/LampLight/CollisionPolygon2D.disabled = false
+	elif rand_num == 8:
+		$Lamp8/LampLight.show()
+		$Lamp8/LampLight/CollisionPolygon2D.disabled = false
+	rand_num = randi() % 8 + 1

@@ -62,14 +62,6 @@ func _process(delta):
 	# Implementing and Limiting player movement
 	position += velocity * delta
 	
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-	# Limiting movement to within the screen
-	position = position.clamp(Vector2.ZERO, screen_size)
-	
-	
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
 		damage.emit()
