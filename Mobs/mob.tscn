@@ -1,23 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4vn8cnmr8g63"]
+[gd_scene load_steps=9 format=3 uid="uid://bil714p7qk0ja"]
 
-[ext_resource type="Texture2D" uid="uid://mkf6vtytdre7" path="res://Mobs/Shadow_no_backgroudn.png" id="1_25v2p"]
 [ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
+[ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="2_xf2lx"]
 [ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="3_cynd5"]
+[ext_resource type="Texture2D" uid="uid://b3kixdkx34gbl" path="res://Mobs/Shadow_Sprite_2.png" id="3_ksjuk"]
+[ext_resource type="Texture2D" uid="uid://cr4ntnwpu204y" path="res://Mobs/Shadow_Sprite_3.png" id="4_njumo"]
+[ext_resource type="Texture2D" uid="uid://vbmeecq07j4h" path="res://Mobs/Shadow_Sprite_4.png" id="5_mgbcl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_25v2p")
+"texture": ExtResource("2_xf2lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ksjuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_njumo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mgbcl")
 }],
 "loop": true,
 "name": &"move",
-"speed": 1.0
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
-radius = 31.8198
-height = 77.7817
+radius = 31.0
+height = 74.0
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 3
@@ -29,17 +41,17 @@ script = ExtResource("1_y7x5m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.28, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.025, 0.025)
 sprite_frames = SubResource("SpriteFrames_mhvt5")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 4)
-rotation = 0.785398
+position = Vector2(3, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tk2hs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(2, 6)
+position = Vector2(0, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 

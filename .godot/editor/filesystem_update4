@@ -1,8 +1,5 @@
-res://hud.tscn
+res://light_beam.tscn
 res://main.gd
+res://hud.tscn
 res://Player/sola.tscn
 res://Mobs/mob.tscn
-res://light_beam.tscn
-res://temp_bg.tscn
-res://main.tscn
-res://Lamp.tscn
