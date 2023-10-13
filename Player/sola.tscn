@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=23 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://d18dfge07gftp" path="res://Player/Sola_Walk_Frames/S_Walk_02.png" id="1_mqwwo"]
 [ext_resource type="Texture2D" uid="uid://bn1613d4r8oxy" path="res://Art/Sola_walk_1.png" id="2_a1lvk"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://biifl776cmjfl" path="res://Player/Sola_Walk_Frames/S_Walk_12.png" id="11_eno03"]
 [ext_resource type="Texture2D" uid="uid://do3xaov0t3dc" path="res://Player/Sola_Walk_Frames/S_Walk_10.png" id="12_8k2fs"]
 [ext_resource type="AudioStream" uid="uid://tj10u3rbh2gg" path="res://Music/shoot.mp3" id="19_yweb0"]
+[ext_resource type="Texture2D" uid="uid://bby0h3aegyi4s" path="res://Lamp_Light.png" id="20_t262e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tndsa"]
 animations = [{
@@ -102,7 +103,6 @@ height = 50.0
 texture_filter = 1
 position = Vector2(553, 316)
 script = ExtResource("2_wwx7e")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tndsa")
@@ -119,6 +119,24 @@ stream = ExtResource("19_yweb0")
 
 [node name="ChargeTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="LampLight" type="StaticBody2D" parent="."]
+position = Vector2(141, 13)
+rotation = 2.35619
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LampLight"]
+position = Vector2(0, 19.25)
+rotation = 2.35619
+scale = Vector2(0.187, 0.1935)
+texture = ExtResource("20_t262e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LampLight"]
+position = Vector2(13.435, 33.234)
+rotation = 2.35619
+build_mode = 1
+polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]

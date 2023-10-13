@@ -62,6 +62,8 @@ func _process(delta):
 	# Implementing and Limiting player movement
 	position += velocity * delta
 	
+	$LampLight.position = $Marker2D.position
+	
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
 		damage.emit()
