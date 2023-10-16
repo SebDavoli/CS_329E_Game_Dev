@@ -5,5 +5,6 @@ res://Player/sola.tscn
 res://Mobs/mob.tscn
 res://mob2.tscn
 res://main.tscn
-res://Player/sola.gd
 res://Lamp.tscn
+res://Player/sola.gd
+res://Mobs/mob.gd
