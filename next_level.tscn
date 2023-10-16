@@ -6,6 +6,10 @@
 size = Vector2(731, 124)
 
 [node name="Next_Level" type="RigidBody2D" groups=["flag"]]
+collision_layer = 11
+collision_mask = 11
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_2w5jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

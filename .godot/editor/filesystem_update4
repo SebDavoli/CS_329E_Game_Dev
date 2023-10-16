@@ -1,13 +1,10 @@
-res://Player/sola.tscn
-res://main.gd
-res://Player/sola.gd
 res://main.tscn
+res://main.gd
+res://Player/sola.tscn
+res://next_level.tscn
 res://mob2.tscn
 res://hud.tscn
 res://Lamp.tscn
 res://Mobs/mob.tscn
 res://level_2.tscn
-res://Mobs/mob.gd
-res://next_level.tscn
 res://next_level.gd
-res://hud.gd

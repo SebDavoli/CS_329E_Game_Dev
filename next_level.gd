@@ -1,4 +1,4 @@
-extends Sprite2D
+extends RigidBody2D
 
 func _ready():
 	pass
