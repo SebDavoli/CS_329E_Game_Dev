@@ -98,7 +98,7 @@ animations = [{
 radius = 17.0
 height = 50.0
 
-[node name="Sola" type="Area2D"]
+[node name="Sola" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(553, 316)
 script = ExtResource("2_wwx7e")
@@ -117,4 +117,7 @@ position = Vector2(50, 0)
 [node name="ShootEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_yweb0")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_riry5")

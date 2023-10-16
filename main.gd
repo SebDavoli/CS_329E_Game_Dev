@@ -4,6 +4,7 @@ var health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sola2.camera = $Sola2/Camera2D
 	pass
 	
 func _process(delta):

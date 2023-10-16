@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=11 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="PackedScene" uid="uid://b4q0dtmmepuaf" path="res://temp_bg.tscn" id="1_lb3dl"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://eta4mnkpn21x" path="res://Art/Wave_1_Temp_BG.png" id="3_ac5dm"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
 [ext_resource type="PackedScene" uid="uid://du33ytmoftoc4" path="res://hud.tscn" id="7_uhbq1"]
+[ext_resource type="PackedScene" uid="uid://bc4nxrj1mngi" path="res://follow_camera.tscn" id="8_5gorl"]
+[ext_resource type="PackedScene" uid="uid://cn2seysvjttgu" path="res://bounds.tscn" id="9_nhvbw"]
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
@@ -59,10 +61,15 @@ position = Vector2(559, 559)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(593, 576)
+collision_layer = 7
+collision_mask = 6
+
+[node name="Camera2D" parent="Sola2" instance=ExtResource("8_5gorl")]
+
+[node name="Bounds" parent="." instance=ExtResource("9_nhvbw")]
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="damage" from="Sola2" to="." method="change_health"]
-[connection signal="hit" from="Sola2" to="." method="game_over"]

@@ -1,9 +1,9 @@
-extends Area2D
-signal hit
+extends CharacterBody2D
 signal damage
 
 @export var speed = 200
-var screen_size
+var viewport_size
+var camera: Camera2D
 var beam_speed = 1000
 var beam = preload("res://light_beam.tscn")
 
@@ -14,11 +14,15 @@ var y_max = 400
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
-	screen_size = get_viewport_rect().size
+	viewport_size = get_viewport_rect().size
 	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var new_viewport_size = get_viewport_rect().size
+	camera.zoom *= new_viewport_size / viewport_size
+	viewport_size = new_viewport_size
+	
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -55,13 +59,7 @@ func _process(delta):
 		$AnimatedSprite2D.stop()
 
 	# Implementing and Limiting player movement
-	position += velocity * delta
-	
-	if position.y < y_max:
-		position = Vector2(position.x,y_max)
-	
-	# Limiting movement to within the screen
-	position = position.clamp(Vector2.ZERO, screen_size)
+	move_and_collide(velocity * delta)
 	
 	
 func _on_body_entered(body):
