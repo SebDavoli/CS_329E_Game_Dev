@@ -69,6 +69,8 @@ func _on_body_entered(body):
 	print(body.get_name())
 	if body.is_in_group("mobs"):
 		damage.emit()
+	if body.get_name() == "Next_Level":
+		get_tree().change_scene_to_file("res://level_2.tscn")
 
 func start(pos):
 	position = pos

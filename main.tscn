@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=14 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="Script" path="res://main.gd" id="1_o3cul"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
 [ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_6jyxg"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_v3ayi"]
+[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="9_fpfp6"]
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
@@ -20,6 +21,9 @@ size = Vector2(38.425, 2.87498)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx8h3"]
 size = Vector2(57.6, 2.85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
+size = Vector2(733, 67)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -164,7 +168,19 @@ position = Vector2(819, 163)
 position = Vector2(1018, 160)
 
 [node name="Next_Level" parent="." instance=ExtResource("8_6jyxg")]
-position = Vector2(576, 54)
+position = Vector2(593, -8)
+
+[node name="Fence" type="StaticBody2D" parent="."]
+position = Vector2(588, 85)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence"]
+scale = Vector2(0.92125, 0.193878)
+texture = ExtResource("9_fpfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
+shape = SubResource("RectangleShape2D_mj6gm")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

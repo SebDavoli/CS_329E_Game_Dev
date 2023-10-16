@@ -27,7 +27,9 @@ func _ready():
 	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
-	pass
+	if num_mob1 == 11:
+		$Fence.hide()
+		$Fence/CollisionShape2D.disabled = true
 	
 func game_over():
 	$ScoreTimer.stop()
@@ -44,6 +46,7 @@ func new_game():
 	$HUD.update_health(health)
 	$HUD.show_message("Where am I?")
 	$BGM.play()
+	$Next_Level.show()
 	await $HUD/MessageTimer.timeout
 	$HUD/Controls.show()
 #	get_tree().call_group("mobs", "queue_free")

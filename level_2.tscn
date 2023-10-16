@@ -22,13 +22,15 @@ size = Vector2(57.6, 2.85)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_srq5y")
 
+[node name="FlashTimer" type="Timer" parent="."]
+
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="LightTimer" type="Timer" parent="."]
@@ -70,17 +72,15 @@ position = Vector2(593, 576)
 collision_layer = 0
 collision_mask = 128
 
-[node name="Lamp" parent="." instance=ExtResource("6_drrrc")]
-position = Vector2(228, 75)
-
-[node name="Lamp2" parent="." instance=ExtResource("6_drrrc")]
-position = Vector2(230, 408)
-
-[node name="Lamp3" parent="." instance=ExtResource("6_drrrc")]
-position = Vector2(911, 71)
-
-[node name="Lamp4" parent="." instance=ExtResource("6_drrrc")]
-position = Vector2(911, 415)
+[node name="Camera2D" type="Camera2D" parent="Sola2"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1151
+limit_bottom = 652
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
 
 [node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
 position = Vector2(798, -1008)
@@ -133,3 +133,17 @@ shape = SubResource("RectangleShape2D_6ewxg")
 position = Vector2(57.0875, 18.6375)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_gsct3")
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(228, 75)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(230, 408)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(911, 71)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(911, 415)

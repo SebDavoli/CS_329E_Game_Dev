@@ -7,5 +7,7 @@ res://hud.tscn
 res://Lamp.tscn
 res://Mobs/mob.tscn
 res://level_2.tscn
-res://Player/sola.gd
 res://next_level.gd
+res://Player/sola.gd
+res://level_2.gd
+res://mob2.gd

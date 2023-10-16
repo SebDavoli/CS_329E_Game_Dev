@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 func _ready():
 	pass
@@ -9,10 +9,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	pass
-#	if body.is_in_group("player"):
+
+
+#func _on_area_entered(area):
+#	if area.is_in_group("player"):
 #		get_tree().change_scene_to_file("res://level_2.tscn")
-
-
-func _on_area_entered(area):
-	if area.is_in_group("player"):
-		get_tree().change_scene_to_file("res://level_2.tscn")
