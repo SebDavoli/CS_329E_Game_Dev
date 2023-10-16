@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://bak0wq7qpvfkq"]
+
+[ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="1_nxgf1"]
+[ext_resource type="Script" path="res://level_2.gd" id="1_srq5y"]
+[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="2_oibbv"]
+[ext_resource type="Texture2D" uid="uid://c8ganhjcqgrfd" path="res://Art/Level 2.png" id="3_1ndvi"]
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="5_4254d"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="6_drrrc"]
+
+[sub_resource type="Curve2D" id="Curve2D_jdr6p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -1.0043, 630.468, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsct3"]
+size = Vector2(38.425, 2.87498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ewxg"]
+size = Vector2(57.6, 2.85)
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_srq5y")
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MobPath" type="Path2D" parent="."]
+position = Vector2(-2.99483, 8.2269)
+scale = Vector2(1.00086, 1.02269)
+curve = SubResource("Curve2D_jdr6p")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-3, -8)
+rotation = 0.00173611
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(39, 53)
+stream = ExtResource("1_nxgf1")
+
+[node name="HUD" parent="." instance=ExtResource("2_oibbv")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
+color = Color(0.176471, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("3_1ndvi")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(559, 559)
+
+[node name="Sola2" parent="." instance=ExtResource("5_4254d")]
+position = Vector2(593, 576)
+collision_layer = 0
+collision_mask = 128
+
+[node name="Lamp" parent="." instance=ExtResource("6_drrrc")]
+position = Vector2(228, 75)
+
+[node name="Lamp2" parent="." instance=ExtResource("6_drrrc")]
+position = Vector2(230, 408)
+
+[node name="Lamp3" parent="." instance=ExtResource("6_drrrc")]
+position = Vector2(911, 71)
+
+[node name="Lamp4" parent="." instance=ExtResource("6_drrrc")]
+position = Vector2(911, 415)
+
+[node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
+position = Vector2(798, -1008)
+scale = Vector2(25, 25)
+disable_mode = 1
+collision_layer = 64
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-36.2, 53.4)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_gsct3")
+
+[node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.89, 71.2)
+shape = SubResource("RectangleShape2D_6ewxg")
+
+[node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.84001, 35.6)
+shape = SubResource("RectangleShape2D_6ewxg")
+
+[node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(18.56, 53.44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_gsct3")
+
+[node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
+position = Vector2(38, -48)
+scale = Vector2(20, 20)
+disable_mode = 1
+collision_layer = 128
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-3.3, 18.65)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_gsct3")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.85, 36.45)
+shape = SubResource("RectangleShape2D_6ewxg")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.9, 0.85)
+shape = SubResource("RectangleShape2D_6ewxg")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(57.0875, 18.6375)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_gsct3")

@@ -24,6 +24,19 @@ func show_game_over():
 
 func update_health(health):
 	$HealthLabel.text = str(health)
+	
+	if health == 100:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (100).png")
+	if health == 80:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (80).png")
+	if health == 60:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (60).png")
+	if health == 40:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (40).png")
+	if health == 20:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (20).png")
+	if health == 0:
+		$Health.texture = ResourceLoader.load("res://Art/Health Bar (0).png")	
 
 func _on_start_button_pressed():
 	$StartButton.hide()

@@ -9,7 +9,8 @@ func _physics_process(delta):
 	pass
 
 func _on_body_entered(body):
-	if body.is_in_group("light"):
+	print(body.get_name())
+	if body.get_name() == "FlashLight":
 		queue_free()
 		hide()
 		$CollisionShape2D.set_deferred("disabled",true)

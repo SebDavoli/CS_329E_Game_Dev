@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jxaid0s13ejq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_htbqm"]
-[ext_resource type="Texture2D" uid="uid://cysrh52gfqsxf" path="res://Art/Controls.png" id="2_cvjd3"]
+[ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_d2mr8"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_htbqm")
@@ -45,7 +45,13 @@ offset_left = 166.0
 offset_top = 44.0
 offset_right = 931.0
 offset_bottom = 373.0
-texture = ExtResource("2_cvjd3")
+texture = ExtResource("2_d2mr8")
+expand_mode = 1
+
+[node name="Health" type="TextureRect" parent="."]
+offset_left = 903.0
+offset_right = 1147.0
+offset_bottom = 79.0
 expand_mode = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

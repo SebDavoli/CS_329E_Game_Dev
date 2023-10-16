@@ -8,22 +8,22 @@ var rand_num
 func _ready():
 	$Sola2.camera = $Sola2/Camera2D
 	rand_num = randi() % 8 + 1
-	$Lamp/LampLight.hide()
-	$Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp2/LampLight.hide()
-	$Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp3/LampLight.hide()
-	$Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp4/LampLight.hide()
-	$Lamp4/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp5/LampLight.hide()
-	$Lamp5/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp6/LampLight.hide()
-	$Lamp6/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp7/LampLight.hide()
-	$Lamp7/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp8/LampLight.hide()
-	$Lamp8/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp/LampLight.hide()
+	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp2/LampLight.hide()
+	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp3/LampLight.hide()
+	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp4/LampLight.hide()
+	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp5/LampLight.hide()
+	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp6/LampLight.hide()
+	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp7/LampLight.hide()
+	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp8/LampLight.hide()
+	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
 	pass
@@ -39,6 +39,7 @@ func new_game():
 	$LightTimer.start()
 	$Sola2.start($StartPosition.position)
 	$StartTimer.start()
+	$FlashTimer.start()
 	$HUD.update_health(health)
 	$HUD.show_message("Where am I?")
 	$BGM.play()
@@ -47,6 +48,7 @@ func new_game():
 #	get_tree().call_group("mobs", "queue_free")
 
 func change_health():
+	
 	health = health - 20
 	$HUD.update_health(health)
 	if health <= 0:
@@ -90,46 +92,46 @@ func _on_score_timer_timeout():
 
 
 func _on_light_timer_timeout():
-	$Lamp/LampLight.hide()
-	$Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp2/LampLight.hide()
-	$Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp3/LampLight.hide()
-	$Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp4/LampLight.hide()
-	$Lamp4/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp5/LampLight.hide()
-	$Lamp5/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp6/LampLight.hide()
-	$Lamp6/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp7/LampLight.hide()
-	$Lamp7/LampLight/CollisionPolygon2D.disabled = true
-	$Lamp8/LampLight.hide()
-	$Lamp8/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp/LampLight.hide()
+	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp2/LampLight.hide()
+	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp3/LampLight.hide()
+	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp4/LampLight.hide()
+	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp5/LampLight.hide()
+	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp6/LampLight.hide()
+	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp7/LampLight.hide()
+	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp8/LampLight.hide()
+	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 	if rand_num == 1:
-		$Lamp/LampLight.show()
-		$Lamp/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp/LampLight.show()
+		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
 		
 	elif rand_num == 2:
-		$Lamp2/LampLight.show()
-		$Lamp2/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp2/LampLight.show()
+		$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 3:
-		$Lamp3/LampLight.show()
-		$Lamp3/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp3/LampLight.show()
+		$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 4:
-		$Lamp4/LampLight.show()
-		$Lamp4/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp4/LampLight.show()
+		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 5:
-		$Lamp5/LampLight.show()
-		$Lamp5/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp5/LampLight.show()
+		$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 6:
-		$Lamp6/LampLight.show()
-		$Lamp6/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp6/LampLight.show()
+		$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 7:
-		$Lamp7/LampLight.show()
-		$Lamp7/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp7/LampLight.show()
+		$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = false
 	elif rand_num == 8:
-		$Lamp8/LampLight.show()
-		$Lamp8/LampLight/CollisionPolygon2D.disabled = false
+		$Lamps/Lamp8/LampLight.show()
+		$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = false
 	rand_num = randi() % 8 + 1
