@@ -3,4 +3,9 @@ res://main.gd
 res://hud.tscn
 res://Player/sola.tscn
 res://mob2.tscn
+<<<<<<< HEAD
+=======
+res://main.tscn
+res://Player/sola.gd
+>>>>>>> parent of f44fe15 (Edit)
 res://Lamp.tscn

@@ -28,25 +28,22 @@ func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		$Marker2D.position = Vector2(125, 0)
-		$FlashLight.rotation_degrees = 135
+		$Marker2D.position = Vector2(50, 0)	
 		
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-		$Marker2D.position = Vector2(-125, 0)
-		$FlashLight.rotation_degrees = 315
+		$Marker2D.position = Vector2(-50, 0)
 					
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		$AnimatedSprite2D.play("walk_down")
-		$Marker2D.position = Vector2(0,125)	
-		$FlashLight.rotation_degrees = 225		
+		$Marker2D.position = Vector2(0,50)	
+		
 		
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1	
 		$AnimatedSprite2D.play("walk_up")
-		$Marker2D.position = Vector2(0,-125)
-		$FlashLight.rotation_degrees = 45
+		$Marker2D.position = Vector2(0,-50)	
 	
 	if velocity.x != 0:	
 		$AnimatedSprite2D.animation = "walk"
@@ -67,14 +64,8 @@ func _process(delta):
 		$AnimatedSprite2D.stop()
 
 	# Implementing and Limiting player movement
-<<<<<<< Updated upstream
 	move_and_collide(velocity * delta)
 	$LampLight.position = $Marker2D.position
-=======
-	position += velocity * delta
-	
-	$FlashLight.global_position = $Marker2D.global_position
->>>>>>> Stashed changes
 	
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
