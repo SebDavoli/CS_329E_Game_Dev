@@ -71,6 +71,8 @@ position = Vector2(559, 559)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(593, 576)
+collision_layer = 0
+collision_mask = 128
 
 [node name="Camera2D" type="Camera2D" parent="Sola2"]
 zoom = Vector2(2.25, 2.25)
@@ -106,7 +108,36 @@ position = Vector2(795, 209)
 [node name="Lamp8" parent="." instance=ExtResource("8_v3ayi")]
 position = Vector2(977, 210)
 
-[node name="Bounds" type="StaticBody2D" parent="."]
+[node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
+position = Vector2(798, -1008)
+scale = Vector2(25, 25)
+disable_mode = 1
+collision_layer = 64
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-36.2, 53.4)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.89, 71.2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.84001, 35.6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(18.56, 53.44)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
 position = Vector2(38, -48)
 scale = Vector2(20, 20)
 disable_mode = 1

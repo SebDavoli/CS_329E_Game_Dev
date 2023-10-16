@@ -21,6 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://tj10u3rbh2gg" path="res://Music/shoot.mp3" id="19_yweb0"]
 [ext_resource type="Texture2D" uid="uid://bby0h3aegyi4s" path="res://Lamp_Light.png" id="20_t262e"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riry5"]
+radius = 17.0
+height = 50.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tndsa"]
 animations = [{
 "frames": [{
@@ -95,22 +99,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riry5"]
-radius = 17.0
-height = 50.0
-
-[node name="Sola" type="CharacterBody2D"]
+[node name="Sola" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 position = Vector2(553, 316)
-collision_mask = 129
+disable_mode = 2
 script = ExtResource("2_wwx7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_riry5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tndsa")
 animation = &"walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_riry5")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(50, 0)
@@ -138,5 +138,14 @@ position = Vector2(13.435, 33.234)
 rotation = 2.35619
 build_mode = 1
 polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_riry5")
 
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
