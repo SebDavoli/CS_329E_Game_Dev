@@ -21,7 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var new_viewport_size = get_viewport_rect().size
-	camera.zoom *= new_viewport_size / viewport_size
+#	camera.zoom *= new_viewport_size / viewport_size
 	viewport_size = new_viewport_size
 	
 	var velocity = Vector2.ZERO
@@ -66,10 +66,9 @@ func _process(delta):
 	$FlashLight.position = $Marker2D.position
 	
 func _on_body_entered(body):
+	print(body.get_name())
 	if body.is_in_group("mobs"):
 		damage.emit()
-	if body.is_in_group("flag"):
-		get_tree().change_scene_to_file("res://level_2.tscn")
 
 func start(pos):
 	position = pos

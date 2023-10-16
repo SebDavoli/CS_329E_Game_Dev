@@ -5,16 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gd1rt"]
 size = Vector2(731, 124)
 
-[node name="Next_Level" type="RigidBody2D" groups=["flag"]]
-collision_layer = 11
-collision_mask = 11
-max_contacts_reported = 1
-contact_monitor = true
+[node name="Next_Level" type="Area2D" groups=["flag"]]
+position = Vector2(547, 70)
 script = ExtResource("1_2w5jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gd1rt")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

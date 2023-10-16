@@ -164,7 +164,7 @@ position = Vector2(819, 163)
 position = Vector2(1018, 160)
 
 [node name="Next_Level" parent="." instance=ExtResource("8_6jyxg")]
-position = Vector2(584, -1)
+position = Vector2(576, 54)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

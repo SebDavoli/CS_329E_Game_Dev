@@ -7,6 +7,7 @@ var rand_num
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sola2.camera = $Sola2/Camera2D
+	
 	rand_num = randi() % 8 + 1
 	$Lamps/Lamp/LampLight.hide()
 	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
