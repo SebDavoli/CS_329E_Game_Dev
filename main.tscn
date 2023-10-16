@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=12 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="PackedScene" uid="uid://b4q0dtmmepuaf" path="res://temp_bg.tscn" id="1_lb3dl"]
@@ -11,9 +11,15 @@
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1153, 651, 0, 0, 0, 0, -6, 649, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
+"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -1.0043, 630.468, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
 }
-point_count = 7
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21i4j"]
+size = Vector2(38.425, 2.87498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx8h3"]
+size = Vector2(57.6, 2.85)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -32,8 +38,8 @@ one_shot = true
 wait_time = 5.0
 
 [node name="MobPath" type="Path2D" parent="."]
-position = Vector2(-3.07248, 8.22693)
-scale = Vector2(0.987921, 1.02269)
+position = Vector2(-2.99483, 8.2269)
+scale = Vector2(1.00086, 1.02269)
 curve = SubResource("Curve2D_eeujy")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
@@ -65,12 +71,16 @@ position = Vector2(559, 559)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(593, 576)
-collision_layer = 7
-collision_mask = 6
 
-[node name="Camera2D" parent="Sola2" instance=ExtResource("8_5gorl")]
-
-[node name="Bounds" parent="." instance=ExtResource("9_nhvbw")]
+[node name="Camera2D" type="Camera2D" parent="Sola2"]
+zoom = Vector2(2.25, 2.25)
+limit_left = 0
+limit_top = 0
+limit_right = 1151
+limit_bottom = 652
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
 
 [node name="Lamp" parent="." instance=ExtResource("8_v3ayi")]
 position = Vector2(118, 493)
@@ -95,6 +105,35 @@ position = Vector2(795, 209)
 
 [node name="Lamp8" parent="." instance=ExtResource("8_v3ayi")]
 position = Vector2(977, 210)
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+position = Vector2(38, -48)
+scale = Vector2(20, 20)
+disable_mode = 1
+collision_layer = 128
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-3.3, 18.65)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.85, 36.45)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.9, 0.85)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(57.0875, 18.6375)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_21i4j")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
