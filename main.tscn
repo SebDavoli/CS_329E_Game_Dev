@@ -123,18 +123,15 @@ shape = SubResource("RectangleShape2D_21i4j")
 
 [node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
 position = Vector2(-8.89, 71.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
 position = Vector2(-8.84001, 35.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
 position = Vector2(18.56, 53.44)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_21i4j")
 
 [node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
@@ -152,18 +149,15 @@ shape = SubResource("RectangleShape2D_21i4j")
 
 [node name="Bottom" type="CollisionShape2D" parent="Bounds"]
 position = Vector2(26.85, 36.45)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Top" type="CollisionShape2D" parent="Bounds"]
 position = Vector2(26.9, 0.85)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Right" type="CollisionShape2D" parent="Bounds"]
 position = Vector2(57.0875, 18.6375)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_21i4j")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
