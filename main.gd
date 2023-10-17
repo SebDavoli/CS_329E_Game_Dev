@@ -1,7 +1,9 @@
 extends Node2D
 @export var mob_scene: PackedScene
+@export var mob2_scene: PackedScene
 var health
 var num_mob1 = 0
+var num_mob2 = 0
 var rand_num
 
 # Called when the node enters the scene tree for the first time.
@@ -61,30 +63,39 @@ func change_health():
 		game_over()
 
 func _on_mob_timer_timeout():
-	num_mob1 += 1
-	if num_mob1 < 11:
+	# Identifying mob spawn location
+	var mob_spawn_location = $MobPath/MobSpawnLocation
+	mob_spawn_location.progress_ratio = randf()
+	var direction = mob_spawn_location.rotation + PI / 2
+	# vector between sola and mob (from mob to sola for direction)
+	var dir = $Sola2.position - mob_spawn_location.position
+	var dir_angle = tan(dir.y/dir.x)
+	
+	if num_mob1 < 11: # SPAWNING MOB TYPE 1
+		num_mob1 += 1
 		var mob = mob_scene.instantiate()
-	
-		var mob_spawn_location = $MobPath/MobSpawnLocation
-		mob_spawn_location.progress_ratio = randf()
-	
-		var direction = mob_spawn_location.rotation + PI / 2
-	
-		# vector between sola and mob (from mob to sola for direction)
-		var dir = $Sola2.position - mob_spawn_location.position
-		var dir_angle = tan(dir.y/dir.x)
-	
 		mob.position = mob_spawn_location.position
 		var mob_pos = mob.position
-	
 		#direction += randf_range(-PI / 8, PI / 8)
 		mob.rotation = dir_angle
-
 		var velocity = mob_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
-	
 		mob.linear_velocity = velocity
-	
 		add_child(mob)
+		
+		
+	if num_mob1 > 4 && num_mob2 < 10: # SPAWNS MOB TYPE 2
+		num_mob2 += 1
+		print("mob2 spawning")
+		var mob2 = mob2_scene.instantiate()
+		mob2.position = mob_spawn_location.position
+		var mob2_pos = mob2.position
+		mob2.rotation = dir_angle
+		var velocity2 = mob2_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
+		mob2.linear_velocity = velocity2
+		add_child(mob2)
+
+
+
 
 func _on_start_timer_timeout():
 	$HUD/Controls.hide()

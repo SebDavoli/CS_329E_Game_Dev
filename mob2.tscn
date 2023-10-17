@@ -16,28 +16,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_d1odi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d1odi")
 }],
 "loop": true,
 "name": &"move2",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g12a"]
-size = Vector2(295, 223)
+size = Vector2(120, 105)
 
-[node name="Mob" type="RigidBody2D"]
+[node name="Mob2" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_fphxi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.75, 0.75)
+position = Vector2(9.375, 7.78124)
+scale = Vector2(0.302315, 0.356163)
 sprite_frames = SubResource("SpriteFrames_4ibi8")
 animation = &"move2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, 13.5)
+position = Vector2(12, 14.5)
 shape = SubResource("RectangleShape2D_1g12a")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(9, -11)
 scale = Vector2(1.9, 2.1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

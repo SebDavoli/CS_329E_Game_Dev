@@ -32,8 +32,8 @@ radius = 31.0
 height = 74.0
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
-collision_layer = 11
-collision_mask = 66
+collision_layer = 3
+collision_mask = 2
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
@@ -52,6 +52,8 @@ shape = SubResource("CapsuleShape2D_tk2hs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cynd5")
