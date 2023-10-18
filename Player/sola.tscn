@@ -103,6 +103,7 @@ animations = [{
 texture_filter = 1
 position = Vector2(553, 316)
 disable_mode = 2
+collision_mask = 2
 script = ExtResource("2_wwx7e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -138,8 +139,7 @@ build_mode = 1
 polygon = PackedVector2Array(-6.70587, -57.5253, -53.4132, 55.8083, -38.4005, 64.2662, -18.3835, 65.958, 6.67102, 64.3972, 33.327, 62.5754, 58.3483, 57.501, 6.63879, -59.2168)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
-collision_layer = 0
-collision_mask = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_riry5")
