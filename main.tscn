@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="5_qyuc4"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
-[ext_resource type="PackedScene" path="res://next_level.tscn" id="8_6jyxg"]
+[ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_6jyxg"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_v3ayi"]
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="9_fpfp6"]
 
@@ -24,7 +24,7 @@ size = Vector2(38.425, 2.87498)
 size = Vector2(57.6, 2.85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
-size = Vector2(733, 67)
+size = Vector2(1146, 66.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -74,10 +74,10 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(559, 559)
+position = Vector2(579, 346)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
-position = Vector2(593, 576)
+position = Vector2(578, 346)
 collision_layer = 0
 collision_mask = 128
 
@@ -178,10 +178,12 @@ collision_layer = 201
 collision_mask = 255
 
 [node name="Sprite2D" type="Sprite2D" parent="Fence"]
-scale = Vector2(0.92125, 0.193878)
+position = Vector2(-14.5, 0)
+scale = Vector2(1.43625, 0.193878)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
+position = Vector2(-14, -0.25)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

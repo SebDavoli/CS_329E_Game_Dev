@@ -27,13 +27,13 @@ func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		$Marker2D.position = Vector2(125, 0)	
+		$Marker2D.position = Vector2(125, 10)	
 		$FlashLight.rotation_degrees = 135	
 		
 		
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-		$Marker2D.position = Vector2(-125, 0)
+		$Marker2D.position = Vector2(-125, -15)
 		$FlashLight.rotation_degrees = 315	
 		
 					
