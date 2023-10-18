@@ -22,5 +22,3 @@ func _on_body_entered(body):
 		queue_free()
 		$CollisionShape2D.set_deferred("disabled",true)
 
-func handle_hit():
-	print("enemy hit")

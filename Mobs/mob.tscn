@@ -29,7 +29,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
 radius = 31.0
-height = 74.0
+height = 76.0
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 3

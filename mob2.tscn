@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctuaj5ssx71h4"]
+[gd_scene load_steps=8 format=3 uid="uid://ctuaj5ssx71h4"]
 
 [ext_resource type="Script" path="res://mob2.gd" id="1_fphxi"]
 [ext_resource type="Texture2D" uid="uid://mxtuquw688ak" path="res://Mobs/shadow2_sprite1.png" id="2_qtvhm"]
 [ext_resource type="Texture2D" uid="uid://b8igtiqki031k" path="res://Mobs/shadow2_sprite2.png" id="3_waqm3"]
 [ext_resource type="Texture2D" uid="uid://dhlcopw1ma07a" path="res://Mobs/shadow2_sprite3.png" id="4_d1odi"]
+[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="5_y7b8s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ibi8"]
 animations = [{
@@ -25,8 +26,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g12a"]
-size = Vector2(120, 105)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lo4m7"]
+radius = 56.5
+height = 148.0
 
 [node name="Mob2" type="RigidBody2D"]
 collision_mask = 0
@@ -40,12 +42,16 @@ sprite_frames = SubResource("SpriteFrames_4ibi8")
 animation = &"move2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 14.5)
-shape = SubResource("RectangleShape2D_1g12a")
+position = Vector2(1, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lo4m7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(9, -11)
-scale = Vector2(1.9, 2.1)
+position = Vector2(6, 8.5)
+scale = Vector2(6, 3.35)
+
+[node name="Death2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y7b8s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

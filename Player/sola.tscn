@@ -125,16 +125,17 @@ collision_layer = 74
 collision_mask = 74
 
 [node name="Sprite2D" type="Sprite2D" parent="FlashLight"]
-position = Vector2(0, 19.25)
+position = Vector2(33.9412, 52.3447)
 rotation = 2.35619
-scale = Vector2(0.187, 0.1935)
+scale = Vector2(0.112357, 0.115488)
 texture = ExtResource("20_t262e")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlashLight"]
-position = Vector2(13.435, 33.234)
+position = Vector2(41.7774, 60.0847)
 rotation = 2.35619
+scale = Vector2(0.599491, 0.591172)
 build_mode = 1
-polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
+polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 5.30975, -58.5224)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 0
