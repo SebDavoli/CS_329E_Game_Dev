@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bil714p7qk0ja"]
+[gd_scene load_steps=14 format=3 uid="uid://bil714p7qk0ja"]
 
 [ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
 [ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="2_xf2lx"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b3kixdkx34gbl" path="res://Mobs/Shadow_Sprite_2.png" id="3_ksjuk"]
 [ext_resource type="Texture2D" uid="uid://cr4ntnwpu204y" path="res://Mobs/Shadow_Sprite_3.png" id="4_njumo"]
 [ext_resource type="Texture2D" uid="uid://vbmeecq07j4h" path="res://Mobs/Shadow_Sprite_4.png" id="5_mgbcl"]
+[ext_resource type="Texture2D" uid="uid://b4go82et8d2fg" path="res://Mobs/Shadow_Sprite_Death1.png" id="7_ugfnh"]
+[ext_resource type="Texture2D" uid="uid://rwygam71p72k" path="res://Mobs/Shadow_Sprite_Death3.png" id="8_hbrkf"]
+[ext_resource type="Texture2D" uid="uid://c3bm31qkjgaaf" path="res://Mobs/Shadow_Sprite_Death4.png" id="9_r12or"]
+[ext_resource type="Texture2D" uid="uid://bnfb2h7xp4oil" path="res://Mobs/Shadow_Sprite_Death5.png" id="10_htf0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
 animations = [{
@@ -30,6 +34,26 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
 radius = 31.0
 height = 76.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85e77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ugfnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hbrkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r12or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_htf0a")
+}],
+"loop": true,
+"name": &"death",
+"speed": 3.0
+}]
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
@@ -57,6 +81,14 @@ position = Vector2(0, 1)
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cynd5")
+
+[node name="Shadow1_DeathSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.96046e-08, 2.5)
+scale = Vector2(0.0793527, 0.0791667)
+skew = 0.349066
+sprite_frames = SubResource("SpriteFrames_85e77")
+animation = &"death"
+speed_scale = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

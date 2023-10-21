@@ -1,7 +1,8 @@
-res://hud.tscn
-res://main.gd
-res://Player/sola.tscn
 res://Mobs/mob.tscn
+res://main.gd
+res://Mobs/mob.gd
+res://hud.tscn
+res://Player/sola.tscn
 res://mob2.tscn
 res://main.tscn
 res://Lamp.tscn
