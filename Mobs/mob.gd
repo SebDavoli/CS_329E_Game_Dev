@@ -19,6 +19,7 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
+		$Death.play()
 		$AnimatedSprite2D.visible = false
 		$Shadow1_DeathSprite.visible = true
 		dead = true
@@ -31,7 +32,12 @@ func _on_body_entered(body):
 # Function for eliminating Mob instance
 func death():
 	if $Shadow1_DeathSprite.frame == 3:
-
-		queue_free()
 		hide()
+	if $Death.playing == false:
+		queue_free()
+
+
+
+
+
 

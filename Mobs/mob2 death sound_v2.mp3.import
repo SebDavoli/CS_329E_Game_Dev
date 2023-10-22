@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://62hb1xobghaa"
+path="res://.godot/imported/mob2 death sound_v2.mp3-1bafcb318efec4411ffc700e112f96ea.mp3str"
+
+[deps]
+
+source_file="res://Mobs/mob2 death sound_v2.mp3"
+dest_files=["res://.godot/imported/mob2 death sound_v2.mp3-1bafcb318efec4411ffc700e112f96ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

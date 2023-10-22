@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mxtuquw688ak" path="res://Mobs/shadow2_sprite1.png" id="2_qtvhm"]
 [ext_resource type="Texture2D" uid="uid://b8igtiqki031k" path="res://Mobs/shadow2_sprite2.png" id="3_waqm3"]
 [ext_resource type="Texture2D" uid="uid://dhlcopw1ma07a" path="res://Mobs/shadow2_sprite3.png" id="4_d1odi"]
-[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="5_y7b8s"]
+[ext_resource type="AudioStream" uid="uid://deut5ev4s21of" path="res://Mobs/mob2 death sound_v3.mp3" id="5_2t420"]
 [ext_resource type="Texture2D" uid="uid://t4t4n4i6tl1r" path="res://Mobs/shadow2_sprite_death1.png" id="6_h1wsi"]
 [ext_resource type="Texture2D" uid="uid://cjm78owhq21fw" path="res://Mobs/shadow2_sprite_death3.png" id="8_cv8dq"]
 [ext_resource type="Texture2D" uid="uid://fefnlgeyje73" path="res://Mobs/shadow2_sprite_death5.png" id="8_k50kn"]
@@ -83,7 +83,9 @@ position = Vector2(6, 8.5)
 scale = Vector2(6, 3.35)
 
 [node name="Death2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_y7b8s")
+stream = ExtResource("5_2t420")
+volume_db = 0.1
+pitch_scale = 1.1
 
 [node name="Shadow2_DeathSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.96875, 8)
@@ -94,3 +96,4 @@ speed_scale = 7.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="finished" from="Death2" to="." method="_on_death_2_finished"]

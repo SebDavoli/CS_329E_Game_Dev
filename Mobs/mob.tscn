@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
 [ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="2_xf2lx"]
-[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="3_cynd5"]
 [ext_resource type="Texture2D" uid="uid://b3kixdkx34gbl" path="res://Mobs/Shadow_Sprite_2.png" id="3_ksjuk"]
 [ext_resource type="Texture2D" uid="uid://cr4ntnwpu204y" path="res://Mobs/Shadow_Sprite_3.png" id="4_njumo"]
 [ext_resource type="Texture2D" uid="uid://vbmeecq07j4h" path="res://Mobs/Shadow_Sprite_4.png" id="5_mgbcl"]
+[ext_resource type="AudioStream" uid="uid://cdmim2qs3rttv" path="res://Mobs/mob1 death sound.mp3" id="6_ecxim"]
 [ext_resource type="Texture2D" uid="uid://b4go82et8d2fg" path="res://Mobs/Shadow_Sprite_Death1.png" id="7_ugfnh"]
 [ext_resource type="Texture2D" uid="uid://rwygam71p72k" path="res://Mobs/Shadow_Sprite_Death3.png" id="8_hbrkf"]
 [ext_resource type="Texture2D" uid="uid://c3bm31qkjgaaf" path="res://Mobs/Shadow_Sprite_Death4.png" id="9_r12or"]
@@ -80,7 +80,7 @@ position = Vector2(0, 1)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_cynd5")
+stream = ExtResource("6_ecxim")
 
 [node name="Shadow1_DeathSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.96046e-08, 2.5)

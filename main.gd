@@ -83,7 +83,7 @@ func _on_mob_timer_timeout():
 		add_child(mob)
 		
 		
-	if num_mob1 >= 10: # SPAWNS MOB TYPE 2
+	if num_mob1 > 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1
 		print("mob2 spawning")
 		var mob2 = mob2_scene.instantiate()
