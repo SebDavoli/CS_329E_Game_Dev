@@ -31,7 +31,7 @@ func _on_body_entered(body):
 # Function for eliminating Mob instance
 func death():
 	if $Shadow1_DeathSprite.frame == 3:
-		print("death function")
+
 		queue_free()
 		hide()
 

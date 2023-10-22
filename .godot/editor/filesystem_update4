@@ -1,11 +1,4 @@
 res://Mobs/mob.tscn
 res://main.gd
-res://Mobs/mob.gd
-res://hud.tscn
-res://Player/sola.tscn
-res://mob2.tscn
-res://main.tscn
-res://Lamp.tscn
-res://tutorial.tscn
-res://title.tscn
 res://mob2.gd
+res://Mobs/mob.gd
