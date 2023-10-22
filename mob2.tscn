@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctuaj5ssx71h4"]
+[gd_scene load_steps=14 format=3 uid="uid://ctuaj5ssx71h4"]
 
 [ext_resource type="Script" path="res://mob2.gd" id="1_fphxi"]
 [ext_resource type="Texture2D" uid="uid://mxtuquw688ak" path="res://Mobs/shadow2_sprite1.png" id="2_qtvhm"]
 [ext_resource type="Texture2D" uid="uid://b8igtiqki031k" path="res://Mobs/shadow2_sprite2.png" id="3_waqm3"]
 [ext_resource type="Texture2D" uid="uid://dhlcopw1ma07a" path="res://Mobs/shadow2_sprite3.png" id="4_d1odi"]
 [ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/monster.mp3" id="5_y7b8s"]
+[ext_resource type="Texture2D" uid="uid://t4t4n4i6tl1r" path="res://Mobs/shadow2_sprite_death1.png" id="6_h1wsi"]
+[ext_resource type="Texture2D" uid="uid://cjm78owhq21fw" path="res://Mobs/shadow2_sprite_death3.png" id="8_cv8dq"]
+[ext_resource type="Texture2D" uid="uid://fefnlgeyje73" path="res://Mobs/shadow2_sprite_death5.png" id="8_k50kn"]
+[ext_resource type="Texture2D" uid="uid://c634ghmdtt534" path="res://Mobs/shadow2_sprite_death4.png" id="9_7b024"]
+[ext_resource type="Texture2D" uid="uid://hp0cog5c7k3w" path="res://Mobs/shadow2_sprite_death6.png" id="10_4bqkv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ibi8"]
 animations = [{
@@ -30,10 +35,35 @@ animations = [{
 radius = 56.5
 height = 148.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi6ui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_h1wsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k50kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cv8dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4bqkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7b024")
+}],
+"loop": false,
+"name": &"death2",
+"speed": 4.0
+}]
+
 [node name="Mob2" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_fphxi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,6 +71,7 @@ position = Vector2(9.375, 7.78124)
 scale = Vector2(0.302315, 0.356163)
 sprite_frames = SubResource("SpriteFrames_4ibi8")
 animation = &"move2"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 10)
@@ -53,6 +84,13 @@ scale = Vector2(6, 3.35)
 
 [node name="Death2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y7b8s")
+
+[node name="Shadow2_DeathSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.96875, 8)
+scale = Vector2(0.31536, 0.350601)
+sprite_frames = SubResource("SpriteFrames_fi6ui")
+animation = &"death2"
+speed_scale = 7.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

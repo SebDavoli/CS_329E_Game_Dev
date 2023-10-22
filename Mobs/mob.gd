@@ -15,7 +15,6 @@ func _physics_process(delta):
 		$Shadow1_DeathSprite.play("death")
 		death()
 
-	
 
 func _on_body_entered(body):
 	print(body.get_name())
