@@ -1,7 +1,32 @@
 [gd_scene load_steps=2 format=3 uid="uid://82y3a6eo2g0m"]
 
-[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="1_elffc"]
+[ext_resource type="Script" path="res://title.gd" id="1_ht48r"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ht48r")
 
-[node name="HUD" parent="." instance=ExtResource("1_elffc")]
+[node name="Message" type="Label" parent="."]
+offset_left = 277.0
+offset_top = 48.0
+offset_right = 845.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 50
+text = "Speedway Survival"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 457.0
+offset_top = 470.0
+offset_right = 676.0
+offset_bottom = 547.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
