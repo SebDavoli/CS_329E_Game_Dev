@@ -1,32 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://c72bvjudup5gt"]
+[gd_scene load_steps=13 format=3 uid="uid://c72bvjudup5gt"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kbik5"]
 [ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_1bdo1"]
+[ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_jegm8"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="3_v5u6r"]
+[ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="5_ud1ku"]
+[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="6_p3psq"]
+[ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://Mobs/mob.tscn" id="7_vb6ay"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmxd"]
+size = Vector2(38.425, 2.87498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veryu"]
+size = Vector2(57.6, 2.85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8keqv"]
+size = Vector2(1146, 66.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf3eh"]
+size = Vector2(50, 648.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kbik5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
 offset_right = 1166.0
-offset_bottom = 642.0
-color = Color(0.309804, 0.0627451, 0.156863, 1)
+offset_bottom = 649.0
+color = Color(0.458824, 0, 0, 1)
 
-[node name="Controls" type="TextureRect" parent="."]
-offset_left = 166.0
-offset_top = 44.0
-offset_right = 931.0
-offset_bottom = 373.0
-texture = ExtResource("2_1bdo1")
-expand_mode = 1
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 648.0
+texture = ExtResource("2_jegm8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_right = 0.973958
-anchor_bottom = 0.925926
+anchor_bottom = 0.936728
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
@@ -42,5 +57,126 @@ text = "Where Am I..?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Controls" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 175.0
+offset_top = 4.0
+offset_right = 940.0
+offset_bottom = 333.0
+texture = ExtResource("2_1bdo1")
+expand_mode = 1
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(42, 349)
+
 [node name="Sola" parent="." instance=ExtResource("3_v5u6r")]
-position = Vector2(555, 412)
+position = Vector2(43, 347)
+collision_mask = 128
+
+[node name="Camera2D" type="Camera2D" parent="Sola"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1151
+limit_bottom = 652
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+
+[node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
+position = Vector2(798, -1008)
+scale = Vector2(25, 25)
+disable_mode = 1
+collision_layer = 64
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-36.2, 53.4)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_lxmxd")
+
+[node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.89, 71.2)
+shape = SubResource("RectangleShape2D_veryu")
+
+[node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.84001, 35.6)
+shape = SubResource("RectangleShape2D_veryu")
+
+[node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(18.56, 53.44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_lxmxd")
+
+[node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
+position = Vector2(38, -48)
+scale = Vector2(20, 20)
+disable_mode = 1
+collision_layer = 128
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-3.3, 18.65)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_lxmxd")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.85, 36.45)
+shape = SubResource("RectangleShape2D_veryu")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.9, 0.85)
+shape = SubResource("RectangleShape2D_veryu")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(57.0875, 18.6375)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_lxmxd")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(39, 53)
+stream = ExtResource("5_ud1ku")
+
+[node name="Fence" type="StaticBody2D" parent="."]
+position = Vector2(586, 272)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence"]
+position = Vector2(-14.5, 0)
+scale = Vector2(1.43625, 0.193878)
+texture = ExtResource("6_p3psq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
+position = Vector2(-14, -0.25)
+shape = SubResource("RectangleShape2D_8keqv")
+
+[node name="Fence2" type="StaticBody2D" parent="."]
+position = Vector2(592, 416)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
+position = Vector2(-14.5, 0)
+scale = Vector2(1.43625, 0.193878)
+texture = ExtResource("6_p3psq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
+position = Vector2(-14, -0.25)
+shape = SubResource("RectangleShape2D_8keqv")
+
+[node name="Level_1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1"]
+position = Vector2(1132, 324.75)
+shape = SubResource("RectangleShape2D_xf3eh")
+
+[node name="Mob" parent="." instance=ExtResource("7_vb6ay")]
+position = Vector2(952, 348)
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
+position = Vector2(576, 267)

@@ -50,7 +50,6 @@ func new_game():
 	$BGM.play()
 	$Next_Level.show()
 	await $HUD/MessageTimer.timeout
-	$HUD/Controls.show()
 #	get_tree().call_group("mobs", "queue_free")
 
 func change_health():
@@ -94,11 +93,7 @@ func _on_mob_timer_timeout():
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
 
-
-
-
 func _on_start_timer_timeout():
-	$HUD/Controls.hide()
 	$MobTimer.start()
 	$ScoreTimer.start()
 

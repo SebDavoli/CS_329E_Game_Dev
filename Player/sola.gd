@@ -14,6 +14,7 @@ var y_max = 400
 @onready var head = $Marker2D
 
 func _ready():
+	$FlashLight.hide()
 	$AnimatedSprite2D.play("idle")
 	viewport_size = get_viewport_rect().size
 	hide()
@@ -51,6 +52,7 @@ func _process(delta):
 		$FlashLight.rotation_degrees = 45	
 	
 	if velocity.x != 0:	
+		$FlashLight.show()
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
@@ -69,6 +71,8 @@ func _on_body_entered(body):
 	print(body.get_name())
 	if body.is_in_group("mobs"):
 		damage.emit()
+	if body.get_name() == "Level_1":
+		get_tree().change_scene_to_file("res://main.tscn")
 	if body.get_name() == "Next_Level":
 		get_tree().change_scene_to_file("res://level_2.tscn")
 

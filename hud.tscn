@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://jxaid0s13ejq"]
+[gd_scene load_steps=2 format=3 uid="uid://jxaid0s13ejq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_htbqm"]
-[ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_d2mr8"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_htbqm")
@@ -39,14 +38,6 @@ offset_bottom = 616.0
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
-
-[node name="Controls" type="TextureRect" parent="."]
-offset_left = 166.0
-offset_top = 44.0
-offset_right = 931.0
-offset_bottom = 373.0
-texture = ExtResource("2_d2mr8")
-expand_mode = 1
 
 [node name="Health" type="TextureRect" parent="."]
 offset_left = 903.0

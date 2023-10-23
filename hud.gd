@@ -3,7 +3,7 @@ extends CanvasLayer
 signal start_game
 
 func _ready():
-	$Controls.hide()
+	pass
 
 func _process(delta):
 	pass

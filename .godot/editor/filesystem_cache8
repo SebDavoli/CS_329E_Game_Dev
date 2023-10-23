@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698074160
+::res://::1698077114
 Controls.png::CompressedTexture2D::1098912331981767048::1697475160::1697475161::1::::<><>::
 export_presets.cfg::TextFile::-1::1697768219::0::1::::<><>::
 hud.gd::GDScript::-1::1697480833::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::679194764480754130::1697665412::0::1::::<><>::res://hud.gd<>uid://pwk6p688pcxk
+hud.tscn::PackedScene::679194764480754130::1698076712::0::1::::<><>::res://hud.gd<>uid://pwk6p688pcxk::::res://Controls.png
 icon.svg::CompressedTexture2D::2647420694813879781::1695652985::1697659293::1::::<><>::
 Lamp.gd::GDScript::-1::1696882350::0::1::::<>StaticBody2D<>::
 Lamp.png::CompressedTexture2D::8950208818264057160::1696881951::1696881974::1::::<><>::
@@ -18,18 +18,18 @@ light_drift.tscn::PackedScene::4447588260694960241::1696881951::0::1::::<><>::
 Light_Drift_1.png::CompressedTexture2D::4588189326774240948::1696881951::1696881974::1::::<><>::
 Light_Drift_2.png::CompressedTexture2D::5631299686030682805::1696881951::1696881974::1::::<><>::
 Light_Drift_3.png::CompressedTexture2D::5581649937173906193::1696881951::1696881974::1::::<><>::
-main.gd::GDScript::-1::1697997225::0::1::::<>Node2D<>::
-main.tscn::PackedScene::2382701061889139251::1697997225::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://bil714p7qk0ja::::res://Mobs/mob.tscn<>uid://ctuaj5ssx71h4::::res://mob2.tscn<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
+main.gd::GDScript::-1::1698074656::0::1::::<>Node2D<>::
+main.tscn::PackedScene::2382701061889139251::1698076712::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://bil714p7qk0ja::::res://Mobs/mob.tscn<>uid://ctuaj5ssx71h4::::res://mob2.tscn<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
 mob2.gd::GDScript::-1::1697997126::0::1::::Mob2<>RigidBody2D<>::
-mob2.tscn::PackedScene::6147734628092002211::1697997225::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
+mob2.tscn::PackedScene::6147734628092002211::1698076712::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
 next_level.gd::GDScript::-1::1697484320::0::1::::<>StaticBody2D<>::
-next_level.tscn::PackedScene::8948091673959437109::1697486545::0::1::::<><>::res://next_level.gd
+next_level.tscn::PackedScene::8948091673959437109::1698076712::0::1::::<><>::res://next_level.gd
 README.md::TextFile::-1::1696882915::0::1::::<><>::
 temp_bg.tscn::PackedScene::4456451492494361741::1696884795::0::1::::<><>::uid://daifkqmqa4jn3
-title.gd::GDScript::-1::1697997130::0::1::::<>Node2D<>::
-title.tscn::PackedScene::2373477297560871150::1697997130::0::1::::<><>::res://title.gd
-tutorial.gd::GDScript::-1::1697661194::0::1::::<>Node2D<>::
-tutorial.tscn::PackedScene::7074721285597518703::1697665413::0::1::::<><>::res://tutorial.gd
+title.gd::GDScript::-1::1698076143::0::1::::<>Node2D<>::
+title.tscn::PackedScene::2373477297560871150::1698076712::0::1::::<><>::res://title.gd<>uid://dgmn7b62yt4yr::::res://Art/Speedway Survival Title Screen.png
+tutorial.gd::GDScript::-1::1698076707::0::1::::<>Node2D<>::
+tutorial.tscn::PackedScene::7074721285597518703::1698076770::0::1::::<><>::res://tutorial.gd<>uid://pwk6p688pcxk::::res://Controls.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn
 ::res://Art/::1698074337
 Controls.png::CompressedTexture2D::6495578721396587691::1697055822::1697055491::1::::<><>::
 fence.png::CompressedTexture2D::4792820445151047385::1697485524::1697485541::1::::<><>::
