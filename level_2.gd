@@ -1,6 +1,4 @@
 extends Node2D
-@export var mob_scene: PackedScene
-@export var mob2_scene: PackedScene
 var health
 var num_mob1 = 0
 var num_mob2 = 0
@@ -30,7 +28,7 @@ func _ready():
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
-	if num_mob1 == 11:
+	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
 
@@ -60,7 +58,7 @@ func _on_mob_timer_timeout():
 	
 	if num_mob1 < 11: # SPAWNING MOB TYPE 1
 		num_mob1 += 1
-		var mob = mob_scene.instantiate()
+		var mob = preload("res://mob.tscn").instantiate()
 		mob.position = mob_spawn_location.position
 		var mob_pos = mob.position
 		#direction += randf_range(-PI / 8, PI / 8)
@@ -72,7 +70,7 @@ func _on_mob_timer_timeout():
 	if num_mob1 > 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1
 		print("mob2 spawning")
-		var mob2 = mob2_scene.instantiate()
+		var mob2 = preload("res://mob2.tscn").instantiate()
 		mob2.position = mob_spawn_location.position
 		var mob2_pos = mob2.position
 		mob2.rotation = dir_angle

@@ -139,7 +139,6 @@ shape = SubResource("RectangleShape2D_6ewxg")
 [node name="Right" type="CollisionShape2D" parent="Bounds"]
 position = Vector2(53.1562, 18.25)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gsct3")
 
 [node name="Lamps" type="Node" parent="."]
@@ -171,6 +170,7 @@ position = Vector2(-14, -0.25)
 shape = SubResource("RectangleShape2D_4cpn2")
 
 [node name="Level_3" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_3"]
 position = Vector2(575, -14)

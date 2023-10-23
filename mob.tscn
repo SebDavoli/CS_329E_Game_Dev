@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bil714p7qk0ja"]
 
-[ext_resource type="Script" path="res://Mobs/mob.gd" id="1_y7x5m"]
+[ext_resource type="Script" path="res://mob.gd" id="1_xk86s"]
 [ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="2_xf2lx"]
 [ext_resource type="Texture2D" uid="uid://b3kixdkx34gbl" path="res://Mobs/Shadow_Sprite_2.png" id="3_ksjuk"]
 [ext_resource type="Texture2D" uid="uid://cr4ntnwpu204y" path="res://Mobs/Shadow_Sprite_3.png" id="4_njumo"]
@@ -61,7 +61,7 @@ collision_mask = 0
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_y7x5m")
+script = ExtResource("1_xk86s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.28, 0)

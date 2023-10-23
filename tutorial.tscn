@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="3_v5u6r"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="5_ud1ku"]
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="6_p3psq"]
-[ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://Mobs/mob.tscn" id="7_vb6ay"]
+[ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://mob.tscn" id="7_vb6ay"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmxd"]
@@ -174,7 +174,7 @@ position = Vector2(1132, 324.75)
 shape = SubResource("RectangleShape2D_xf3eh")
 
 [node name="Mob" parent="." instance=ExtResource("7_vb6ay")]
-position = Vector2(952, 348)
+position = Vector2(688, 347)
 
 [node name="Lamps" type="Node" parent="."]
 
