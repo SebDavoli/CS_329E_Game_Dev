@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8wp3rxn0ub47"]
+
+[ext_resource type="Script" path="res://gameover.gd" id="1_7dxrh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7dxrh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.490196, 0, 0.0392157, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 98.0
+offset_right = 1010.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 151
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 498.0
+offset_right = 644.0
+offset_bottom = 552.0
+text = "Retry"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -8,7 +8,18 @@ var rand_num
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health = 100
+	$LightTimer.start()
+	$Sola2.start($StartPosition.position)
+	$StartTimer.start()
+	$FlashTimer.start()
+	
+	$HUD.show_message("Where am I?")
+	$BGM.play()
+	$Next_Level.show()
+	await $HUD/MessageTimer.timeout
 	$Sola2.camera = $Sola2/Camera2D
+	$HUD.update_health(health)
 	
 	rand_num = randi() % 8 + 1
 	$Lamps/Lamp/LampLight.hide()
@@ -40,20 +51,10 @@ func game_over():
 	$HUD.show_game_over()
 	
 func new_game():
-	health = 100
-	$LightTimer.start()
-	$Sola2.start($StartPosition.position)
-	$StartTimer.start()
-	$FlashTimer.start()
-	$HUD.update_health(health)
-	$HUD.show_message("Where am I?")
-	$BGM.play()
-	$Next_Level.show()
-	await $HUD/MessageTimer.timeout
+	pass
 #	get_tree().call_group("mobs", "queue_free")
 
 func change_health():
-	
 	health = health - 20
 	$HUD.update_health(health)
 	if health <= 0:

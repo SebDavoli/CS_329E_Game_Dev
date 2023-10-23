@@ -1,8 +1,10 @@
+Button
+Label
+ColorRect
 CollisionShape2D
 StaticBody2D
 TextureRect
 AnimationPlayer
-ColorRect
 CanvasLayer
 AnimatedSprite2D
 Sprite2D
@@ -14,6 +16,4 @@ VisibleOnScreenNotifier2D
 Mob
 AudioStreamPlayer
 AudioStreamPlayer2D
-Label
 Marker2D
-Button
