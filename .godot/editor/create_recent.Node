@@ -1,8 +1,8 @@
+CollisionShape2D
+StaticBody2D
 Button
 Label
 ColorRect
-CollisionShape2D
-StaticBody2D
 TextureRect
 AnimationPlayer
 CanvasLayer

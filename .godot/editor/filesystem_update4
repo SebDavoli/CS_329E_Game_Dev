@@ -10,3 +10,9 @@ res://title.tscn
 res://tutorial.tscn
 res://Player/sola.tscn
 res://Lamp.tscn
+res://level_2.tscn
+res://level_2.gd
+res://Player/sola.gd
+res://win.tscn
+res://win.gd
+res://Mobs/mob.tscn

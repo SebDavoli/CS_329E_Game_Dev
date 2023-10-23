@@ -75,6 +75,8 @@ func _on_body_entered(body):
 		get_tree().change_scene_to_file("res://main.tscn")
 	if body.get_name() == "Next_Level":
 		get_tree().change_scene_to_file("res://level_2.tscn")
+	if body.get_name() == "Level_3":
+		get_tree().change_scene_to_file("res://win.tscn")
 
 func start(pos):
 	position = pos

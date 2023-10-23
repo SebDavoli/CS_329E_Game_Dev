@@ -13,11 +13,9 @@ func _ready():
 	$Sola2.start($StartPosition.position)
 	$StartTimer.start()
 	$FlashTimer.start()
-	
-	$HUD.show_message("Where am I?")
+
 	$BGM.play()
 	$Next_Level.show()
-	await $HUD/MessageTimer.timeout
 	$Sola2.camera = $Sola2/Camera2D
 	$HUD.update_health(health)
 	
@@ -58,6 +56,7 @@ func change_health():
 	health = health - 20
 	$HUD.update_health(health)
 	if health <= 0:
+		get_tree().change_scene_to_file("res://gameover.tscn")
 		$Sola2.hide()
 		$Sola2/CollisionShape2D.set_deferred("disabled",true)
 		game_over()

@@ -9,17 +9,11 @@ func _process(delta):
 	pass
 	
 func show_message(text):
-	$Message.text = text
-	$Message.show()
-	$MessageTimer.start()
+	pass
 	
 func show_game_over():
 	
-	
-	
 	show_message("Game Over")
-	
-	await $MessageTimer.timeout
 	
 	$Retry.text = "Retry?"
 	$Retry.show()
@@ -48,4 +42,4 @@ func update_health(health):
 #	start_game.emit()
 
 func _on_message_timer_timeout():
-	$Message.hide()
+	pass
