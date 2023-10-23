@@ -1,16 +1,9 @@
-<<<<<<< Updated upstream
-res://Mobs/mob.tscn
-res://main.gd
-res://mob2.gd
-res://Mobs/mob.gd
-res://hud.tscn
-res://Player/sola.tscn
-res://mob2.tscn
-res://main.tscn
-res://Lamp.tscn
-res://tutorial.tscn
-=======
->>>>>>> Stashed changes
 res://title.tscn
 res://main.gd
 res://title.gd
+res://main.tscn
+res://mob2.tscn
+res://hud.tscn
+res://next_level.tscn
+res://tutorial.tscn
+res://tutorial.gd

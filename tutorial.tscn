@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://c72bvjudup5gt"]
+[gd_scene load_steps=4 format=3 uid="uid://c72bvjudup5gt"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kbik5"]
+[ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_1bdo1"]
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="3_v5u6r"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kbik5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1166.0
+offset_bottom = 642.0
+color = Color(0.309804, 0.0627451, 0.156863, 1)
+
+[node name="Controls" type="TextureRect" parent="."]
+offset_left = 166.0
+offset_top = 44.0
+offset_right = 931.0
+offset_bottom = 373.0
+texture = ExtResource("2_1bdo1")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.973958
+anchor_bottom = 0.925926
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="CanvasLayer"]
+offset_left = 295.0
+offset_top = 169.0
+offset_right = 863.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 50
+text = "Where Am I..?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sola" parent="." instance=ExtResource("3_v5u6r")]
+position = Vector2(555, 412)
