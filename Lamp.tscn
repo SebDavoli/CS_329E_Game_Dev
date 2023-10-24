@@ -6,7 +6,7 @@
 
 [node name="Lamp" type="StaticBody2D"]
 position = Vector2(221, 269)
-collision_layer = 2
+collision_layer = 10
 collision_mask = 2
 script = ExtResource("1_f2786")
 
@@ -15,7 +15,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_h0ah5")
 
 [node name="LampLight" type="StaticBody2D" parent="."]
-collision_layer = 2
+collision_layer = 10
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LampLight"]

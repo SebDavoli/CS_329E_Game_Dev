@@ -12,12 +12,12 @@ func show_message(text):
 	pass
 	
 func show_game_over():
-	
-	show_message("Game Over")
-	
-	$Retry.text = "Retry?"
-	$Retry.show()
-	$StartButton.show()
+	pass
+#	show_message("Game Over")
+#
+#	$Retry.text = "Retry?"
+#	$Retry.show()
+#	$StartButton.show()
 
 func update_health(health):
 	$HealthLabel.text = str(health)

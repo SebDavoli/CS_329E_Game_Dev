@@ -28,6 +28,7 @@ func _ready():
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
+	print(health)
 	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
@@ -43,9 +44,9 @@ func change_health():
 	$HUD.update_health(health)
 	if health <= 0:
 		get_tree().change_scene_to_file("res://gameover.tscn")
-		$Sola2.hide()
-		$Sola2/CollisionShape2D.set_deferred("disabled",true)
-		game_over()
+#		$Sola2.hide()
+#		$Sola2/CollisionShape2D.set_deferred("disabled",true)
+#		game_over()
 
 func _on_mob_timer_timeout():
 	# Identifying mob spawn location

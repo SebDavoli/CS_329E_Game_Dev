@@ -98,6 +98,7 @@ mob_scene = SubResource("PackedScene_tbamc")
 mob2_scene = ExtResource("3_31tss")
 
 [node name="FlashTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 4.0
@@ -251,9 +252,11 @@ texture = ExtResource("9_fpfp6")
 position = Vector2(-14, -0.25)
 shape = SubResource("RectangleShape2D_mj6gm")
 
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="damage" from="Sola2" to="." method="change_health"]
+[connection signal="light" from="Sola2" to="." method="shine"]

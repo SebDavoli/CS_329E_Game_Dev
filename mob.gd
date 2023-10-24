@@ -17,6 +17,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
+	print("Mob:")
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
 		$Death.play()

@@ -57,9 +57,9 @@ func change_health():
 	$HUD.update_health(health)
 	if health <= 0:
 		get_tree().change_scene_to_file("res://gameover.tscn")
-		$Sola2.hide()
-		$Sola2/CollisionShape2D.set_deferred("disabled",true)
-		game_over()
+#		$Sola2.hide()
+#		$Sola2/CollisionShape2D.set_deferred("disabled",true)
+#		game_over()
 
 func _on_mob_timer_timeout():
 	# Identifying mob spawn location
@@ -100,6 +100,12 @@ func _on_start_timer_timeout():
 func _on_score_timer_timeout():
 	pass # Replace with function body.
 
+func shine():
+	$LightTimer.start()
+	$Sola2/FlashLight/CollisionPolygon2D.disabled = false
+	$Sola2/FlashLight.show()
+	$Sola2/FlashLight/CollisionPolygon2D.show()
+	
 
 func _on_light_timer_timeout():
 	$Lamps/Lamp/LampLight.hide()
@@ -145,3 +151,7 @@ func _on_light_timer_timeout():
 		$Lamps/Lamp8/LampLight.show()
 		$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = false
 	rand_num = randi() % 8 + 1
+
+func _on_flash_timer_timeout():
+	$Sola2/FlashLight.hide()
+	$Sola2/FlashLight/CollisionPolygon2D.disabled = true

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal damage
+signal light
 
 @export var speed = 200
 var viewport_size
@@ -14,7 +15,7 @@ var y_max = 400
 @onready var head = $Marker2D
 
 func _ready():
-	$FlashLight.hide()
+	$FlashLight.show()
 	$AnimatedSprite2D.play("idle")
 	viewport_size = get_viewport_rect().size
 	hide()
@@ -52,7 +53,6 @@ func _process(delta):
 		$FlashLight.rotation_degrees = 45	
 	
 	if velocity.x != 0:	
-		$FlashLight.show()
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
@@ -68,8 +68,14 @@ func _process(delta):
 	$FlashLight.position = $Marker2D.position
 	
 func _on_body_entered(body):
+	print("Sola: ")
 	print(body.get_name())
+	if body.get_name() == "LampLight":
+		$FlashLight/CollisionPolygon2D.disabled = false
+		light.emit()
 	if body.is_in_group("mobs"):
+		damage.emit()
+	if body.get_name() == "Mob":
 		damage.emit()
 	if body.get_name() == "Level_1":
 		get_tree().change_scene_to_file("res://main.tscn")
