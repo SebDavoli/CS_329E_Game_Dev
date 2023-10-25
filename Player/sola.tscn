@@ -74,7 +74,7 @@ animations = [{
 texture_filter = 1
 position = Vector2(553, 316)
 disable_mode = 2
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("2_wwx7e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -93,8 +93,8 @@ stream = ExtResource("19_yweb0")
 [node name="FlashLight" type="StaticBody2D" parent="."]
 position = Vector2(125, 13)
 rotation = 2.35619
-collision_layer = 74
-collision_mask = 66
+collision_layer = 4
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="FlashLight"]
 position = Vector2(45.9625, 63.7455)

@@ -19,23 +19,24 @@ func _ready():
 	$Sola2.camera = $Sola2/Camera2D
 	$HUD.update_health(health)
 	
+	#lamp disabled at start of the game
 	rand_num = randi() % 8 + 1
-	$Lamps/Lamp/LampLight.hide()
-	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp2/LampLight.hide()
-	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp3/LampLight.hide()
-	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp4/LampLight.hide()
-	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp5/LampLight.hide()
-	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp6/LampLight.hide()
-	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp7/LampLight.hide()
-	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp8/LampLight.hide()
-	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp/LampLight.hide()
+#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp2/LampLight.hide()
+#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp3/LampLight.hide()
+#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp4/LampLight.hide()
+#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp5/LampLight.hide()
+#	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp6/LampLight.hide()
+#	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp7/LampLight.hide()
+#	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp8/LampLight.hide()
+#	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
 	if num_mob1 == 11:
@@ -101,30 +102,33 @@ func _on_score_timer_timeout():
 	pass # Replace with function body.
 
 func shine():
-	$LightTimer.start()
+	print("Flashlight ON")
+	$FlashTimer.start()
 	$Sola2/FlashLight/CollisionPolygon2D.disabled = false
 	$Sola2/FlashLight.show()
-	$Sola2/FlashLight/CollisionPolygon2D.show()
 	
 
 func _on_light_timer_timeout():
-	$Lamps/Lamp/LampLight.hide()
-	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp2/LampLight.hide()
-	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp3/LampLight.hide()
-	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp4/LampLight.hide()
-	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp5/LampLight.hide()
-	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp6/LampLight.hide()
-	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp7/LampLight.hide()
-	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp8/LampLight.hide()
-	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
+	#lamps are disabled
+#	$Lamps/Lamp/LampLight.hide()
+#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp2/LampLight.hide()
+#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp3/LampLight.hide()
+#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp4/LampLight.hide()
+#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp5/LampLight.hide()
+#	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp6/LampLight.hide()
+#	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp7/LampLight.hide()
+#	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp8/LampLight.hide()
+#	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
+	
+	#Find randomm lamp to turn on
 	if rand_num == 1:
 		$Lamps/Lamp/LampLight.show()
 		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
@@ -153,5 +157,6 @@ func _on_light_timer_timeout():
 	rand_num = randi() % 8 + 1
 
 func _on_flash_timer_timeout():
-	$Sola2/FlashLight.hide()
-	$Sola2/FlashLight/CollisionPolygon2D.disabled = true
+	print("Flahslight off")
+#	$Sola2/FlashLight.hide()
+#	$Sola2/FlashLight/CollisionPolygon2D.disabled = true

@@ -6,8 +6,8 @@
 
 [node name="Lamp" type="StaticBody2D"]
 position = Vector2(221, 269)
-collision_layer = 10
-collision_mask = 2
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_f2786")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
