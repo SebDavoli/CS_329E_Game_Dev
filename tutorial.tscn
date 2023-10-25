@@ -36,36 +36,6 @@ offset_right = 1154.0
 offset_bottom = 648.0
 texture = ExtResource("2_jegm8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.973958
-anchor_bottom = 0.936728
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Message" type="Label" parent="CanvasLayer"]
-offset_left = 295.0
-offset_top = 169.0
-offset_right = 863.0
-offset_bottom = 450.0
-theme_override_font_sizes/font_size = 50
-text = "Where Am I..?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Controls" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 175.0
-offset_top = 4.0
-offset_right = 940.0
-offset_bottom = 333.0
-texture = ExtResource("2_1bdo1")
-expand_mode = 1
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(42, 349)
 
@@ -180,3 +150,33 @@ position = Vector2(688, 347)
 
 [node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
 position = Vector2(576, 267)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.973958
+anchor_bottom = 0.936728
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="CanvasLayer"]
+offset_left = 295.0
+offset_top = 169.0
+offset_right = 863.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 50
+text = "Where Am I..?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 351.0
+offset_top = -1.0
+offset_right = 790.0
+offset_bottom = 233.0
+texture = ExtResource("2_1bdo1")
+expand_mode = 1
