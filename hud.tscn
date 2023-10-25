@@ -7,10 +7,10 @@
 script = ExtResource("1_htbqm")
 
 [node name="HealthLabel" type="Label" parent="."]
-offset_left = 994.0
-offset_top = 44.0
-offset_right = 1054.0
-offset_bottom = 81.0
+offset_left = 1239.0
+offset_top = -94.0
+offset_right = 1299.0
+offset_bottom = -57.0
 
 [node name="Retry" type="Label" parent="."]
 offset_left = 257.0
@@ -24,8 +24,8 @@ vertical_alignment = 1
 [node name="MessageTimer" type="Timer" parent="."]
 
 [node name="Health" type="TextureRect" parent="."]
-offset_left = 903.0
-offset_right = 1147.0
+offset_left = 908.0
+offset_right = 1152.0
 offset_bottom = 79.0
 texture = ExtResource("2_dcgf2")
 expand_mode = 1

@@ -9,8 +9,4 @@ res://hud.tscn
 res://mob.tscn
 res://mob2.tscn
 res://tutorial.tscn
-res://hud.gd
-res://level_2.gd
-res://Player/sola.gd
 res://Lamp.tscn
-res://mob.gd

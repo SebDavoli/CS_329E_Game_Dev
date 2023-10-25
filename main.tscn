@@ -97,8 +97,22 @@ script = ExtResource("1_o3cul")
 mob_scene = SubResource("PackedScene_tbamc")
 mob2_scene = ExtResource("3_31tss")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
+color = Color(0.176471, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("5_qyuc4")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 4.0
@@ -126,19 +140,6 @@ position = Vector2(39, 53)
 stream = ExtResource("6_d2l6y")
 
 [node name="HUD" parent="." instance=ExtResource("7_uhbq1")]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0.458824, 0, 0, 1)
-color = Color(0.176471, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
-layout_mode = 0
-offset_right = 1149.0
-offset_bottom = 647.0
-texture = ExtResource("5_qyuc4")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(579, 346)

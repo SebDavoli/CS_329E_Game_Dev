@@ -71,7 +71,6 @@ func _on_body_entered(body):
 	print("Sola: ")
 	print(body.get_name())
 	if body.get_name() == "LampLight":
-		$FlashLight/CollisionPolygon2D.disabled = false
 		light.emit()
 	if body.is_in_group("mobs"):
 		damage.emit()
