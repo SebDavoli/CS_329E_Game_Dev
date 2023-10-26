@@ -74,10 +74,10 @@ stream = ExtResource("6_d2l6y")
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(579, 346)
 
-[node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
+[node name="Sola" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(578, 346)
 
-[node name="Camera2D" type="Camera2D" parent="Sola2"]
+[node name="Camera2D" type="Camera2D" parent="Sola"]
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
@@ -131,7 +131,7 @@ position = Vector2(26.85, 36.45)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Top" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(26.9, 0.85)
+position = Vector2(26.9, 3.65)
 shape = SubResource("RectangleShape2D_hx8h3")
 
 [node name="Right" type="CollisionShape2D" parent="Bounds"]
@@ -166,7 +166,7 @@ position = Vector2(819, 163)
 position = Vector2(1018, 160)
 
 [node name="Next_Level" parent="." instance=ExtResource("8_6jyxg")]
-position = Vector2(593, -8)
+position = Vector2(591, 0)
 
 [node name="Fence" type="StaticBody2D" parent="."]
 position = Vector2(588, 85)
@@ -188,5 +188,5 @@ shape = SubResource("RectangleShape2D_mj6gm")
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="damage" from="Sola2" to="." method="change_health"]
-[connection signal="light" from="Sola2" to="." method="shine"]
+[connection signal="damage" from="Sola" to="." method="change_health"]
+[connection signal="light" from="Sola" to="." method="shine"]

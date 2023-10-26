@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c72bvjudup5gt"]
+[gd_scene load_steps=15 format=3 uid="uid://c72bvjudup5gt"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kbik5"]
 [ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_1bdo1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="6_p3psq"]
 [ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://mob.tscn" id="7_vb6ay"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
+[ext_resource type="Texture2D" uid="uid://daf3o3d5c5sjl" path="res://Art/Flashlight.png" id="9_s3a40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmxd"]
 size = Vector2(38.425, 2.87498)
@@ -21,8 +22,15 @@ size = Vector2(1146, 66.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf3eh"]
 size = Vector2(50, 648.5)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gti6q"]
+size = Vector2(42, 20)
+
+[node name="Tutorial" type="Node2D"]
 script = ExtResource("1_kbik5")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.458824, 0, 0, 1)
@@ -137,6 +145,7 @@ position = Vector2(-14, -0.25)
 shape = SubResource("RectangleShape2D_8keqv")
 
 [node name="Level_1" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_1"]
 position = Vector2(1132, 324.75)
@@ -151,7 +160,6 @@ position = Vector2(688, 347)
 position = Vector2(576, 267)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = -1
@@ -180,3 +188,18 @@ offset_right = 790.0
 offset_bottom = 233.0
 texture = ExtResource("2_1bdo1")
 expand_mode = 1
+
+[node name="Flashlight" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Flashlight"]
+position = Vector2(194, 347)
+scale = Vector2(0.122, 0.109)
+texture = ExtResource("9_s3a40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flashlight"]
+position = Vector2(189, 345)
+shape = SubResource("RectangleShape2D_gti6q")
+
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="light" from="Sola" to="." method="shine"]

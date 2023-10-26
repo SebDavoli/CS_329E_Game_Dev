@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8wp3rxn0ub47"]
+[gd_scene load_steps=3 format=3 uid="uid://b8wp3rxn0ub47"]
 
 [ext_resource type="Script" path="res://gameover.gd" id="1_7dxrh"]
+[ext_resource type="AudioStream" uid="uid://kvcl14ym71rg" path="res://Music/Scream.mp3" id="2_3al6y"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7dxrh")
@@ -24,5 +25,8 @@ offset_top = 498.0
 offset_right = 644.0
 offset_bottom = 552.0
 text = "Retry"
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3al6y")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

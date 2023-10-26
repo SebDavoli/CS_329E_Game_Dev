@@ -71,6 +71,8 @@ func _process(delta):
 func _on_body_entered(body):
 	print("Sola: ")
 	print(body.get_name())
+	if body.get_name() == "Flashlight":
+		light.emit()
 	if body.get_name() == "LampLight":
 		light.emit()
 	if body.is_in_group("mobs"):
@@ -78,10 +80,13 @@ func _on_body_entered(body):
 	if body.get_name() == "Mob":
 		damage.emit()
 	if body.get_name() == "Level_1":
+		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://main.tscn")
 	if body.get_name() == "Next_Level":
+		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://level_2.tscn")
 	if body.get_name() == "Level_3":
+		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://win.tscn")
 
 func start(pos):

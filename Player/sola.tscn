@@ -110,7 +110,7 @@ polygon = PackedVector2Array(-6.70587, -57.5253, -53.4132, 55.8083, -38.4005, 64
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 0
-collision_mask = 6
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_riry5")

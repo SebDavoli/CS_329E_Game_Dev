@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqodo3hbxu5b7"]
+[gd_scene load_steps=3 format=3 uid="uid://bqodo3hbxu5b7"]
 
 [ext_resource type="Script" path="res://win.gd" id="1_ajvww"]
+[ext_resource type="AudioStream" uid="uid://cbm0ctulmewun" path="res://Music/Clear.mp3" id="2_38mnv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ajvww")
@@ -24,5 +25,8 @@ offset_top = 498.0
 offset_right = 644.0
 offset_bottom = 552.0
 text = "Retry"
+
+[node name="Clear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_38mnv")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

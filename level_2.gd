@@ -8,27 +8,31 @@ var rand_num
 func _ready():
 	health = 100
 	$LightTimer.start()
-	$Sola2.start($StartPosition.position)
+	$Sola.start($StartPosition.position)
 	$StartTimer.start()
 	$FlashTimer.start()
 	
 	$BGM.play()
 	$Level_3.show()
-	$Sola2.camera = $Sola2/Camera2D
+	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
 	
 	rand_num = randi() % 4 + 1
-#	$Lamps/Lamp/LampLight.hide()
-#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp2/LampLight.hide()
-#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp3/LampLight.hide()
-#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp4/LampLight.hide()
-#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp/LampLight.hide()
+	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp2/LampLight.hide()
+	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp3/LampLight.hide()
+	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp4/LampLight.hide()
+	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
-#	print(health)
+#	print($Sola/FlashLight/CollisionPolygon2D.disabled)
+#	print($FlashTimer.get_time_left())
+	if $FlashTimer.get_time_left() > 0:
+		$Sola/FlashLight/CollisionPolygon2D.disabled = false
+
 	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
@@ -44,8 +48,8 @@ func change_health():
 	$HUD.update_health(health)
 	if health <= 0:
 		get_tree().change_scene_to_file("res://gameover.tscn")
-#		$Sola2.hide()
-#		$Sola2/CollisionShape2D.set_deferred("disabled",true)
+#		$Sola.hide()
+#		$Sola/CollisionShape2D.set_deferred("disabled",true)
 #		game_over()
 
 func _on_mob_timer_timeout():
@@ -54,7 +58,7 @@ func _on_mob_timer_timeout():
 	mob_spawn_location.progress_ratio = randf()
 	var direction = mob_spawn_location.rotation + PI / 2
 	# vector between sola and mob (from mob to sola for direction)
-	var dir = $Sola2.position - mob_spawn_location.position
+	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
 	
 	if num_mob1 < 11: # SPAWNING MOB TYPE 1
@@ -64,7 +68,7 @@ func _on_mob_timer_timeout():
 		var mob_pos = mob.position
 		#direction += randf_range(-PI / 8, PI / 8)
 		mob.rotation = dir_angle
-		var velocity = mob_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
+		var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob.linear_velocity = velocity
 		add_child(mob)
 		
@@ -75,7 +79,7 @@ func _on_mob_timer_timeout():
 		mob2.position = mob_spawn_location.position
 		var mob2_pos = mob2.position
 		mob2.rotation = dir_angle
-		var velocity2 = mob2_pos.direction_to($Sola2.position) * randf_range(150.0,250.0) 
+		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
 
@@ -87,14 +91,14 @@ func _on_score_timer_timeout():
 	pass # Replace with function body.
 
 func _on_light_timer_timeout():
-#	$Lamps/Lamp/LampLight.hide()
-#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp2/LampLight.hide()
-#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp3/LampLight.hide()
-#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-#	$Lamps/Lamp4/LampLight.hide()
-#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp/LampLight.hide()
+	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp2/LampLight.hide()
+	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp3/LampLight.hide()
+	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp4/LampLight.hide()
+	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 	if rand_num == 1:
 		$Lamps/Lamp/LampLight.show()
@@ -110,3 +114,13 @@ func _on_light_timer_timeout():
 		$Lamps/Lamp4/LampLight.show()
 		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
 	rand_num = randi() % 4 + 1
+
+func _on_flash_timer_timeout():
+	print("Flahslight off")
+	$Sola/FlashLight.hide()
+	$Sola/FlashLight/CollisionPolygon2D.disabled = true
+
+func shine():
+	$Sola/FlashLight.show()
+	print("Flashlight ON")
+	$FlashTimer.start()	

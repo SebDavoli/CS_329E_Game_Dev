@@ -30,6 +30,8 @@ size = Vector2(1170, 88)
 script = ExtResource("1_srq5y")
 
 [node name="FlashTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -74,11 +76,11 @@ metadata/_edit_use_anchors_ = true
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(559, 559)
 
-[node name="Sola2" parent="." instance=ExtResource("5_4254d")]
+[node name="Sola" parent="." instance=ExtResource("5_4254d")]
 position = Vector2(593, 576)
 slide_on_ceiling = false
 
-[node name="Camera2D" type="Camera2D" parent="Sola2"]
+[node name="Camera2D" type="Camera2D" parent="Sola"]
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
@@ -175,8 +177,10 @@ collision_layer = 3
 position = Vector2(575, -14)
 shape = SubResource("RectangleShape2D_gg3q6")
 
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
-[connection signal="damage" from="Sola2" to="." method="change_health"]
+[connection signal="damage" from="Sola" to="." method="change_health"]
+[connection signal="light" from="Sola" to="." method="shine"]
