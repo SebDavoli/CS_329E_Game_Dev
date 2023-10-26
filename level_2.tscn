@@ -76,8 +76,7 @@ position = Vector2(559, 559)
 
 [node name="Sola2" parent="." instance=ExtResource("5_4254d")]
 position = Vector2(593, 576)
-collision_layer = 0
-collision_mask = 128
+slide_on_ceiling = false
 
 [node name="Camera2D" type="Camera2D" parent="Sola2"]
 zoom = Vector2(2, 2)

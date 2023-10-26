@@ -41,7 +41,6 @@ position = Vector2(42, 349)
 
 [node name="Sola" parent="." instance=ExtResource("3_v5u6r")]
 position = Vector2(43, 347)
-collision_mask = 128
 
 [node name="Camera2D" type="Camera2D" parent="Sola"]
 zoom = Vector2(2, 2)
@@ -152,6 +151,7 @@ position = Vector2(688, 347)
 position = Vector2(576, 267)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = -1

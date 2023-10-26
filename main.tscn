@@ -1,81 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=13 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="Script" path="res://main.gd" id="1_o3cul"]
-[ext_resource type="Script" path="res://mob.gd" id="2_gbiw1"]
-[ext_resource type="PackedScene" uid="uid://ctuaj5ssx71h4" path="res://mob2.tscn" id="3_31tss"]
-[ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="3_ckhsh"]
-[ext_resource type="Texture2D" uid="uid://b3kixdkx34gbl" path="res://Mobs/Shadow_Sprite_2.png" id="4_uvriu"]
-[ext_resource type="Texture2D" uid="uid://cr4ntnwpu204y" path="res://Mobs/Shadow_Sprite_3.png" id="5_hnghc"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="5_qyuc4"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
-[ext_resource type="Texture2D" uid="uid://vbmeecq07j4h" path="res://Mobs/Shadow_Sprite_4.png" id="6_jbq76"]
-[ext_resource type="AudioStream" uid="uid://cdmim2qs3rttv" path="res://Mobs/mob1 death sound.mp3" id="7_5afuc"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
 [ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_6jyxg"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_v3ayi"]
-[ext_resource type="Texture2D" uid="uid://b4go82et8d2fg" path="res://Mobs/Shadow_Sprite_Death1.png" id="8_y6s8e"]
-[ext_resource type="Texture2D" uid="uid://rwygam71p72k" path="res://Mobs/Shadow_Sprite_Death3.png" id="9_3h687"]
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="9_fpfp6"]
-[ext_resource type="Texture2D" uid="uid://c3bm31qkjgaaf" path="res://Mobs/Shadow_Sprite_Death4.png" id="10_ds1j3"]
-[ext_resource type="Texture2D" uid="uid://bnfb2h7xp4oil" path="res://Mobs/Shadow_Sprite_Death5.png" id="11_4sd8x"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mhvt5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_ckhsh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_uvriu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_hnghc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_jbq76")
-}],
-"loop": true,
-"name": &"move",
-"speed": 4.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
-radius = 31.0
-height = 76.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_85e77"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_y6s8e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_3h687")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_ds1j3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_4sd8x")
-}],
-"loop": true,
-"name": &"death",
-"speed": 3.0
-}]
-
-[sub_resource type="PackedScene" id="PackedScene_tbamc"]
-_bundled = {
-"conn_count": 2,
-"conns": PackedInt32Array(0, 0, 26, 25, 2, 0, 0, 3, 0, 28, 27, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Mob", "collision_layer", "collision_mask", "gravity_scale", "max_contacts_reported", "contact_monitor", "script", "mobs", "RigidBody2D", "AnimatedSprite2D", "position", "scale", "sprite_frames", "animation", "CollisionShape2D", "rotation", "shape", "VisibleOnScreenNotifier2D", "Area2D", "Death", "stream", "AudioStreamPlayer", "Shadow1_DeathSprite", "skew", "speed_scale", "_on_body_entered", "body_entered", "_on_visible_on_screen_notifier_2d_screen_exited", "screen_exited"),
-"node_count": 7,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 8, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 1, 7, 0, 0, 9, 9, -1, 4, 10, 6, 11, 7, 12, 8, 13, 9, 0, 0, 0, 14, 14, -1, 3, 10, 10, 15, 11, 16, 12, 0, 0, 0, 17, 17, -1, 1, 10, 13, 0, 0, 0, 18, 18, -1, 0, 0, 0, 0, 21, 19, -1, 1, 20, 14, 0, 0, 0, 9, 22, -1, 6, 10, 15, 11, 16, 23, 17, 12, 18, 13, 19, 24, 20, 0),
-"variants": [2, 0, 0.0, 1, true, ExtResource("2_gbiw1"), Vector2(0.28, 0), Vector2(0.025, 0.025), SubResource("SpriteFrames_mhvt5"), &"move", Vector2(3, 0), 1.5708, SubResource("CapsuleShape2D_tk2hs"), Vector2(0, 1), ExtResource("7_5afuc"), Vector2(5.96046e-08, 2.5), Vector2(0.0793527, 0.0791667), 0.349066, SubResource("SpriteFrames_85e77"), &"death", 10.0],
-"version": 3
-}
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
@@ -94,8 +26,6 @@ size = Vector2(1146, 66.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
-mob_scene = SubResource("PackedScene_tbamc")
-mob2_scene = ExtResource("3_31tss")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.458824, 0, 0, 1)
@@ -146,7 +76,6 @@ position = Vector2(579, 346)
 
 [node name="Sola2" parent="." instance=ExtResource("1_6hoop")]
 position = Vector2(578, 346)
-collision_mask = 128
 
 [node name="Camera2D" type="Camera2D" parent="Sola2"]
 zoom = Vector2(2, 2)

@@ -1,6 +1,6 @@
-res://main.tscn
-res://main.gd
 res://level_2.tscn
+res://main.gd
+res://main.tscn
 res://next_level.tscn
 res://Player/sola.tscn
 res://gameover.tscn
@@ -10,3 +10,5 @@ res://mob.tscn
 res://mob2.tscn
 res://tutorial.tscn
 res://Lamp.tscn
+res://level_2.gd
+res://Player/sola.gd

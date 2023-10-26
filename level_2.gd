@@ -18,17 +18,17 @@ func _ready():
 	$HUD.update_health(health)
 	
 	rand_num = randi() % 4 + 1
-	$Lamps/Lamp/LampLight.hide()
-	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp2/LampLight.hide()
-	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp3/LampLight.hide()
-	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp4/LampLight.hide()
-	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp/LampLight.hide()
+#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp2/LampLight.hide()
+#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp3/LampLight.hide()
+#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp4/LampLight.hide()
+#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
-	print(health)
+#	print(health)
 	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
@@ -87,14 +87,14 @@ func _on_score_timer_timeout():
 	pass # Replace with function body.
 
 func _on_light_timer_timeout():
-	$Lamps/Lamp/LampLight.hide()
-	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp2/LampLight.hide()
-	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp3/LampLight.hide()
-	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp4/LampLight.hide()
-	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp/LampLight.hide()
+#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp2/LampLight.hide()
+#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp3/LampLight.hide()
+#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp4/LampLight.hide()
+#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
 	if rand_num == 1:
 		$Lamps/Lamp/LampLight.show()
