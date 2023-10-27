@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bil714p7qk0ja"]
+[gd_scene load_steps=15 format=3 uid="uid://bil714p7qk0ja"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_xk86s"]
 [ext_resource type="Texture2D" uid="uid://mn1ox4q6vml8" path="res://Mobs/Shadow_Sprite_1.png" id="2_xf2lx"]
@@ -55,9 +55,14 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6upc8"]
+radius = 337.013
+
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
+position = Vector2(-21, 0)
 collision_layer = 2
 collision_mask = 4
+center_of_mass_mode = 1
 gravity_scale = 0.0
 max_contacts_reported = 100
 contact_monitor = true
@@ -65,12 +70,12 @@ script = ExtResource("1_xk86s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.28, 0)
-scale = Vector2(0.025, 0.025)
+scale = Vector2(-0.025, 0.025)
 sprite_frames = SubResource("SpriteFrames_mhvt5")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
+position = Vector2(-3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tk2hs")
 
@@ -84,11 +89,20 @@ stream = ExtResource("6_ecxim")
 
 [node name="Shadow1_DeathSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.96046e-08, 2.5)
-scale = Vector2(0.0793527, 0.0791667)
+scale = Vector2(-0.079, 0.079)
 skew = 0.349066
 sprite_frames = SubResource("SpriteFrames_85e77")
 animation = &"death"
 speed_scale = 10.0
 
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+position = Vector2(-18, 3)
+shape = SubResource("CircleShape2D_6upc8")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

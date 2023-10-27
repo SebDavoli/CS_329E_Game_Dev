@@ -122,12 +122,12 @@ collision_layer = 201
 collision_mask = 255
 
 [node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-14.5, 0)
+position = Vector2(-15, -9)
 scale = Vector2(1.43625, 0.193878)
 texture = ExtResource("6_p3psq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-14, -0.25)
+position = Vector2(-14, -11)
 shape = SubResource("RectangleShape2D_8keqv")
 
 [node name="Fence2" type="StaticBody2D" parent="."]
@@ -141,7 +141,7 @@ scale = Vector2(1.43625, 0.193878)
 texture = ExtResource("6_p3psq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
-position = Vector2(-14, -0.25)
+position = Vector2(-13, -5)
 shape = SubResource("RectangleShape2D_8keqv")
 
 [node name="Level_1" type="StaticBody2D" parent="."]
@@ -152,16 +152,18 @@ position = Vector2(1132, 324.75)
 shape = SubResource("RectangleShape2D_xf3eh")
 
 [node name="Mob" parent="." instance=ExtResource("7_vb6ay")]
-position = Vector2(688, 347)
+position = Vector2(674, 328)
+scale = Vector2(-1, -1)
 
 [node name="Lamps" type="Node" parent="."]
 
 [node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
-position = Vector2(576, 267)
+position = Vector2(575, 278)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_right = 0.973958
 anchor_bottom = 0.936728
@@ -171,10 +173,11 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="CanvasLayer"]
-offset_left = 295.0
-offset_top = 169.0
-offset_right = 863.0
-offset_bottom = 450.0
+visible = false
+offset_left = 281.0
+offset_top = 172.0
+offset_right = 849.0
+offset_bottom = 453.0
 theme_override_font_sizes/font_size = 50
 text = "Where Am I..?"
 horizontal_alignment = 1

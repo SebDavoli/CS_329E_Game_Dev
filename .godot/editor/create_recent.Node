@@ -1,5 +1,6 @@
-AudioStreamPlayer
 CollisionShape2D
+Area2D
+AudioStreamPlayer
 Sprite2D
 StaticBody2D
 Timer
@@ -12,7 +13,6 @@ CanvasLayer
 AnimatedSprite2D
 Node
 RigidBody2D
-Area2D
 VisibleOnScreenNotifier2D
 Mob
 AudioStreamPlayer2D
