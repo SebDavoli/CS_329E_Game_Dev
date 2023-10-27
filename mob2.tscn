@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctuaj5ssx71h4"]
+[gd_scene load_steps=15 format=3 uid="uid://ctuaj5ssx71h4"]
 
 [ext_resource type="Script" path="res://mob2.gd" id="1_fphxi"]
 [ext_resource type="Texture2D" uid="uid://mxtuquw688ak" path="res://Mobs/shadow2_sprite1.png" id="2_qtvhm"]
@@ -58,6 +58,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cb3b2"]
+radius = 267.0
+
 [node name="Mob2" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
 collision_mask = 4
@@ -68,7 +71,7 @@ script = ExtResource("1_fphxi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.375, 7.78124)
-scale = Vector2(0.302315, 0.356163)
+scale = Vector2(-0.302, 0.331)
 sprite_frames = SubResource("SpriteFrames_4ibi8")
 animation = &"move2"
 frame = 2
@@ -89,11 +92,18 @@ pitch_scale = 1.1
 
 [node name="Shadow2_DeathSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.96875, 8)
-scale = Vector2(0.31536, 0.350601)
+scale = Vector2(-0.315, 0.351)
 sprite_frames = SubResource("SpriteFrames_fi6ui")
 animation = &"death2"
 speed_scale = 7.0
 
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_cb3b2")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="finished" from="Death2" to="." method="_on_death_2_finished"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

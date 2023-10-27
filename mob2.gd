@@ -2,6 +2,9 @@ class_name Mob2
 extends RigidBody2D
 @export var mob2_scene: PackedScene
 var dead = false
+var player = null
+var player_chase = false
+var speed = 125
 
 func _ready():
 	# Beginning mob animation
@@ -10,6 +13,13 @@ func _ready():
 	$Shadow2_DeathSprite.visible = false
 	
 func _physics_process(delta):
+	# NEED TO FIX WHEN DIRECTLY ON TOP OF SOLA-> ADD IF STATEMENT FOR ABS VALUE OF VECTOR
+	if player_chase:
+		print("chase")
+		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
+		linear_velocity = dir_vector/dir_vector.length()*speed
+		look_at(player.position)
+		
 	# Checking death condition each loop
 	if dead == true:
 		
@@ -42,6 +52,10 @@ func death():
 
 
 
+func _on_detection_area_body_entered(body):
+	player = body
+	player_chase = true 
 
-func _on_death_2_finished():
-	pass # Replace with function body.
+
+func _on_detection_area_body_exited(body):
+	player_chase = false

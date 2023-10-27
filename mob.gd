@@ -18,10 +18,7 @@ func _physics_process(delta):
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
 		linear_velocity = dir_vector/dir_vector.length()*speed
 		look_at(player.position)
-		
-		
-	
-	
+
 	# Checking death condition each loop
 	if dead == true:
 		$AnimatedSprite2D.stop()
