@@ -4,7 +4,8 @@ extends RigidBody2D
 var dead = false
 var player = null
 var player_chase = false
-var speed = 125
+var speed = 150
+var x = 0.0
 
 func _ready():
 	# Beginning mob animation
@@ -15,17 +16,26 @@ func _ready():
 func _physics_process(delta):
 	# NEED TO FIX WHEN DIRECTLY ON TOP OF SOLA-> ADD IF STATEMENT FOR ABS VALUE OF VECTOR
 	if player_chase:
-		print("chase")
-		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
-		linear_velocity = dir_vector/dir_vector.length()*speed
 		look_at(player.position)
+		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
+		var vector_to_sola = dir_vector/dir_vector.length() #normalized
 		
+		if dir_vector.length() > 175:
+			# MOVEMENT AND DIRECTION CODE
+			linear_velocity = Vector2(vector_to_sola.x,vector_to_sola.y)*speed
+			
+		else:
+			linear_velocity = Vector2(vector_to_sola.y,-vector_to_sola.x)*speed + Vector2(vector_to_sola.x,vector_to_sola.y)*0.5*speed
+			
 	# Checking death condition each loop
 	if dead == true:
 		
 		$AnimatedSprite2D.stop()
 		$Shadow2_DeathSprite.play("death2")
 		death()
+	
+	# ADJUSTING X VALUE FOR FUNCTION
+	x += 0.1
 
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):

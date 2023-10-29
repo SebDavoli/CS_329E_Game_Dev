@@ -79,7 +79,7 @@ func _on_mob_timer_timeout():
 	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
 	
-	if num_mob1 < 11: # SPAWNING MOB TYPE 1
+	if num_mob1 > 11: # SPAWNING MOB TYPE 1
 		num_mob1 += 1
 		var mob = preload("res://mob.tscn").instantiate()
 		mob.position = mob_spawn_location.position
@@ -91,7 +91,7 @@ func _on_mob_timer_timeout():
 		add_child(mob)
 		
 		
-	if num_mob1 > 10: # SPAWNS MOB TYPE 2
+	if num_mob1 < 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1
 		print("mob2 spawning")
 		var mob2 = preload("res://mob2.tscn").instantiate()

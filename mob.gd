@@ -14,10 +14,13 @@ func _ready():
 
 func _physics_process(delta):
 	if player_chase:
-		print("chase")
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
-		linear_velocity = dir_vector/dir_vector.length()*speed
-		look_at(player.position)
+		if dir_vector.length() > 50:
+			# MOVEMENT AND DIRECTION CODE
+			linear_velocity = dir_vector/dir_vector.length()*speed
+			look_at(player.position)
+		else:
+			linear_velocity = Vector2(0,0)
 
 	# Checking death condition each loop
 	if dead == true:

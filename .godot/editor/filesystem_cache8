@@ -1,42 +1,42 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698365589
+::res://::1698598733
 Controls.png::CompressedTexture2D::1098912331981767048::1697567025::1697567053::1::::<><>::
 export_presets.cfg::TextFile::-1::1698091581::0::1::::<><>::
 gameover.gd::GDScript::-1::1698365567::0::1::::<>Node2D<>::
-gameover.tscn::PackedScene::4749030520510630030::1698365567::0::1::::<><>::res://gameover.gd<>uid://kvcl14ym71rg::::res://Music/Scream.mp3
+gameover.tscn::PackedScene::4749030520510630030::1698365567::0::1::::<><>::res://gameover.gd<>uid://kvcl14ym71rg
 hud.gd::GDScript::-1::1698263811::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::679194764480754130::1698365564::0::1::::<><>::res://hud.gd<>uid://b3nicyjcbp5yu::::res://Art/Health Bar (100).png
+hud.tscn::PackedScene::679194764480754130::1698369812::0::1::::<><>::res://hud.gd<>uid://b3nicyjcbp5yu::::res://Art/Health Bar (100).png
 icon.svg::CompressedTexture2D::2647420694813879781::1695664444::1697923381::1::::<><>::
 Lamp.gd::GDScript::-1::1696998111::0::1::::<>StaticBody2D<>::
 Lamp.png::CompressedTexture2D::8950208818264057160::1696998111::1696998111::1::::<><>::
-Lamp.tscn::PackedScene::5937864347751711784::1698365567::0::1::::<><>::res://Lamp.gd<>uid://d0rsvqehbxr73::::res://Lamp.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
+Lamp.tscn::PackedScene::5937864347751711784::1698369812::0::1::::<><>::res://Lamp.gd<>uid://d0rsvqehbxr73::::res://Lamp.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
 Lamp_Light.png::CompressedTexture2D::2507686489649581228::1696998111::1696998111::1::::<><>::
 level_2.gd::GDScript::-1::1698365567::0::1::::<>Node2D<>::
-level_2.tscn::PackedScene::2408622564073955088::1698365567::0::1::::<><>::uid://dm2524dbdvbj::::res://Music/spooky.mp3<>res://level_2.gd<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://c8ganhjcqgrfd::::res://Art/Level 2.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
+level_2.tscn::PackedScene::2408622564073955088::1698369812::0::1::::<><>::uid://dm2524dbdvbj::::res://Music/spooky.mp3<>res://level_2.gd<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://c8ganhjcqgrfd::::res://Art/Level 2.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
 LightBeam.gd::GDScript::-1::1696370900::0::1::::Light<>RigidBody2D<>::
-light_beam.tscn::PackedScene::7323354227231057052::1697661953::0::1::::<><>::res://LightBeam.gd<>uid://b8ghanc82ywtw::::res://Projectiles/LightBeam1.png<>uid://2esnkmox6t06::::res://Projectiles/LightBeam2.png<>uid://be4jhmk1vsoin::::res://Projectiles/LightBeam3.png
+light_beam.tscn::PackedScene::7323354227231057052::1697661953::0::1::::<><>::res://LightBeam.gd<>uid://b8ghanc82ywtw
 light_drift.gd::GDScript::-1::1696998111::0::1::::<>RigidBody2D<>::
 light_drift.tscn::PackedScene::4447588260694960241::1696998111::0::1::::<><>::
 Light_Drift_1.png::CompressedTexture2D::4588189326774240948::1696998111::1696998111::1::::<><>::
 Light_Drift_2.png::CompressedTexture2D::5631299686030682805::1696998111::1696998111::1::::<><>::
 Light_Drift_3.png::CompressedTexture2D::5581649937173906193::1696998111::1696998111::1::::<><>::
-main.gd::GDScript::-1::1698365567::0::1::::<>Node2D<>::
-main.tscn::PackedScene::2382701061889139251::1698365567::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
-mob2.gd::GDScript::-1::1697938906::0::1::::Mob2<>RigidBody2D<>::
-mob2.tscn::PackedScene::6147734628092002211::1698365567::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
-mob.gd::GDScript::-1::1698365564::0::1::::Mob<>RigidBody2D<>::
-mob.tscn::PackedScene::2972630510327029414::1698365567::0::1::::<><>::res://mob.gd<>uid://mn1ox4q6vml8::::res://Mobs/Shadow_Sprite_1.png<>uid://b3kixdkx34gbl::::res://Mobs/Shadow_Sprite_2.png<>uid://cr4ntnwpu204y::::res://Mobs/Shadow_Sprite_3.png<>uid://vbmeecq07j4h::::res://Mobs/Shadow_Sprite_4.png<>uid://cdmim2qs3rttv::::res://Mobs/mob1 death sound.mp3<>uid://b4go82et8d2fg::::res://Mobs/Shadow_Sprite_Death1.png<>uid://rwygam71p72k::::res://Mobs/Shadow_Sprite_Death3.png<>uid://c3bm31qkjgaaf::::res://Mobs/Shadow_Sprite_Death4.png<>uid://bnfb2h7xp4oil::::res://Mobs/Shadow_Sprite_Death5.png
+main.gd::GDScript::-1::1698365601::0::1::::<>Node2D<>::
+main.tscn::PackedScene::2382701061889139251::1698369812::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
+mob2.gd::GDScript::-1::1698370052::0::1::::Mob2<>RigidBody2D<>::
+mob2.tscn::PackedScene::6147734628092002211::1698370052::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
+mob.gd::GDScript::-1::1698369573::0::1::::Mob<>RigidBody2D<>::
+mob.tscn::PackedScene::2972630510327029414::1698369812::0::1::::<><>::res://mob.gd<>uid://mn1ox4q6vml8::::res://Mobs/Shadow_Sprite_1.png<>uid://b3kixdkx34gbl::::res://Mobs/Shadow_Sprite_2.png<>uid://cr4ntnwpu204y::::res://Mobs/Shadow_Sprite_3.png<>uid://vbmeecq07j4h::::res://Mobs/Shadow_Sprite_4.png<>uid://cdmim2qs3rttv::::res://Mobs/mob1 death sound.mp3<>uid://b4go82et8d2fg::::res://Mobs/Shadow_Sprite_Death1.png<>uid://rwygam71p72k::::res://Mobs/Shadow_Sprite_Death3.png<>uid://c3bm31qkjgaaf::::res://Mobs/Shadow_Sprite_Death4.png<>uid://bnfb2h7xp4oil::::res://Mobs/Shadow_Sprite_Death5.png
 next_level.gd::GDScript::-1::1697567025::0::1::::<>StaticBody2D<>::
-next_level.tscn::PackedScene::8948091673959437109::1698365564::0::1::::<><>::res://next_level.gd
+next_level.tscn::PackedScene::8948091673959437109::1698369813::0::1::::<><>::res://next_level.gd
 README.md::TextFile::-1::1696998111::0::1::::<><>::
-temp_bg.tscn::PackedScene::4456451492494361741::1696998111::0::1::::<><>::uid://daifkqmqa4jn3::::res://Tilesets/Dungeon_A4.png<>uid://bbnidcrkbkrkc::::res://Tilesets/Outside_A5.png<>uid://djas0qhax3w7b::::res://Tilesets/Outside_B.png<>uid://hqytw1q4q65r::::res://Tilesets/SF_Outside_B.png<>uid://dctntn5obec81::::res://Tilesets/SF_Outside_C.png
+temp_bg.tscn::PackedScene::4456451492494361741::1696998111::0::1::::<><>::uid://daifkqmqa4jn3
 title.gd::GDScript::-1::1698091042::0::1::::<>Node2D<>::
-title.tscn::PackedScene::2373477297560871150::1698091042::0::1::::<><>::res://title.gd<>uid://dgmn7b62yt4yr::::res://Art/Speedway Survival Title Screen.png
+title.tscn::PackedScene::2373477297560871150::1698091042::0::1::::<><>::res://title.gd<>uid://dgmn7b62yt4yr
 tutorial.gd::GDScript::-1::1698365567::0::1::::<>Node2D<>::
-tutorial.tscn::PackedScene::7074721285597518703::1698365567::0::1::::<><>::res://tutorial.gd<>uid://pwk6p688pcxk::::res://Controls.png<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://cajxb1xexrt0d::::res://Art/fence.png<>uid://bil714p7qk0ja::::res://mob.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://daf3o3d5c5sjl::::res://Art/Flashlight.png
+tutorial.tscn::PackedScene::7074721285597518703::1698369812::0::1::::<><>::res://tutorial.gd<>uid://pwk6p688pcxk::::res://Controls.png<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://dm2524dbdvbj::::res://Music/spooky.mp3<>uid://cajxb1xexrt0d::::res://Art/fence.png<>uid://bil714p7qk0ja::::res://mob.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://daf3o3d5c5sjl::::res://Art/Flashlight.png
 win.gd::GDScript::-1::1698365567::0::1::::<>Node2D<>::
-win.tscn::PackedScene::3538552104095850922::1698365568::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3
-::res://Art/::1698365567
+win.tscn::PackedScene::3538552104095850922::1698369813::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3
+::res://Art/::1698365592
 Controls.png::CompressedTexture2D::6495578721396587691::1697055846::1696998111::1::::<><>::
 fence.png::CompressedTexture2D::4792820445151047385::1697567025::1697567053::1::::<><>::
 Flashlight.png::CompressedTexture2D::7171310493416884501::1698365567::1698365592::1::::<><>::
@@ -88,15 +88,15 @@ Shadow_Sprite_Death3.png::CompressedTexture2D::1240094595052648888::1697923534::
 Shadow_Sprite_Death4.png::CompressedTexture2D::6740973363938294789::1697924439::1697924440::1::::<><>::
 Shadow_Sprite_Death5.png::CompressedTexture2D::3309306891349427979::1697931564::1697931569::1::::<><>::
 Shadow_Sprite_Sheet.png::CompressedTexture2D::6808961804407970023::1695664444::1696370898::1::::<><>::
-::res://Music/::1698365567
+::res://Music/::1698365592
 Clear.mp3::AudioStreamMP3::4869325269835673293::1698365567::1698365592::1::::<><>::
 monster.mp3::AudioStreamMP3::5501577681693754926::1696998111::1696998111::1::::<><>::
 Scream.mp3::AudioStreamMP3::745382858448272304::1698365567::1698365592::1::::<><>::
 shoot.mp3::AudioStreamMP3::1353791810064275366::1696998111::1696998111::1::::<><>::
 spooky.mp3::AudioStreamMP3::237033459652222663::1696370900::1698365567::1::::<><>::
-::res://Player/::1698365567
+::res://Player/::1698369812
 sola.gd::GDScript::-1::1698365567::0::1::::<>CharacterBody2D<>::
-sola.tscn::PackedScene::2044174511933532992::1698365567::0::1::::<><>::uid://d18dfge07gftp::::res://Player/Sola_Walk_Frames/S_Walk_02.png<>uid://dl6uhr7fxaokw::::res://Player/Sola_Walk_Frames/S_Walk_03.png<>res://Player/sola.gd<>uid://dhupgthp4rmal::::res://Player/Sola_Walk_Frames/S_Walk_04.png<>uid://ct6xw2vd4ejcg::::res://Player/Sola_Walk_Frames/S_Walk_01.png<>uid://cxlsblnnt20i2::::res://Player/Sola_Walk_Frames/S_Walk_05.png<>uid://dvqx44o5cir4v::::res://Player/Sola_Walk_Frames/S_Walk_06.png<>uid://c6ad3xrqqmp3m::::res://Player/Sola_Walk_Frames/S_Walk_11.png<>uid://biifl776cmjfl::::res://Player/Sola_Walk_Frames/S_Walk_12.png<>uid://do3xaov0t3dc::::res://Player/Sola_Walk_Frames/S_Walk_10.png<>uid://tj10u3rbh2gg::::res://Music/shoot.mp3<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
+sola.tscn::PackedScene::2044174511933532992::1698369812::0::1::::<><>::uid://d18dfge07gftp::::res://Player/Sola_Walk_Frames/S_Walk_02.png<>uid://dl6uhr7fxaokw::::res://Player/Sola_Walk_Frames/S_Walk_03.png<>res://Player/sola.gd<>uid://dhupgthp4rmal::::res://Player/Sola_Walk_Frames/S_Walk_04.png<>uid://ct6xw2vd4ejcg::::res://Player/Sola_Walk_Frames/S_Walk_01.png<>uid://cxlsblnnt20i2::::res://Player/Sola_Walk_Frames/S_Walk_05.png<>uid://dvqx44o5cir4v::::res://Player/Sola_Walk_Frames/S_Walk_06.png<>uid://c6ad3xrqqmp3m::::res://Player/Sola_Walk_Frames/S_Walk_11.png<>uid://biifl776cmjfl::::res://Player/Sola_Walk_Frames/S_Walk_12.png<>uid://do3xaov0t3dc::::res://Player/Sola_Walk_Frames/S_Walk_10.png<>uid://tj10u3rbh2gg::::res://Music/shoot.mp3<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
 ::res://Player/Sola_Battler_Frames/::1696370899
 S_Battler_01.png::CompressedTexture2D::6226738283113845370::1695664444::1696370898::1::::<><>::
 S_Battler_02.png::CompressedTexture2D::6804165601576706127::1695664444::1696370898::1::::<><>::
