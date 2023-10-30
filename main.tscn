@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://87g0ds8r8t20"]
+[gd_scene load_steps=14 format=3 uid="uid://87g0ds8r8t20"]
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="Script" path="res://main.gd" id="1_o3cul"]
+[ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="3_p0as5"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="5_qyuc4"]
 [ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
@@ -164,6 +165,8 @@ position = Vector2(819, 163)
 
 [node name="Lamp8" parent="Lamps" instance=ExtResource("8_v3ayi")]
 position = Vector2(1018, 160)
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_p0as5")]
 
 [node name="Next_Level" parent="." instance=ExtResource("8_6jyxg")]
 position = Vector2(591, 0)

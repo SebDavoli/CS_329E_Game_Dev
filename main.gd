@@ -40,6 +40,8 @@ func _ready():
 	$Lamps/Lamp8/LampLight.hide()
 	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
+	$DialogueBox.load_dialogue(["What was that?!", "If this torch runs out, I should find a place to recharge it...", "Whatever mysterious energy turns on the lamps may do the same for my flashlight!"])
+	
 func _process(delta):
 	print($Sola/FlashLight/CollisionPolygon2D.disabled)
 	print($FlashTimer.get_time_left())

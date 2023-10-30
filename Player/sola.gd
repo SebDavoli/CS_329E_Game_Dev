@@ -8,6 +8,7 @@ var camera: Camera2D
 var beam_speed = 1000
 var beam = preload("res://light_beam.tscn")
 var drift = preload("res://light_drift.tscn")
+var movement_disabled = false
 
 # Movement limits (add as many as you want Team 10):
 var y_max = 400
@@ -26,6 +27,9 @@ func _process(delta):
 #	camera.zoom *= new_viewport_size / viewport_size
 	viewport_size = new_viewport_size
 	
+	if movement_disabled:
+		return
+		
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
