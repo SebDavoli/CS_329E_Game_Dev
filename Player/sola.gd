@@ -91,6 +91,9 @@ func _on_body_entered(body):
 		get_tree().change_scene_to_file("res://level_2.tscn")
 	if body.get_name() == "Level_3":
 		get_tree().call_group("mobs", "queue_free")
+		get_tree().change_scene_to_file("res://level_3.tscn")
+	if body.get_name() == "Ending":
+		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://win.tscn")
 
 func start(pos):

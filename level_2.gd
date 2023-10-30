@@ -2,7 +2,8 @@ extends Node2D
 var health
 var num_mob1 = 0
 var num_mob2 = 0
-var rand_num
+var rand_num1
+var rand_num2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +18,8 @@ func _ready():
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
 	
-	rand_num = randi() % 4 + 1
+	rand_num1 = randi() % 6 + 1
+	rand_num2 = randi() % 6 + 1
 	$Lamps/Lamp/LampLight.hide()
 	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp2/LampLight.hide()
@@ -26,6 +28,10 @@ func _ready():
 	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp4/LampLight.hide()
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp5/LampLight.hide()
+	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp6/LampLight.hide()
+	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
 	
 func _process(delta):
 #	print($Sola/FlashLight/CollisionPolygon2D.disabled)
@@ -33,15 +39,9 @@ func _process(delta):
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 
-	if num_mob2 == 11:
+	if num_mob2 == 22:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
-
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-	$BGM.stop()
-	$HUD.show_game_over()
 	
 func change_health():
 	health = health - 20
@@ -50,7 +50,6 @@ func change_health():
 		get_tree().change_scene_to_file("res://gameover.tscn")
 #		$Sola.hide()
 #		$Sola/CollisionShape2D.set_deferred("disabled",true)
-#		game_over()
 
 func _on_mob_timer_timeout():
 	# Identifying mob spawn location
@@ -99,21 +98,31 @@ func _on_light_timer_timeout():
 	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp4/LampLight.hide()
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp5/LampLight.hide()
+	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+	$Lamps/Lamp6/LampLight.hide()
+	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
 	
-	if rand_num == 1:
+	if rand_num1 == 1 or rand_num2 == 1:
 		$Lamps/Lamp/LampLight.show()
 		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
-		
-	elif rand_num == 2:
+	if rand_num1 == 2 or rand_num2 == 2:
 		$Lamps/Lamp2/LampLight.show()
 		$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = false
-	elif rand_num == 3:
+	if rand_num1 == 3 or rand_num2 == 3:
 		$Lamps/Lamp3/LampLight.show()
 		$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = false
-	elif rand_num == 4:
+	if rand_num1 == 4 or rand_num2 == 4:
 		$Lamps/Lamp4/LampLight.show()
 		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
-	rand_num = randi() % 4 + 1
+	if rand_num1 == 5 or rand_num2 == 5:
+		$Lamps/Lamp5/LampLight.show()
+		$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = false
+	if rand_num1 == 6 or rand_num2 == 6:
+		$Lamps/Lamp6/LampLight.show()
+		$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = false
+	rand_num1 = randi() % 6 + 1
+	rand_num2 = randi() % 6 + 1
 
 func _on_flash_timer_timeout():
 	print("Flahslight off")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8wp3rxn0ub47"]
+[gd_scene load_steps=4 format=3 uid="uid://b8wp3rxn0ub47"]
 
 [ext_resource type="Script" path="res://gameover.gd" id="1_7dxrh"]
 [ext_resource type="AudioStream" uid="uid://kvcl14ym71rg" path="res://Music/Scream.mp3" id="2_3al6y"]
+[ext_resource type="Texture2D" uid="uid://di24ylngooh6y" path="res://Player/Sola_Cutout.png" id="3_4auq4"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7dxrh")
@@ -10,14 +11,6 @@ script = ExtResource("1_7dxrh")
 offset_right = 1153.0
 offset_bottom = 649.0
 color = Color(0.490196, 0, 0.0392157, 1)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 144.0
-offset_top = 98.0
-offset_right = 1010.0
-offset_bottom = 308.0
-theme_override_font_sizes/font_size = 151
-text = "GAME OVER"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0
@@ -28,5 +21,18 @@ text = "Retry"
 
 [node name="Scream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3al6y")
+
+[node name="SolaCutout" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(636, 669)
+texture = ExtResource("3_4auq4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 98.0
+offset_right = 1010.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 151
+text = "GAME OVER"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

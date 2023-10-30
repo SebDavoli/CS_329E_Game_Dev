@@ -48,15 +48,9 @@ func _process(delta):
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 	
-	if num_mob1 == 11:
+	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
-	
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-	$BGM.stop()
-	$HUD.show_game_over()
 	
 func new_game():
 	pass
@@ -70,7 +64,6 @@ func change_health():
 		get_tree().change_scene_to_file("res://gameover.tscn")
 #		$Sola.hide()
 #		$Sola/CollisionShape2D.set_deferred("disabled",true)
-#		game_over()
 
 func _on_mob_timer_timeout():
 	# Identifying mob spawn location

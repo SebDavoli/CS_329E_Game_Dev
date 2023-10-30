@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvgg1pfn3qigb"]
+
+[ext_resource type="Script" path="res://level_3.gd" id="1_7wba6"]
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="2_1sulp"]
+[ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="2_t6l3g"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="3_0jtv5"]
+[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="3_faqr0"]
+[ext_resource type="Texture2D" uid="uid://ddjldoc4ddrn3" path="res://Art/Level3.png" id="4_8ql2y"]
+[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="7_sldyv"]
+
+[sub_resource type="Curve2D" id="Curve2D_7uqmh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -1.0043, 630.468, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3dsl"]
+size = Vector2(38.425, 4.68748)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he0e4"]
+size = Vector2(57.6, 2.85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3br3v"]
+size = Vector2(1146, 66.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr40y"]
+size = Vector2(1170, 88)
+
+[node name="Level_3" type="Node2D"]
+script = ExtResource("1_7wba6")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MobPath" type="Path2D" parent="."]
+position = Vector2(-2.99483, 8.2269)
+scale = Vector2(1.00086, 1.02269)
+curve = SubResource("Curve2D_7uqmh")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-3, -8)
+rotation = 0.00173611
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(39, 53)
+stream = ExtResource("2_t6l3g")
+
+[node name="HUD" parent="." instance=ExtResource("3_faqr0")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
+color = Color(0.176471, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("4_8ql2y")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(559, 559)
+
+[node name="Sola" parent="." instance=ExtResource("2_1sulp")]
+position = Vector2(593, 576)
+slide_on_ceiling = false
+
+[node name="Camera2D" type="Camera2D" parent="Sola"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1151
+limit_bottom = 652
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+
+[node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
+position = Vector2(798, -1008)
+scale = Vector2(25, 25)
+disable_mode = 1
+collision_layer = 64
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-34.56, 53.32)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_g3dsl")
+
+[node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.12, 70.28)
+shape = SubResource("RectangleShape2D_he0e4")
+
+[node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-7.56, 36.16)
+shape = SubResource("RectangleShape2D_he0e4")
+
+[node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(16.76, 53.44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_g3dsl")
+
+[node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
+position = Vector2(38, -48)
+scale = Vector2(20, 20)
+disable_mode = 1
+collision_layer = 128
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-4.35, 18.25)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_g3dsl")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.85, 36.45)
+shape = SubResource("RectangleShape2D_he0e4")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.9, 0.85)
+shape = SubResource("RectangleShape2D_he0e4")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(58.05, 19)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_g3dsl")
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("3_0jtv5")]
+position = Vector2(91, 77)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("3_0jtv5")]
+position = Vector2(100, 504)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("3_0jtv5")]
+position = Vector2(1058, 85)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("3_0jtv5")]
+position = Vector2(1062, 511)
+
+[node name="Fence" type="StaticBody2D" parent="."]
+position = Vector2(588, 37)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence"]
+position = Vector2(-14.5, 0)
+scale = Vector2(1.43625, 0.193878)
+texture = ExtResource("7_sldyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
+position = Vector2(-14, -0.25)
+shape = SubResource("RectangleShape2D_3br3v")
+
+[node name="Ending" type="StaticBody2D" parent="."]
+position = Vector2(9, -39)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ending"]
+position = Vector2(573, 44)
+shape = SubResource("RectangleShape2D_kr40y")
+
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
+[connection signal="damage" from="Sola" to="." method="change_health"]
+[connection signal="light" from="Sola" to="." method="shine"]

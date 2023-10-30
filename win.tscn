@@ -29,4 +29,14 @@ text = "Retry"
 [node name="Clear" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_38mnv")
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 531.0
+offset_top = 294.0
+offset_right = 655.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 18
+text = "(for now)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
