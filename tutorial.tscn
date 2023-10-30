@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pwk6p688pcxk" path="res://Controls.png" id="2_1bdo1"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_jegm8"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="3_v5u6r"]
-[ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="5_ud1ku"]
+[ext_resource type="AudioStream" uid="uid://b265i1fma5bjt" path="res://Music/floor.mp3" id="4_26wdh"]
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="6_p3psq"]
 [ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://mob.tscn" id="7_vb6ay"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
@@ -114,7 +114,8 @@ shape = SubResource("RectangleShape2D_lxmxd")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
-stream = ExtResource("5_ud1ku")
+stream = ExtResource("4_26wdh")
+volume_db = -3.793
 
 [node name="Fence" type="StaticBody2D" parent="."]
 position = Vector2(586, 272)

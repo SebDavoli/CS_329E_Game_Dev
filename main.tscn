@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="1_6hoop"]
 [ext_resource type="Script" path="res://main.gd" id="1_o3cul"]
+[ext_resource type="AudioStream" uid="uid://bqbis5cue41lj" path="res://Music/floor+accent+melody.mp3" id="3_cafaq"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="5_qyuc4"]
-[ext_resource type="AudioStream" uid="uid://dm2524dbdvbj" path="res://Music/spooky.mp3" id="6_d2l6y"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="7_uhbq1"]
 [ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_6jyxg"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_v3ayi"]
@@ -67,7 +67,7 @@ rotation = 0.00173611
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
-stream = ExtResource("6_d2l6y")
+stream = ExtResource("3_cafaq")
 
 [node name="HUD" parent="." instance=ExtResource("7_uhbq1")]
 
