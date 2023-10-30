@@ -2,6 +2,7 @@ extends Node2D
 
 var timer= 2.5
 var count_down = false
+var initial_dialogue_loaded = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,8 @@ func _ready():
 	$Sola.camera = $Sola/Camera2D
 	$Sola.start($StartPosition.position)
 	$BGM.play()
+	$DialogueBox.hide_dialogue()
+	$Sola.movement_disabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,7 +27,13 @@ func _process(delta):
 	if timer <= 0:
 		$CanvasLayer/Fade.modulate.a -= 1*delta
 		$CanvasLayer/Message.modulate.a -= 1*delta
-		$CanvasLayer/Controls.modulate.a += 1*delta
+		if $DialogueBox.executing == -1:
+			if !initial_dialogue_loaded:
+				$DialogueBox.load_dialogue(["It's dark here, I should get moving...", "Is that a flashlight? It may protect me from what lies in darkness...", "The lamp light feels safe. Perhaps light will protect me..."])
+				initial_dialogue_loaded = true
+			else: 
+				$Sola.movement_disabled = false
+		
 
 func _on_flash_timer_timeout():
 	print("Flahslight off")
