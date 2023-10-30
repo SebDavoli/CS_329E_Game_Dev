@@ -46,15 +46,9 @@ func _process(delta):
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 	
-	if num_mob1 == 11:
+	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
-	
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-	$BGM.stop()
-	$HUD.show_game_over()
 	
 func new_game():
 	pass
@@ -68,7 +62,6 @@ func change_health():
 		get_tree().change_scene_to_file("res://gameover.tscn")
 #		$Sola.hide()
 #		$Sola/CollisionShape2D.set_deferred("disabled",true)
-#		game_over()
 
 func _on_mob_timer_timeout():
 	# Identifying mob spawn location
@@ -79,7 +72,7 @@ func _on_mob_timer_timeout():
 	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
 	
-	if num_mob1 > 11: # SPAWNING MOB TYPE 1
+	if num_mob1 < 11: # SPAWNING MOB TYPE 1
 		num_mob1 += 1
 		var mob = preload("res://mob.tscn").instantiate()
 		mob.position = mob_spawn_location.position
@@ -91,7 +84,7 @@ func _on_mob_timer_timeout():
 		add_child(mob)
 		
 		
-	if num_mob1 < 10: # SPAWNS MOB TYPE 2
+	if num_mob1 > 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1
 		print("mob2 spawning")
 		var mob2 = preload("res://mob2.tscn").instantiate()

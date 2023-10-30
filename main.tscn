@@ -45,7 +45,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 

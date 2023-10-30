@@ -34,7 +34,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -148,13 +148,19 @@ shape = SubResource("RectangleShape2D_gsct3")
 position = Vector2(228, 75)
 
 [node name="Lamp2" parent="Lamps" instance=ExtResource("6_drrrc")]
-position = Vector2(230, 408)
+position = Vector2(230, 448)
 
 [node name="Lamp3" parent="Lamps" instance=ExtResource("6_drrrc")]
 position = Vector2(911, 71)
 
 [node name="Lamp4" parent="Lamps" instance=ExtResource("6_drrrc")]
-position = Vector2(911, 415)
+position = Vector2(917, 450)
+
+[node name="Lamp5" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(232, 259)
+
+[node name="Lamp6" parent="Lamps" instance=ExtResource("6_drrrc")]
+position = Vector2(916, 261)
 
 [node name="Fence" type="StaticBody2D" parent="."]
 position = Vector2(588, 37)
