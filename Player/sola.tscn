@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=51 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://c6kg8blb3bitl" path="res://Player/Sola_Forward_Idle.png" id="2_ttlob"]
 [ext_resource type="Script" path="res://Player/sola.gd" id="2_wwx7e"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cp1ghh6tun7dg" path="res://Player/Forward/Sola_Forward_12.png" id="17_ufxvt"]
 [ext_resource type="Texture2D" uid="uid://duapwxr88g5tf" path="res://Player/Forward/Sola_Forward_13.png" id="18_68qg2"]
 [ext_resource type="Texture2D" uid="uid://4n3culh4cx7l" path="res://Player/Forward/Sola_Forward_14.png" id="19_4w5xk"]
-[ext_resource type="AudioStream" uid="uid://tj10u3rbh2gg" path="res://Music/shoot.mp3" id="19_yweb0"]
 [ext_resource type="Texture2D" uid="uid://ljato7ulgsi" path="res://Player/Forward/Sola_Forward_15.png" id="20_ehnse"]
 [ext_resource type="Texture2D" uid="uid://bby0h3aegyi4s" path="res://Lamp_Light.png" id="20_t262e"]
 [ext_resource type="Texture2D" uid="uid://cns33kru0csm1" path="res://Player/Forward/Sola_Forward_16.png" id="21_22ro1"]
@@ -235,7 +234,6 @@ frame_progress = 0.311141
 position = Vector2(125, 0)
 
 [node name="ShootEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_yweb0")
 
 [node name="FlashLight" type="StaticBody2D" parent="."]
 position = Vector2(125, 13)

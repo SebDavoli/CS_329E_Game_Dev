@@ -61,7 +61,7 @@ func death():
 		queue_free()
 
 
-
+# Mob detecting sola collision area
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true 
