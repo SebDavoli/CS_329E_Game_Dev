@@ -2,6 +2,7 @@ extends Node2D
 var health
 var num_mob1 = 0
 var num_mob2 = 0
+var num_mob3 = 0
 var rand_num1
 var rand_num2
 var rand_num3
@@ -88,7 +89,6 @@ func _on_mob_timer_timeout():
 		
 	if num_mob1 > 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1
-		print("mob2 spawning")
 		var mob2 = preload("res://mob2.tscn").instantiate()
 		mob2.position = mob_spawn_location.position
 		var mob2_pos = mob2.position
@@ -96,6 +96,20 @@ func _on_mob_timer_timeout():
 		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
+		
+		
+	if num_mob1 > 1: # SPAWNS MOB TYPE 3
+		num_mob3 += 1
+		print("mob3 spawning")
+		var mob3 = preload("res://mob3.tscn").instantiate()
+		mob3.position = mob_spawn_location.position
+		var mob3_pos = mob3.position
+		mob3.rotation = PI/2
+		var velocity3 = mob3_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
+		mob3.linear_velocity = velocity3
+		add_child(mob3)
+
+
 
 func _on_start_timer_timeout():
 	$MobTimer.start()

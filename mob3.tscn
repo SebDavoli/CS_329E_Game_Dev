@@ -24,28 +24,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_og0bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_og0bh")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"move3",
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14yo3"]
-radius = 24.0
-height = 110.0
+radius = 12.0
+height = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
 radius = 599.301
 
 [node name="Mob3" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+lock_rotation = true
 script = ExtResource("1_5te5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(-0.116, 0.111)
 sprite_frames = SubResource("SpriteFrames_ixymi")
+animation = &"move3"
+frame_progress = 0.615978
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 5)
+position = Vector2(-2, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_14yo3")
 
@@ -62,5 +70,6 @@ visible = false
 shape = SubResource("CircleShape2D_el7pf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

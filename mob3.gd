@@ -9,29 +9,22 @@ var x = 0.0
 
 func _ready():
 	# Beginning mob animation
-
-	$AnimatedSprite2D.play("move2")
+	$AnimatedSprite2D.play("move3")
 	$Squirrel_DeathSprite.visible = false
 	
 func _physics_process(delta):
-	# NEED TO FIX WHEN DIRECTLY ON TOP OF SOLA-> ADD IF STATEMENT FOR ABS VALUE OF VECTOR
 	if player_chase:
-		look_at(player.position)
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
-		var vector_to_sola = dir_vector/dir_vector.length() #normalized
-		
-		if dir_vector.length() > 175:
+		if dir_vector.length() > 30:
 			# MOVEMENT AND DIRECTION CODE
-			linear_velocity = Vector2(vector_to_sola.x,vector_to_sola.y)*speed
-			
+			linear_velocity = dir_vector/dir_vector.length()*speed
+			look_at(player.position)
 		else:
-			linear_velocity = Vector2(vector_to_sola.y,-vector_to_sola.x)*speed + Vector2(vector_to_sola.x,vector_to_sola.y)*0.5*speed
-			
+			linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
 	# Checking death condition each loop
 	if dead == true:
-		
 		$AnimatedSprite2D.stop()
-		$Squirrel_DeathSprite.play("death2")
+		$Shadow1_DeathSprite.play("death")
 		death()
 	
 	# ADJUSTING X VALUE FOR FUNCTION
@@ -69,3 +62,7 @@ func _on_detection_area_body_entered(body):
 
 func _on_detection_area_body_exited(body):
 	player_chase = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	pass # Replace with function body.
