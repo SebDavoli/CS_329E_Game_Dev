@@ -1,5 +1,9 @@
 CollisionShape2D
 Area2D
+AnimatedSprite2D
+AudioStreamPlayer2D
+VisibleOnScreenNotifier2D
+RigidBody2D
 AudioStreamPlayer
 Sprite2D
 StaticBody2D
@@ -10,10 +14,6 @@ ColorRect
 TextureRect
 AnimationPlayer
 CanvasLayer
-AnimatedSprite2D
 Node
-RigidBody2D
-VisibleOnScreenNotifier2D
 Mob
-AudioStreamPlayer2D
 Marker2D

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://3vfudbk317gl"]
+
+[ext_resource type="Script" path="res://mob3.gd" id="1_5te5o"]
+[ext_resource type="Texture2D" uid="uid://c1xhhgjnsnl71" path="res://Mobs/squirrel_sprite_1.png" id="2_re0my"]
+[ext_resource type="Texture2D" uid="uid://6qury2owq14w" path="res://Mobs/squirrel_sprite_2.png" id="3_nrgpp"]
+[ext_resource type="Texture2D" uid="uid://ccs70ke7k2sgt" path="res://Mobs/squirrel_sprite_3.png" id="4_g1ydj"]
+[ext_resource type="Texture2D" uid="uid://dlu6133qbg2dm" path="res://Mobs/squirrel_sprite_4.png" id="5_1wwmk"]
+[ext_resource type="Texture2D" uid="uid://cbdlv2swi841l" path="res://Mobs/squirrel_sprite_5.png" id="6_og0bh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixymi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_re0my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nrgpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g1ydj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1wwmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_og0bh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14yo3"]
+radius = 24.0
+height = 110.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
+radius = 599.301
+
+[node name="Mob3" type="RigidBody2D"]
+script = ExtResource("1_5te5o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ixymi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_14yo3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Death3" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Squirrel_DeathSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+shape = SubResource("CircleShape2D_el7pf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
