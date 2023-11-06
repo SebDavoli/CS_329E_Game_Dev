@@ -1,6 +1,9 @@
 res://main.tscn
 res://main.gd
+<<<<<<< Updated upstream
 res://mob3.gd
+=======
+>>>>>>> Stashed changes
 res://level_2.tscn
 res://level_3.tscn
 res://Player/sola.tscn
@@ -10,3 +13,11 @@ res://Lamp.tscn
 res://mob.tscn
 res://mob2.tscn
 res://mob3.tscn
+<<<<<<< Updated upstream
+=======
+res://mob.gd
+res://hud.tscn
+res://hud.gd
+res://level_2.gd
+res://level_3.gd
+>>>>>>> Stashed changes

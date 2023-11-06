@@ -1,3 +1,4 @@
+TextureRect
 CollisionShape2D
 Area2D
 AnimatedSprite2D
@@ -11,7 +12,6 @@ Timer
 Button
 Label
 ColorRect
-TextureRect
 AnimationPlayer
 CanvasLayer
 Node

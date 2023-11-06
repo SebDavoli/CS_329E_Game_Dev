@@ -36,6 +36,7 @@ func _on_body_entered(body):
 		$AnimatedSprite2D.visible = false
 		$Shadow1_DeathSprite.visible = true
 		dead = true
+		
 		$CollisionShape2D.set_deferred("disabled",true)
 		
 	if body.is_in_group("monster_bounds"):

@@ -20,7 +20,7 @@ size = Vector2(38.425, 4.68748)
 size = Vector2(57.6, 2.85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3br3v"]
-size = Vector2(1146, 66.5)
+size = Vector2(226, 97.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr40y"]
 size = Vector2(1170, 88)
@@ -159,12 +159,12 @@ collision_layer = 201
 collision_mask = 255
 
 [node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-14.5, 0)
-scale = Vector2(1.43625, 0.193878)
+position = Vector2(-475, 14)
+scale = Vector2(0.444, 0.194)
 texture = ExtResource("7_sldyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-14, -0.25)
+position = Vector2(-474, 15.25)
 shape = SubResource("RectangleShape2D_3br3v")
 
 [node name="Ending" type="StaticBody2D" parent="."]
@@ -174,6 +174,62 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ending"]
 position = Vector2(573, 44)
 shape = SubResource("RectangleShape2D_kr40y")
+
+[node name="Fence2" type="StaticBody2D" parent="."]
+position = Vector2(817, 37)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
+position = Vector2(-475, 14)
+scale = Vector2(0.444, 0.194)
+texture = ExtResource("7_sldyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
+position = Vector2(-474, 15.25)
+shape = SubResource("RectangleShape2D_3br3v")
+
+[node name="Fence3" type="StaticBody2D" parent="."]
+position = Vector2(1046, 37)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
+position = Vector2(-475, 14)
+scale = Vector2(0.444, 0.194)
+texture = ExtResource("7_sldyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
+position = Vector2(-474, 15.25)
+shape = SubResource("RectangleShape2D_3br3v")
+
+[node name="Fence4" type="StaticBody2D" parent="."]
+position = Vector2(1275, 36)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
+position = Vector2(-475, 14)
+scale = Vector2(0.444, 0.194)
+texture = ExtResource("7_sldyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
+position = Vector2(-474, 15.25)
+shape = SubResource("RectangleShape2D_3br3v")
+
+[node name="Fence5" type="StaticBody2D" parent="."]
+position = Vector2(1503, 36)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
+position = Vector2(-475, 14)
+scale = Vector2(0.444, 0.194)
+texture = ExtResource("7_sldyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
+position = Vector2(-474, 15.25)
+shape = SubResource("RectangleShape2D_3br3v")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

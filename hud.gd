@@ -35,6 +35,20 @@ func update_health(health):
 	if health == 0:
 		$Health.texture = ResourceLoader.load("res://Art/Health Bar (0).png")	
 
+func update_charge(charge):
+	if charge == 5:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 5.png")
+	if charge < 4:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 4.png")
+	if charge < 3:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 3.png")
+	if charge < 2:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 2.png")
+	if charge < 1:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 1.png")
+	if charge == 0:
+		$Charge.texture = ResourceLoader.load("res://Art/Charge 0.png")
+
 #func _on_start_button_pressed():
 #	$StartButton.hide()
 #	$Message.hide()
