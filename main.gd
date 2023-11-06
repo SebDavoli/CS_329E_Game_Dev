@@ -98,7 +98,7 @@ func _on_mob_timer_timeout():
 		add_child(mob2)
 		
 		
-	if num_mob1 > 1: # SPAWNS MOB TYPE 3
+	if num_mob1 > 16: # SPAWNS MOB TYPE 3
 		num_mob3 += 1
 		print("mob3 spawning")
 		var mob3 = preload("res://mob3.tscn").instantiate()

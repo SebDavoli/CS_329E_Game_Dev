@@ -4,7 +4,7 @@ extends RigidBody2D
 var dead = false
 var player = null
 var player_chase = false
-var speed = 150
+var speed = 100
 var x = 0.0
 
 func _ready():
@@ -14,11 +14,18 @@ func _ready():
 	
 func _physics_process(delta):
 	if player_chase:
+		rotation = 0
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
+		
+		# ENSURING UPRIGHT -> need to implement vertical sprites
+		if dir_vector.x < 0 && scale.x > 0:
+			scale.x *= -1
+		
+			
 		if dir_vector.length() > 30:
 			# MOVEMENT AND DIRECTION CODE
 			linear_velocity = dir_vector/dir_vector.length()*speed
-			look_at(player.position)
+			#look_at(player.position)
 		else:
 			linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
 	# Checking death condition each loop
