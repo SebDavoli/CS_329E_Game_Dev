@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvgg1pfn3qigb"]
+[gd_scene load_steps=13 format=3 uid="uid://cvgg1pfn3qigb"]
 
 [ext_resource type="Script" path="res://level_3.gd" id="1_7wba6"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="2_1sulp"]
+[ext_resource type="AudioStream" uid="uid://bwi227fhyrywd" path="res://Music/all_fast.mp3" id="2_550dx"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="3_0jtv5"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="3_faqr0"]
 [ext_resource type="Texture2D" uid="uid://ddjldoc4ddrn3" path="res://Art/Level3.png" id="4_8ql2y"]
@@ -54,6 +55,7 @@ rotation = 0.00173611
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
+stream = ExtResource("2_550dx")
 
 [node name="HUD" parent="." instance=ExtResource("3_faqr0")]
 
