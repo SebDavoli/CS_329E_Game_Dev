@@ -31,12 +31,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$HUD.update_charge($FlashTimer.get_time_left())
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
-
+	
 	if num_mob2 == 33:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
+		$Fence2.hide()
+		$Fence2/CollisionShape2D.disabled = true
+		$Fence3.hide()
+		$Fence3/CollisionShape2D.disabled = true
+		$Fence4.hide()
+		$Fence4/CollisionShape2D.disabled = true
+		$Fence5.hide()
+		$Fence5/CollisionShape2D.disabled = true
 
 func change_health():
 	health = health - 20

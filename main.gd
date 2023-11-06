@@ -6,6 +6,7 @@ var num_mob3 = 0
 var rand_num1
 var rand_num2
 var rand_num3
+var kill_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,12 +47,21 @@ func _ready():
 func _process(delta):
 	print($Sola/FlashLight/CollisionPolygon2D.disabled)
 	print($FlashTimer.get_time_left())
+	$HUD.update_charge($FlashTimer.get_time_left())
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 	
 	if num_mob2 == 11:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
+		$Fence2.hide()
+		$Fence2/CollisionShape2D.disabled = true
+		$Fence3.hide()
+		$Fence3/CollisionShape2D.disabled = true
+		$Fence4.hide()
+		$Fence4/CollisionShape2D.disabled = true
+		$Fence5.hide()
+		$Fence5/CollisionShape2D.disabled = true
 	
 func new_game():
 	pass
@@ -98,8 +108,6 @@ func _on_mob_timer_timeout():
 		add_child(mob2)
 		
 		
-
-
 
 
 func _on_start_timer_timeout():
@@ -167,3 +175,6 @@ func shine():
 	$Sola/FlashLight.show()
 	print("Flashlight ON")
 	$FlashTimer.start()	
+
+func killed():
+	kill_count += 1

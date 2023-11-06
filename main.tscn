@@ -23,7 +23,7 @@ size = Vector2(38.425, 2.87498)
 size = Vector2(57.6, 2.85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
-size = Vector2(1146, 66.5)
+size = Vector2(224, 88.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -177,12 +177,68 @@ collision_layer = 201
 collision_mask = 255
 
 [node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-14.5, 0)
-scale = Vector2(1.43625, 0.193878)
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-14, -0.25)
+position = Vector2(-475, 10.75)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence2" type="StaticBody2D" parent="."]
+position = Vector2(813, 85)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_fpfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
+position = Vector2(-475, 10.75)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence3" type="StaticBody2D" parent="."]
+position = Vector2(1040, 84)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_fpfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
+position = Vector2(-475, 10.75)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence4" type="StaticBody2D" parent="."]
+position = Vector2(1269, 86)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_fpfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
+position = Vector2(-475, 10.75)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence5" type="StaticBody2D" parent="."]
+position = Vector2(1504, 87)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_fpfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
+position = Vector2(-475, 10.75)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
