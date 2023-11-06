@@ -98,16 +98,7 @@ func _on_mob_timer_timeout():
 		add_child(mob2)
 		
 		
-	if num_mob1 > 16: # SPAWNS MOB TYPE 3
-		num_mob3 += 1
-		print("mob3 spawning")
-		var mob3 = preload("res://mob3.tscn").instantiate()
-		mob3.position = mob_spawn_location.position
-		var mob3_pos = mob3.position
-		mob3.rotation = PI/2
-		var velocity3 = mob3_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
-		mob3.linear_velocity = velocity3
-		add_child(mob3)
+
 
 
 

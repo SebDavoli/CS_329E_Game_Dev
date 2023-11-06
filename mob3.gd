@@ -31,7 +31,7 @@ func _physics_process(delta):
 	# Checking death condition each loop
 	if dead == true:
 		$AnimatedSprite2D.stop()
-		$Shadow1_DeathSprite.play("death")
+		#$Shadow1_DeathSprite.play("death")
 		death()
 	
 	# ADJUSTING X VALUE FOR FUNCTION
@@ -41,10 +41,10 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
-		$Death3.play()
-		print("killed")
+		#$Death3.play()
+		print("mob3 killed")
 		$AnimatedSprite2D.visible = false
-		$Squirrel_DeathSprite.visible = true
+		#$Squirrel_DeathSprite.visible = true
 		dead = true
 		$CollisionShape2D.set_deferred("disabled",true)
 		
@@ -55,10 +55,10 @@ func _on_body_entered(body):
 
 # Function for eliminating Mob instance
 func death():
-	if $Squirrel_DeathSprite.frame == 3:
-		hide()
-	if $Death3.playing == false:
-		queue_free()
+	#if $Squirrel_DeathSprite.frame == 3:
+	hide()
+	#if $Death3.playing == false:
+	queue_free()
 
 
 # Mob detecting sola collision area

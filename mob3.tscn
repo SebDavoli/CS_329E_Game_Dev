@@ -40,9 +40,10 @@ height = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
 radius = 599.301
 
-[node name="Mob3" type="RigidBody2D"]
+[node name="Mob3" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
 collision_mask = 4
+contact_monitor = true
 script = ExtResource("1_5te5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,7 +66,6 @@ shape = SubResource("CapsuleShape2D_14yo3")
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-visible = false
 shape = SubResource("CircleShape2D_el7pf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
