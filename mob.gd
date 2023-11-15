@@ -13,6 +13,18 @@ func _ready():
 	$AnimatedSprite2D.play("move")
 	$Shadow1_DeathSprite.visible = false
 
+# Mob detecting sola collision area
+func _on_detection_area_body_entered(body):
+	if body.get_name() == "Sola":
+		player = body
+		player_chase = true 
+
+
+func _on_detection_area_body_exited(body):
+	if body.get_name() == "Sola":
+		player_chase = false
+
+
 func _physics_process(delta):
 	if player_chase:
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
@@ -55,13 +67,3 @@ func death():
 		queue_free()
 
 
-
-
-# Mob detecting sola collision area
-func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true 
-
-
-func _on_detection_area_body_exited(body):
-	player_chase = false

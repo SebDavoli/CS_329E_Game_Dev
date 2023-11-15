@@ -12,7 +12,19 @@ func _ready():
 
 	$AnimatedSprite2D.play("move2")
 	$Shadow2_DeathSprite.visible = false
-	
+
+# Mob detecting sola collision area
+func _on_detection_area_body_entered(body):
+	if body.get_name() == "Sola":
+		player = body
+		player_chase = true 
+
+
+func _on_detection_area_body_exited(body):
+	if body.get_name() == "Sola":
+		player_chase = false
+
+
 func _physics_process(delta):
 	# NEED TO FIX WHEN DIRECTLY ON TOP OF SOLA-> ADD IF STATEMENT FOR ABS VALUE OF VECTOR
 	if player_chase:
@@ -60,12 +72,3 @@ func death():
 	if $Death2.playing == false:
 		queue_free()
 
-
-# Mob detecting sola collision area
-func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true 
-
-
-func _on_detection_area_body_exited(body):
-	player_chase = false

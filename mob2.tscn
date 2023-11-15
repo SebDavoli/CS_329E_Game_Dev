@@ -100,6 +100,7 @@ animation = &"death2"
 speed_scale = 7.0
 
 [node name="detection_area" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 position = Vector2(-1, 0)
