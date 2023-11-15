@@ -1,36 +1,76 @@
-[gd_scene load_steps=10 format=3 uid="uid://3vfudbk317gl"]
+[gd_scene load_steps=15 format=3 uid="uid://3vfudbk317gl"]
 
 [ext_resource type="Script" path="res://mob3.gd" id="1_5te5o"]
-[ext_resource type="Texture2D" uid="uid://c1xhhgjnsnl71" path="res://Mobs/squirrel_sprite_1.png" id="2_re0my"]
-[ext_resource type="Texture2D" uid="uid://6qury2owq14w" path="res://Mobs/squirrel_sprite_2.png" id="3_nrgpp"]
-[ext_resource type="Texture2D" uid="uid://ccs70ke7k2sgt" path="res://Mobs/squirrel_sprite_3.png" id="4_g1ydj"]
-[ext_resource type="Texture2D" uid="uid://dlu6133qbg2dm" path="res://Mobs/squirrel_sprite_4.png" id="5_1wwmk"]
-[ext_resource type="Texture2D" uid="uid://cbdlv2swi841l" path="res://Mobs/squirrel_sprite_5.png" id="6_og0bh"]
+[ext_resource type="Texture2D" uid="uid://dxsnkwrk5yaxr" path="res://Mobs/squirrel_horizontal_sheet.png" id="2_0qtij"]
+[ext_resource type="Texture2D" uid="uid://bwmek1j6218uh" path="res://Mobs/squirrel_vertical_sheet.png" id="3_e5ulh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpptt"]
+atlas = ExtResource("2_0qtij")
+region = Rect2(0, 0, 672, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cqfa"]
+atlas = ExtResource("2_0qtij")
+region = Rect2(672, 0, 672, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jj0b"]
+atlas = ExtResource("2_0qtij")
+region = Rect2(1344, 0, 672, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4us6y"]
+atlas = ExtResource("2_0qtij")
+region = Rect2(2151, 0, 717, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gr7f"]
+atlas = ExtResource("2_0qtij")
+region = Rect2(2932, 0, 733, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rfsh"]
+atlas = ExtResource("3_e5ulh")
+region = Rect2(0, 0, 645, 916)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc1lp"]
+atlas = ExtResource("3_e5ulh")
+region = Rect2(645, 0, 645, 916)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smc3b"]
+atlas = ExtResource("3_e5ulh")
+region = Rect2(1290, 0, 645, 916)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ixymi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_re0my")
+"texture": SubResource("AtlasTexture_tpptt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_nrgpp")
+"texture": SubResource("AtlasTexture_7cqfa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_g1ydj")
+"texture": SubResource("AtlasTexture_6jj0b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_1wwmk")
+"texture": SubResource("AtlasTexture_4us6y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_og0bh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_og0bh")
+"texture": SubResource("AtlasTexture_5gr7f")
 }],
 "loop": true,
-"name": &"move3",
+"name": &"horizontal",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_5rfsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc1lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smc3b")
+}],
+"loop": true,
+"name": &"vertical",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14yo3"]
@@ -38,7 +78,7 @@ radius = 12.0
 height = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
-radius = 599.301
+radius = 365.166
 
 [node name="Mob3" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
@@ -49,12 +89,12 @@ contact_monitor = true
 script = ExtResource("1_5te5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -21)
 scale = Vector2(-0.116, 0.111)
 sprite_frames = SubResource("SpriteFrames_ixymi")
-animation = &"move3"
-frame_progress = 0.615978
+animation = &"vertical"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_14yo3")
@@ -68,6 +108,8 @@ shape = SubResource("CapsuleShape2D_14yo3")
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_el7pf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

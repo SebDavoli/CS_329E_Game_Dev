@@ -102,7 +102,6 @@ speed_scale = 7.0
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_cb3b2")
 

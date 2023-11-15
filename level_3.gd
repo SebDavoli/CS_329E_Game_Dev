@@ -62,6 +62,7 @@ func _on_mob_timer_timeout():
 	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
 	
+
 	if num_mob1 < 11: # SPAWNING MOB TYPE 1
 		num_mob1 += 1
 		var mob = preload("res://mob.tscn").instantiate()
@@ -83,7 +84,8 @@ func _on_mob_timer_timeout():
 		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
-		
+
+	
 	if num_mob3 < 5 && num_mob1%2 == 0: # SPAWNS MOB TYPE 3
 		num_mob3 += 1
 		print("mob3 spawning")

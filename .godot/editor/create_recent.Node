@@ -1,7 +1,7 @@
-TextureRect
 CollisionShape2D
-Area2D
 AnimatedSprite2D
+TextureRect
+Area2D
 AudioStreamPlayer2D
 VisibleOnScreenNotifier2D
 RigidBody2D
