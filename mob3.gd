@@ -20,12 +20,14 @@ func _ready():
 
 # Mob detecting sola collision area
 func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true 
+	if body.get_name() == "Sola":
+		player = body
+		player_chase = true 
 
 
 func _on_detection_area_body_exited(body):
-	player_chase = false
+	if body.get_name() == "Sola":
+		player_chase = false
 
 
 
@@ -48,13 +50,17 @@ func _physics_process(delta):
 
 		if abs(dir_vector.x) > abs(dir_vector.y):
 			$AnimatedSprite2D.play("horizontal")
+			$CollisionShape.rotation_degrees = 90
 			if (dir_vector.x) <= 0:
 				scale.x = -1
 			else:
 				scale.x = 1
+				$CollisionShape.rotate(PI/2)
 
 		else:
 			$AnimatedSprite2D.play("vertical")
+			$CollisionShape.rotation_degrees = 180
+
 			if (dir_vector.y) <= 0:
 				scale.y = -1
 			else:
@@ -68,45 +74,6 @@ func _physics_process(delta):
 			#look_at(player.position)
 		else:
 			linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
-
-
-
-
-
-
-
-'''
-		# CHECKING IF MOB NEEDS TO REORIENTATE
-		if orientation != "left" && angle <= PI/4 && angle >= -PI/4:
-			$Vertical_Sprite.stop()
-			$Vertical_Sprite.hide()
-			$Horizontal_Sprite.play("h3")
-			$Horizontal_Sprite.show()
-			orientation = "left"
-
-		elif orientation != "right" && angle >= 3*PI/4 && angle < -3*PI/4:
-			$Vertical_Sprite.stop()
-			$Vertical_Sprite.hide()
-			$Horizontal_Sprite.play("h3")
-			$Horizontal_Sprite.show()
-			orientation = "right"
-
-		elif orientation != "down" && angle >= -3*PI/4 && angle < -PI/4:
-			$Vertical_Sprite.play("v3")
-			$Vertical_Sprite.show()
-			$Horizontal_Sprite.stop()
-			$Horizontal_Sprite.hide()
-			orientation = "down"
-
-		elif orientation != "up" && angle < 3*PI/4 && angle > PI/4:
-			$Vertical_Sprite.play("v3")
-			$Vertical_Sprite.show()
-			$Horizontal_Sprite.stop()
-			$Horizontal_Sprite.hide()
-			orientation = "up"
-'''
-
-
 
 
 

@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700082662
+::res://::1700083038
 Controls.png::CompressedTexture2D::1098912331981767048::1697563425::1697563453::1::::<><>::
 dialogue.gd::GDScript::-1::1698961538::0::1::::<>CanvasLayer<>::
-dialogue.tscn::PackedScene::6045665156213794113::1698961538::0::1::::<><>::res://dialogue.gd<>uid://d18dfge07gftp
-export_presets.cfg::TextFile::-1::1699487820::0::1::::<><>::
+dialogue.tscn::PackedScene::6045665156213794113::1700082662::0::1::::<><>::res://dialogue.gd<>uid://dmtn5rsgfihys::::res://Player/Sola_Cutout (2).png<>uid://bl61oesj2hyr::::res://Art/dialogue_font.ttf
+export_presets.cfg::TextFile::-1::1700082662::0::1::::<><>::
 gameover.gd::GDScript::-1::1698361967::0::1::::<>Node2D<>::
 gameover.tscn::PackedScene::4749030520510630030::1700082588::0::1::::<><>::res://gameover.gd<>uid://kvcl14ym71rg::::res://Music/Scream.mp3<>uid://bnumlie4r1rl6::::res://Art/Sola_Death.png
 hud.gd::GDScript::-1::1699303169::0::1::::<>CanvasLayer<>::
@@ -24,12 +24,12 @@ light_drift.tscn::PackedScene::4447588260694960241::1696994511::0::1::::<><>::
 Light_Drift_1.png::CompressedTexture2D::4588189326774240948::1696994511::1696994511::1::::<><>::
 Light_Drift_2.png::CompressedTexture2D::5631299686030682805::1696994511::1696994511::1::::<><>::
 Light_Drift_3.png::CompressedTexture2D::5581649937173906193::1696994511::1696994511::1::::<><>::
-main.gd::GDScript::-1::1700082662::0::1::::<>Node2D<>::
+main.gd::GDScript::-1::1700082700::0::1::::<>Node2D<>::
 main.tscn::PackedScene::2382701061889139251::1700082587::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://bqbis5cue41lj::::res://Music/floor+accent+melody.mp3<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
 mob2.gd::GDScript::-1::1698961859::0::1::::Mob2<>RigidBody2D<>::
 mob2.tscn::PackedScene::6147734628092002211::1700082588::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
 mob3.gd::GDScript::-1::1700082539::0::1::::Mob3<>RigidBody2D<>::
-mob3.tscn::PackedScene::2008979015149777895::1700082588::0::1::::<><>::res://mob3.gd<>uid://dxsnkwrk5yaxr::::res://Mobs/squirrel_horizontal_sheet.png<>uid://bwmek1j6218uh::::res://Mobs/squirrel_vertical_sheet.png
+mob3.tscn::PackedScene::2008979015149777895::1700082700::0::1::::<><>::res://mob3.gd<>uid://dxsnkwrk5yaxr::::res://Mobs/squirrel_horizontal_sheet.png<>uid://bwmek1j6218uh::::res://Mobs/squirrel_vertical_sheet.png
 mob.gd::GDScript::-1::1700082662::0::1::::Mob<>RigidBody2D<>::
 mob.tscn::PackedScene::2972630510327029414::1700082588::0::1::::<><>::res://mob.gd<>uid://mn1ox4q6vml8::::res://Mobs/Shadow_Sprite_1.png<>uid://b3kixdkx34gbl::::res://Mobs/Shadow_Sprite_2.png<>uid://cr4ntnwpu204y::::res://Mobs/Shadow_Sprite_3.png<>uid://vbmeecq07j4h::::res://Mobs/Shadow_Sprite_4.png<>uid://cdmim2qs3rttv::::res://Mobs/mob1 death sound.mp3<>uid://b4go82et8d2fg::::res://Mobs/Shadow_Sprite_Death1.png<>uid://rwygam71p72k::::res://Mobs/Shadow_Sprite_Death3.png<>uid://c3bm31qkjgaaf::::res://Mobs/Shadow_Sprite_Death4.png<>uid://bnfb2h7xp4oil::::res://Mobs/Shadow_Sprite_Death5.png
 next_level.gd::GDScript::-1::1697563425::0::1::::<>StaticBody2D<>::
@@ -39,10 +39,10 @@ temp_bg.tscn::PackedScene::4456451492494361741::1696994511::0::1::::<><>::uid://
 title.gd::GDScript::-1::1698087442::0::1::::<>Node2D<>::
 title.tscn::PackedScene::2373477297560871150::1698087442::0::1::::<><>::res://title.gd<>uid://dgmn7b62yt4yr
 tutorial.gd::GDScript::-1::1700082662::0::1::::<>Node2D<>::
-tutorial.tscn::PackedScene::7074721285597518703::1699303169::0::1::::<><>::res://tutorial.gd<>uid://cefr1psk7w3m5
+tutorial.tscn::PackedScene::7074721285597518703::1700082662::0::1::::<><>::res://tutorial.gd<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://b265i1fma5bjt::::res://Music/floor.mp3<>uid://cajxb1xexrt0d::::res://Art/fence.png<>uid://bil714p7qk0ja::::res://mob.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://daf3o3d5c5sjl::::res://Art/Flashlight.png
 win.gd::GDScript::-1::1698361967::0::1::::<>Node2D<>::
-win.tscn::PackedScene::3538552104095850922::1700082588::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3
-::res://Art/::1700082662
+win.tscn::PackedScene::3538552104095850922::1700082662::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3<>uid://cmfk3rshf74f3::::res://Art/Luna.png<>uid://di24ylngooh6y::::res://Player/Sola_Cutout.png
+::res://Art/::1700082673
 Charge 0.png::CompressedTexture2D::4441194625043912727::1699303168::1699303176::1::::<><>::
 Charge 1.png::CompressedTexture2D::8328327463513961286::1699303168::1699303176::1::::<><>::
 Charge 2.png::CompressedTexture2D::1577557036099455308::1699303168::1699303176::1::::<><>::
