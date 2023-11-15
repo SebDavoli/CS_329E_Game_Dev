@@ -5,6 +5,7 @@ var dead = false
 var player = null
 var player_chase = false
 var speed = 125
+signal die
 
 
 func _ready():
@@ -26,6 +27,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 		$Shadow1_DeathSprite.play("death")
 		death()
+		die.emit()
+	
+	
 
 
 func _on_body_entered(body):

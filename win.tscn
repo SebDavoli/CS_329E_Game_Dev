@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqodo3hbxu5b7"]
+[gd_scene load_steps=5 format=3 uid="uid://bqodo3hbxu5b7"]
 
 [ext_resource type="Script" path="res://win.gd" id="1_ajvww"]
 [ext_resource type="AudioStream" uid="uid://cbm0ctulmewun" path="res://Music/Clear.mp3" id="2_38mnv"]
+[ext_resource type="Texture2D" uid="uid://cmfk3rshf74f3" path="res://Art/Luna.png" id="3_y6bup"]
+[ext_resource type="Texture2D" uid="uid://di24ylngooh6y" path="res://Player/Sola_Cutout.png" id="4_xypgv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ajvww")
@@ -29,14 +31,14 @@ text = "Retry"
 [node name="Clear" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_38mnv")
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 531.0
-offset_top = 294.0
-offset_right = 655.0
-offset_bottom = 351.0
-theme_override_font_sizes/font_size = 18
-text = "(for now)"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Luna" type="Sprite2D" parent="."]
+position = Vector2(649, 391)
+scale = Vector2(0.0888671, 0.0859375)
+texture = ExtResource("3_y6bup")
+
+[node name="SolaCutout" type="Sprite2D" parent="."]
+position = Vector2(519, 390)
+scale = Vector2(0.0983887, 0.0907593)
+texture = ExtResource("4_xypgv")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

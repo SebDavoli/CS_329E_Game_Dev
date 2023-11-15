@@ -29,11 +29,10 @@ func _process(delta):
 		$CanvasLayer/Message.modulate.a -= 1*delta
 		if $DialogueBox.executing == -1:
 			if !initial_dialogue_loaded:
-				$DialogueBox.load_dialogue(["It's dark here, I should get moving...", "Is that a flashlight? It may protect me from what lies in darkness...", "The lamp light feels safe. Perhaps light will protect me..."])
+				$DialogueBox.load_dialogue(["Luna! Where are you!? Please be safe..", "Is that a flashlight? Could this protect me from the monsters?"])
 				initial_dialogue_loaded = true
 			else: 
-				$Sola.movement_disabled = false
-		
+				$Sola.movement_disabled = false	
 
 func _on_flash_timer_timeout():
 	print("Flahslight off")
@@ -46,3 +45,6 @@ func shine():
 	$Sola/FlashLight.show()
 	print("Flashlight ON")
 	$FlashTimer.start()	
+	
+func mobdead():
+	$DialogueBox.load_dialogue(["What was that?!", "I guess light does kill the monsters!", "I think I can recharge them through the lamps as well."])

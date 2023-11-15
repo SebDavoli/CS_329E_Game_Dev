@@ -1,22 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700079703
+::res://::1700082662
 Controls.png::CompressedTexture2D::1098912331981767048::1697563425::1697563453::1::::<><>::
 dialogue.gd::GDScript::-1::1698961538::0::1::::<>CanvasLayer<>::
 dialogue.tscn::PackedScene::6045665156213794113::1698961538::0::1::::<><>::res://dialogue.gd<>uid://d18dfge07gftp
 export_presets.cfg::TextFile::-1::1699487820::0::1::::<><>::
 gameover.gd::GDScript::-1::1698361967::0::1::::<>Node2D<>::
-gameover.tscn::PackedScene::4749030520510630030::1700079703::0::1::::<><>::res://gameover.gd<>uid://kvcl14ym71rg::::res://Music/Scream.mp3<>uid://bnumlie4r1rl6::::res://Art/Sola_Death.png
+gameover.tscn::PackedScene::4749030520510630030::1700082588::0::1::::<><>::res://gameover.gd<>uid://kvcl14ym71rg::::res://Music/Scream.mp3<>uid://bnumlie4r1rl6::::res://Art/Sola_Death.png
 hud.gd::GDScript::-1::1699303169::0::1::::<>CanvasLayer<>::
 hud.tscn::PackedScene::679194764480754130::1699303169::0::1::::<><>::res://hud.gd<>uid://dsfjrpu6e34w1
 icon.svg::CompressedTexture2D::2647420694813879781::1695660844::1699906696::1::::<><>::
 Lamp.gd::GDScript::-1::1696994511::0::1::::<>StaticBody2D<>::
 Lamp.png::CompressedTexture2D::8950208818264057160::1696994511::1696994511::1::::<><>::
-Lamp.tscn::PackedScene::5937864347751711784::1700079703::0::1::::<><>::res://Lamp.gd<>uid://d0rsvqehbxr73::::res://Lamp.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
+Lamp.tscn::PackedScene::5937864347751711784::1700082588::0::1::::<><>::res://Lamp.gd<>uid://d0rsvqehbxr73::::res://Lamp.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png
 Lamp_Light.png::CompressedTexture2D::2507686489649581228::1696994511::1696994511::1::::<><>::
 level_2.gd::GDScript::-1::1699303169::0::1::::<>Node2D<>::
-level_2.tscn::PackedScene::2408622564073955088::1700079702::0::1::::<><>::res://level_2.gd<>uid://becs3pmi6s7rj::::res://Music/all.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://c8ganhjcqgrfd::::res://Art/Level 2.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
-level_3.gd::GDScript::-1::1699906668::0::1::::<>Node2D<>::
-level_3.tscn::PackedScene::6259604879110357389::1700079703::0::1::::<><>::res://level_3.gd<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://bwi227fhyrywd::::res://Music/all_fast.mp3<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://ddjldoc4ddrn3::::res://Art/Level3.png<>uid://cajxb1xexrt0d::::res://Art/fence.png
+level_2.tscn::PackedScene::2408622564073955088::1700082587::0::1::::<><>::res://level_2.gd<>uid://becs3pmi6s7rj::::res://Music/all.mp3<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://c8ganhjcqgrfd::::res://Art/Level 2.png<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
+level_3.gd::GDScript::-1::1700082640::0::1::::<>Node2D<>::
+level_3.tscn::PackedScene::6259604879110357389::1700082640::0::1::::<><>::res://level_3.gd<>uid://4ehixoj5k31m::::res://Player/sola.tscn<>uid://bwi227fhyrywd::::res://Music/all_fast.mp3<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://ddjldoc4ddrn3::::res://Art/Level3.png<>uid://cajxb1xexrt0d::::res://Art/fence.png
 LightBeam.gd::GDScript::-1::1696367300::0::1::::Light<>RigidBody2D<>::
 light_beam.tscn::PackedScene::7323354227231057052::1697658353::0::1::::<><>::res://LightBeam.gd<>uid://b8ghanc82ywtw
 light_drift.gd::GDScript::-1::1696994511::0::1::::<>RigidBody2D<>::
@@ -24,25 +24,25 @@ light_drift.tscn::PackedScene::4447588260694960241::1696994511::0::1::::<><>::
 Light_Drift_1.png::CompressedTexture2D::4588189326774240948::1696994511::1696994511::1::::<><>::
 Light_Drift_2.png::CompressedTexture2D::5631299686030682805::1696994511::1696994511::1::::<><>::
 Light_Drift_3.png::CompressedTexture2D::5581649937173906193::1696994511::1696994511::1::::<><>::
-main.gd::GDScript::-1::1700078838::0::1::::<>Node2D<>::
-main.tscn::PackedScene::2382701061889139251::1700079702::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://bqbis5cue41lj::::res://Music/floor+accent+melody.mp3<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
+main.gd::GDScript::-1::1700082662::0::1::::<>Node2D<>::
+main.tscn::PackedScene::2382701061889139251::1700082587::0::1::::<><>::uid://4ehixoj5k31m::::res://Player/sola.tscn<>res://main.gd<>uid://bqbis5cue41lj::::res://Music/floor+accent+melody.mp3<>uid://csethspg6l3lt::::res://dialogue.tscn<>uid://cefr1psk7w3m5::::res://Art/Speedway.png<>uid://jxaid0s13ejq::::res://hud.tscn<>uid://d0qr06q1nhta8::::res://next_level.tscn<>uid://cqul01thxosc3::::res://Lamp.tscn<>uid://cajxb1xexrt0d::::res://Art/fence.png
 mob2.gd::GDScript::-1::1698961859::0::1::::Mob2<>RigidBody2D<>::
-mob2.tscn::PackedScene::6147734628092002211::1700079703::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
-mob3.gd::GDScript::-1::1700079702::0::1::::Mob3<>RigidBody2D<>::
-mob3.tscn::PackedScene::2008979015149777895::1700079703::0::1::::<><>::res://mob3.gd<>uid://c1xhhgjnsnl71::::res://Mobs/squirrel_sprite_1.png<>uid://6qury2owq14w::::res://Mobs/squirrel_sprite_2.png<>uid://ccs70ke7k2sgt::::res://Mobs/squirrel_sprite_3.png<>uid://dlu6133qbg2dm::::res://Mobs/squirrel_sprite_4.png<>uid://cbdlv2swi841l::::res://Mobs/squirrel_sprite_5.png<>uid://dpwbibkm2o4y2::::res://Mobs/squirrel_vertical_1.png<>uid://dtrlbi1tbqhvk::::res://Mobs/squirrel_vertical_2.png
-mob.gd::GDScript::-1::1699906668::0::1::::Mob<>RigidBody2D<>::
-mob.tscn::PackedScene::2972630510327029414::1700079703::0::1::::<><>::res://mob.gd<>uid://mn1ox4q6vml8::::res://Mobs/Shadow_Sprite_1.png<>uid://b3kixdkx34gbl::::res://Mobs/Shadow_Sprite_2.png<>uid://cr4ntnwpu204y::::res://Mobs/Shadow_Sprite_3.png<>uid://vbmeecq07j4h::::res://Mobs/Shadow_Sprite_4.png<>uid://cdmim2qs3rttv::::res://Mobs/mob1 death sound.mp3<>uid://b4go82et8d2fg::::res://Mobs/Shadow_Sprite_Death1.png<>uid://rwygam71p72k::::res://Mobs/Shadow_Sprite_Death3.png<>uid://c3bm31qkjgaaf::::res://Mobs/Shadow_Sprite_Death4.png<>uid://bnfb2h7xp4oil::::res://Mobs/Shadow_Sprite_Death5.png
+mob2.tscn::PackedScene::6147734628092002211::1700082588::0::1::::<><>::res://mob2.gd<>uid://mxtuquw688ak::::res://Mobs/shadow2_sprite1.png<>uid://b8igtiqki031k::::res://Mobs/shadow2_sprite2.png<>uid://dhlcopw1ma07a::::res://Mobs/shadow2_sprite3.png<>uid://deut5ev4s21of::::res://Mobs/mob2 death sound_v3.mp3<>uid://t4t4n4i6tl1r::::res://Mobs/shadow2_sprite_death1.png<>uid://cjm78owhq21fw::::res://Mobs/shadow2_sprite_death3.png<>uid://fefnlgeyje73::::res://Mobs/shadow2_sprite_death5.png<>uid://c634ghmdtt534::::res://Mobs/shadow2_sprite_death4.png<>uid://hp0cog5c7k3w::::res://Mobs/shadow2_sprite_death6.png
+mob3.gd::GDScript::-1::1700082539::0::1::::Mob3<>RigidBody2D<>::
+mob3.tscn::PackedScene::2008979015149777895::1700082588::0::1::::<><>::res://mob3.gd<>uid://dxsnkwrk5yaxr::::res://Mobs/squirrel_horizontal_sheet.png<>uid://bwmek1j6218uh::::res://Mobs/squirrel_vertical_sheet.png
+mob.gd::GDScript::-1::1700082662::0::1::::Mob<>RigidBody2D<>::
+mob.tscn::PackedScene::2972630510327029414::1700082588::0::1::::<><>::res://mob.gd<>uid://mn1ox4q6vml8::::res://Mobs/Shadow_Sprite_1.png<>uid://b3kixdkx34gbl::::res://Mobs/Shadow_Sprite_2.png<>uid://cr4ntnwpu204y::::res://Mobs/Shadow_Sprite_3.png<>uid://vbmeecq07j4h::::res://Mobs/Shadow_Sprite_4.png<>uid://cdmim2qs3rttv::::res://Mobs/mob1 death sound.mp3<>uid://b4go82et8d2fg::::res://Mobs/Shadow_Sprite_Death1.png<>uid://rwygam71p72k::::res://Mobs/Shadow_Sprite_Death3.png<>uid://c3bm31qkjgaaf::::res://Mobs/Shadow_Sprite_Death4.png<>uid://bnfb2h7xp4oil::::res://Mobs/Shadow_Sprite_Death5.png
 next_level.gd::GDScript::-1::1697563425::0::1::::<>StaticBody2D<>::
 next_level.tscn::PackedScene::8948091673959437109::1698679819::0::1::::<><>::res://next_level.gd
 README.md::TextFile::-1::1696994511::0::1::::<><>::
 temp_bg.tscn::PackedScene::4456451492494361741::1696994511::0::1::::<><>::uid://daifkqmqa4jn3
 title.gd::GDScript::-1::1698087442::0::1::::<>Node2D<>::
 title.tscn::PackedScene::2373477297560871150::1698087442::0::1::::<><>::res://title.gd<>uid://dgmn7b62yt4yr
-tutorial.gd::GDScript::-1::1698961538::0::1::::<>Node2D<>::
+tutorial.gd::GDScript::-1::1700082662::0::1::::<>Node2D<>::
 tutorial.tscn::PackedScene::7074721285597518703::1699303169::0::1::::<><>::res://tutorial.gd<>uid://cefr1psk7w3m5
 win.gd::GDScript::-1::1698361967::0::1::::<>Node2D<>::
-win.tscn::PackedScene::3538552104095850922::1700079703::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3
-::res://Art/::1699303177
+win.tscn::PackedScene::3538552104095850922::1700082588::0::1::::<><>::res://win.gd<>uid://cbm0ctulmewun::::res://Music/Clear.mp3
+::res://Art/::1700082662
 Charge 0.png::CompressedTexture2D::4441194625043912727::1699303168::1699303176::1::::<><>::
 Charge 1.png::CompressedTexture2D::8328327463513961286::1699303168::1699303176::1::::<><>::
 Charge 2.png::CompressedTexture2D::1577557036099455308::1699303168::1699303176::1::::<><>::
@@ -69,6 +69,7 @@ HP_100.png::CompressedTexture2D::8433560756926785146::1699303168::1699303176::1:
 HP_Charge_Glow.png::CompressedTexture2D::3785001768738515388::1699303169::1699303176::1::::<><>::
 Level3.png::CompressedTexture2D::7389081965820369282::1698961538::1698961566::1::::<><>::
 Level 2.png::CompressedTexture2D::7101483070965591713::1697563425::1697563453::1::::<><>::
+Luna.png::CompressedTexture2D::5626087472999344362::1700082662::1700082673::1::::<><>::
 Sola_Death.png::CompressedTexture2D::3340911881422274777::1699303169::1699303177::1::::<><>::
 Sola_idle.png::CompressedTexture2D::6787560803933273887::1696273206::1696367298::1::::<><>::
 Sola_walk_1.png::CompressedTexture2D::3354479606640240214::1696273206::1696367298::1::::<><>::
@@ -85,7 +86,7 @@ Speedway Survival Title Screen.png::CompressedTexture2D::7606014213939032173::16
 Speedway.png::CompressedTexture2D::5064998066381933846::1697563425::1697563453::1::::<><>::
 Wave_1_Temp_BG.png::CompressedTexture2D::320030990740108751::1696273206::1696367298::1::::<><>::
 ::res://Dodge_The_Creeps/::1695660844
-::res://Mobs/::1700080735
+::res://Mobs/::1700080740
 mob1 death sound.mp3::AudioStreamMP3::5008689040521277423::1697940824::1697940828::1::::<><>::
 mob2 death sound.mp3::AudioStreamMP3::3413670180602457981::1697933584::1697933629::1::::<><>::
 mob2 death sound_v2.mp3::AudioStreamMP3::2232020558657169500::1697935642::1697935643::1::::<><>::
@@ -135,9 +136,9 @@ floor.mp3::AudioStreamMP3::4347352342307593081::1698961538::1698961565::1::::<><
 monster.mp3::AudioStreamMP3::5501577681693754926::1696994511::1696994511::1::::<><>::
 pad+lead.mp3::AudioStreamMP3::1046915287627106358::1698961538::1698961565::1::::<><>::
 Scream.mp3::AudioStreamMP3::745382858448272304::1698361967::1698361992::1::::<><>::
-::res://Player/::1700079703
+::res://Player/::1700082588
 sola.gd::GDScript::-1::1698961538::0::1::::<>CharacterBody2D<>::
-sola.tscn::PackedScene::2044174511933532992::1700079703::0::1::::<><>::uid://c6kg8blb3bitl::::res://Player/Sola_Forward_Idle.png<>res://Player/sola.gd<>uid://begj0h8yekflo::::res://Player/Left/Sola_Left_01.png<>uid://4emsxwk0n0o3::::res://Player/Left/Sola_Left_02.png<>uid://fpu3pons65uj::::res://Player/Left/Sola_Left_03.png<>uid://bn88l6ov0vryb::::res://Player/Forward/Sola_Forward_01.png<>uid://brygitf2bxwwr::::res://Player/Left/Sola_Left_04.png<>uid://26kihrvbqnva::::res://Player/Left/Sola_Left_05.png<>uid://w2vfwukpb5ka::::res://Player/Forward/Sola_Forward_02.png<>uid://nwx4hd1as6te::::res://Player/Left/Sola_Left_06.png<>uid://r0n0hage88tw::::res://Player/Forward/Sola_Forward_03.png<>uid://cn4xj6hva1vl2::::res://Player/Forward/Sola_Forward_04.png<>uid://c4ccp4xal56t4::::res://Player/Left/Sola_Left_07.png<>uid://ecnouun4t01g::::res://Player/Forward/Sola_Forward_05.png<>uid://dec74r55rmg6c::::res://Player/Left/Sola_Left_08.png<>uid://buq2xpdxegwo0::::res://Player/Left/Sola_Left_09.png<>uid://nc7yh1kmddkx::::res://Player/Forward/Sola_Forward_06.png<>uid://18pu11erfsrv::::res://Player/Forward/Sola_Forward_07.png<>uid://balpxws8iimk4::::res://Player/Left/Sola_Left_10.png<>uid://ey3tkkkppp::::res://Player/Left/Sola_Left_11.png<>uid://bsg1fk7ttiwdi::::res://Player/Forward/Sola_Forward_08.png<>uid://cm0m76b54nqpc::::res://Player/Forward/Sola_Forward_09.png<>uid://b25xn0vnoyvwo::::res://Player/Forward/Sola_Forward_10.png<>uid://bcpculsynif5f::::res://Player/Forward/Sola_Forward_11.png<>uid://cp1ghh6tun7dg::::res://Player/Forward/Sola_Forward_12.png<>uid://duapwxr88g5tf::::res://Player/Forward/Sola_Forward_13.png<>uid://4n3culh4cx7l::::res://Player/Forward/Sola_Forward_14.png<>uid://ljato7ulgsi::::res://Player/Forward/Sola_Forward_15.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png<>uid://cns33kru0csm1::::res://Player/Forward/Sola_Forward_16.png<>uid://bb3e245rfjnfr::::res://Player/Forward/Sola_Forward_17.png<>uid://damv70xvkyqrp::::res://Player/Backward/Sola_Running_Backwards_01.png<>uid://d0p36c3fjhwy5::::res://Player/Backward/Sola_Running_Backwards_02.png<>uid://c8yygs0q3jk4i::::res://Player/Backward/Sola_Running_Backwards_03.png<>uid://v03g070m7mlp::::res://Player/Backward/Sola_Running_Backwards_04.png<>uid://374nqqoj5win::::res://Player/Backward/Sola_Running_Backwards_05.png<>uid://gvkb2aommols::::res://Player/Backward/Sola_Running_Backwards_06.png<>uid://dadiv4ibfi0yn::::res://Player/Backward/Sola_Running_Backwards_07.png<>uid://b8tpj4e5dk33r::::res://Player/Backward/Sola_Running_Backwards_08.png<>uid://cobbmtdpvumpa::::res://Player/Backward/Sola_Running_Backwards_09.png<>uid://d0db7amchrtf7::::res://Player/Backward/Sola_Running_Backwards_10.png<>uid://dyql16o03xvyg::::res://Player/Backward/Sola_Running_Backwards_11.png<>uid://c8n3d30scjwb2::::res://Player/Backward/Sola_Running_Backwards_12.png<>uid://bxoyy7jodlbdv::::res://Player/Backward/Sola_Running_Backwards_13.png<>uid://rq5ksj3mfxc2::::res://Player/Backward/Sola_Running_Backwards_14.png<>uid://dy2asj7fjfnmu::::res://Player/Backward/Sola_Running_Backwards_15.png<>uid://do5i7gbvyruo6::::res://Player/Backward/Sola_Running_Backwards_16.png<>uid://bedixsdoqgakj::::res://Player/Backward/Sola_Running_Backwards_17.png
+sola.tscn::PackedScene::2044174511933532992::1700082588::0::1::::<><>::uid://c6kg8blb3bitl::::res://Player/Sola_Forward_Idle.png<>res://Player/sola.gd<>uid://begj0h8yekflo::::res://Player/Left/Sola_Left_01.png<>uid://4emsxwk0n0o3::::res://Player/Left/Sola_Left_02.png<>uid://fpu3pons65uj::::res://Player/Left/Sola_Left_03.png<>uid://bn88l6ov0vryb::::res://Player/Forward/Sola_Forward_01.png<>uid://brygitf2bxwwr::::res://Player/Left/Sola_Left_04.png<>uid://26kihrvbqnva::::res://Player/Left/Sola_Left_05.png<>uid://w2vfwukpb5ka::::res://Player/Forward/Sola_Forward_02.png<>uid://nwx4hd1as6te::::res://Player/Left/Sola_Left_06.png<>uid://r0n0hage88tw::::res://Player/Forward/Sola_Forward_03.png<>uid://cn4xj6hva1vl2::::res://Player/Forward/Sola_Forward_04.png<>uid://c4ccp4xal56t4::::res://Player/Left/Sola_Left_07.png<>uid://ecnouun4t01g::::res://Player/Forward/Sola_Forward_05.png<>uid://dec74r55rmg6c::::res://Player/Left/Sola_Left_08.png<>uid://buq2xpdxegwo0::::res://Player/Left/Sola_Left_09.png<>uid://nc7yh1kmddkx::::res://Player/Forward/Sola_Forward_06.png<>uid://18pu11erfsrv::::res://Player/Forward/Sola_Forward_07.png<>uid://balpxws8iimk4::::res://Player/Left/Sola_Left_10.png<>uid://ey3tkkkppp::::res://Player/Left/Sola_Left_11.png<>uid://bsg1fk7ttiwdi::::res://Player/Forward/Sola_Forward_08.png<>uid://cm0m76b54nqpc::::res://Player/Forward/Sola_Forward_09.png<>uid://b25xn0vnoyvwo::::res://Player/Forward/Sola_Forward_10.png<>uid://bcpculsynif5f::::res://Player/Forward/Sola_Forward_11.png<>uid://cp1ghh6tun7dg::::res://Player/Forward/Sola_Forward_12.png<>uid://duapwxr88g5tf::::res://Player/Forward/Sola_Forward_13.png<>uid://4n3culh4cx7l::::res://Player/Forward/Sola_Forward_14.png<>uid://ljato7ulgsi::::res://Player/Forward/Sola_Forward_15.png<>uid://bby0h3aegyi4s::::res://Lamp_Light.png<>uid://cns33kru0csm1::::res://Player/Forward/Sola_Forward_16.png<>uid://bb3e245rfjnfr::::res://Player/Forward/Sola_Forward_17.png<>uid://damv70xvkyqrp::::res://Player/Backward/Sola_Running_Backwards_01.png<>uid://d0p36c3fjhwy5::::res://Player/Backward/Sola_Running_Backwards_02.png<>uid://c8yygs0q3jk4i::::res://Player/Backward/Sola_Running_Backwards_03.png<>uid://v03g070m7mlp::::res://Player/Backward/Sola_Running_Backwards_04.png<>uid://374nqqoj5win::::res://Player/Backward/Sola_Running_Backwards_05.png<>uid://gvkb2aommols::::res://Player/Backward/Sola_Running_Backwards_06.png<>uid://dadiv4ibfi0yn::::res://Player/Backward/Sola_Running_Backwards_07.png<>uid://b8tpj4e5dk33r::::res://Player/Backward/Sola_Running_Backwards_08.png<>uid://cobbmtdpvumpa::::res://Player/Backward/Sola_Running_Backwards_09.png<>uid://d0db7amchrtf7::::res://Player/Backward/Sola_Running_Backwards_10.png<>uid://dyql16o03xvyg::::res://Player/Backward/Sola_Running_Backwards_11.png<>uid://c8n3d30scjwb2::::res://Player/Backward/Sola_Running_Backwards_12.png<>uid://bxoyy7jodlbdv::::res://Player/Backward/Sola_Running_Backwards_13.png<>uid://rq5ksj3mfxc2::::res://Player/Backward/Sola_Running_Backwards_14.png<>uid://dy2asj7fjfnmu::::res://Player/Backward/Sola_Running_Backwards_15.png<>uid://do5i7gbvyruo6::::res://Player/Backward/Sola_Running_Backwards_16.png<>uid://bedixsdoqgakj::::res://Player/Backward/Sola_Running_Backwards_17.png
 Sola_Cutout (2).png::CompressedTexture2D::8041595167768987950::1698961538::1698961566::1::::<><>::
 Sola_Cutout.png::CompressedTexture2D::7778315249518310818::1698961538::1698961567::1::::<><>::
 Sola_Forward_Idle.png::CompressedTexture2D::6969762600460364889::1698961538::1698961566::1::::<><>::
