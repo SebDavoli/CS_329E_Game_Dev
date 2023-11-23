@@ -5,8 +5,6 @@ var dead = false
 var player = null
 var player_chase = false
 var speed = 125
-signal die
-
 
 func _ready():
 	# Beginning mob animation
@@ -39,8 +37,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 		$Shadow1_DeathSprite.play("death")
 		death()
-		die.emit()
-	
 	
 
 
@@ -51,6 +47,7 @@ func _on_body_entered(body):
 		$Death.play()
 		$AnimatedSprite2D.visible = false
 		$Shadow1_DeathSprite.visible = true
+		Global.kill_count += 1
 		dead = true
 		
 		$CollisionShape2D.set_deferred("disabled",true)

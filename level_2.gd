@@ -7,6 +7,9 @@ var rand_num2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.kill_count = 0
+	Global.goal = 40
+	$HUD/GoalKill.text = str(Global.goal)
 	health = 100
 	$LightTimer.start()
 	$Sola.start($StartPosition.position)
@@ -39,8 +42,11 @@ func _process(delta):
 	$HUD.update_charge($FlashTimer.get_time_left())
 	if $FlashTimer.get_time_left() > 0:
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
+	
+	$HUD/CurrentKill.text = str(Global.kill_count)
+	print(Global.kill_count)
 
-	if num_mob2 == 22:
+	if Global.kill_count == Global.goal:
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
 		$Fence2.hide()
@@ -68,17 +74,17 @@ func _on_mob_timer_timeout():
 	# vector between sola and mob (from mob to sola for direction)
 	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
-	
-	if num_mob1 < 11: # SPAWNING MOB TYPE 1
-		num_mob1 += 1
-		var mob = preload("res://mob.tscn").instantiate()
-		mob.position = mob_spawn_location.position
-		var mob_pos = mob.position
-		#direction += randf_range(-PI / 8, PI / 8)
-		mob.rotation = dir_angle
-		var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
-		mob.linear_velocity = velocity
-		add_child(mob)
+
+	#Spawn Mob 1
+	num_mob1 += 1
+	var mob = preload("res://mob.tscn").instantiate()
+	mob.position = mob_spawn_location.position
+	var mob_pos = mob.position
+	#direction += randf_range(-PI / 8, PI / 8)
+	mob.rotation = dir_angle
+	var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
+	mob.linear_velocity = velocity
+	add_child(mob)
 		
 	if num_mob1 > 10: # SPAWNS MOB TYPE 2
 		num_mob2 += 1

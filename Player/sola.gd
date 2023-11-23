@@ -81,8 +81,9 @@ func _on_body_entered(body):
 		light.emit()
 	if body.is_in_group("mobs"):
 		damage.emit()
-	if body.get_name() == "Mob":
-		damage.emit()
+		$PainEffect.play()
+		$AnimatedSprite2D.modulate = Color8(255,0,0,255)
+		$PainTimer.start()
 	if body.get_name() == "Level_1":
 		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://main.tscn")
@@ -115,4 +116,6 @@ func Light_Drift():
 		drift_instance.rotation = -80;
 	elif$Marker2D.position == Vector2(0, -50):
 		drift_instance.rotation = 80;
-		
+
+func _on_pain_timer_timeout():
+	$AnimatedSprite2D.modulate = Color8(255,255,255,255)

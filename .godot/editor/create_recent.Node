@@ -1,3 +1,5 @@
+Timer
+Label
 CollisionShape2D
 AnimatedSprite2D
 TextureRect
@@ -8,9 +10,7 @@ RigidBody2D
 AudioStreamPlayer
 Sprite2D
 StaticBody2D
-Timer
 Button
-Label
 ColorRect
 AnimationPlayer
 CanvasLayer

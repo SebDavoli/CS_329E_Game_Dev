@@ -39,4 +39,32 @@ offset_bottom = 77.0
 texture = ExtResource("3_do8gj")
 expand_mode = 1
 
+[node name="CurrentKill" type="Label" parent="."]
+offset_left = 1077.0
+offset_top = 80.0
+offset_right = 1117.0
+offset_bottom = 106.0
+text = "0"
+
+[node name="GoalKill" type="Label" parent="."]
+offset_left = 1110.0
+offset_top = 80.0
+offset_right = 1150.0
+offset_bottom = 106.0
+text = "10"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1097.0
+offset_top = 80.0
+offset_right = 1137.0
+offset_bottom = 106.0
+text = "/"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1010.0
+offset_top = 80.0
+offset_right = 1050.0
+offset_bottom = 106.0
+text = "Goal:"
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

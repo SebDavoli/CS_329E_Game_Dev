@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=52 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://c6kg8blb3bitl" path="res://Player/Sola_Forward_Idle.png" id="2_ttlob"]
 [ext_resource type="Script" path="res://Player/sola.gd" id="2_wwx7e"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://dy2asj7fjfnmu" path="res://Player/Backward/Sola_Running_Backwards_15.png" id="45_820vn"]
 [ext_resource type="Texture2D" uid="uid://do5i7gbvyruo6" path="res://Player/Backward/Sola_Running_Backwards_16.png" id="46_80ivj"]
 [ext_resource type="Texture2D" uid="uid://bedixsdoqgakj" path="res://Player/Backward/Sola_Running_Backwards_17.png" id="47_2va04"]
+[ext_resource type="AudioStream" uid="uid://dvwlu1m4eiwjj" path="res://Player/girlpain.mp3" id="48_urjou"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riry5"]
 radius = 17.0
@@ -233,7 +234,8 @@ frame_progress = 0.311141
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(125, 0)
 
-[node name="ShootEffect" type="AudioStreamPlayer" parent="."]
+[node name="PainEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("48_urjou")
 
 [node name="FlashLight" type="StaticBody2D" parent="."]
 position = Vector2(125, 13)
@@ -261,4 +263,8 @@ collision_mask = 14
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_riry5")
 
+[node name="PainTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="timeout" from="PainTimer" to="." method="_on_pain_timer_timeout"]

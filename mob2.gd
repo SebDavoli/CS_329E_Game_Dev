@@ -55,6 +55,7 @@ func _on_body_entered(body):
 	if body.get_name() == "FlashLight":
 		$Death2.play()
 		print("killed")
+		Global.kill_count += 1
 		$AnimatedSprite2D.visible = false
 		$Shadow2_DeathSprite.visible = true
 		dead = true

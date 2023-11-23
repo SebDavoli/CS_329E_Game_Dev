@@ -93,7 +93,7 @@ func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
 		#$Death3.play()
-
+		Global.kill_count += 1
 		$CollisionShape.visible = false
 		#$Squirrel_DeathSprite.visible = true
 		dead = true
