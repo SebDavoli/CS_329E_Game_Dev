@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn7xng7ollteg"]
+
+[ext_resource type="Script" path="res://luna.gd" id="1_8xa3d"]
+[ext_resource type="Texture2D" uid="uid://cmfk3rshf74f3" path="res://Art/Luna.png" id="2_07iwn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yy5uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07iwn")
+}],
+"loop": true,
+"name": &"horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07iwn")
+}],
+"loop": true,
+"name": &"vertical",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxn10"]
+radius = 14.0
+height = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vupe"]
+radius = 517.024
+
+[node name="Luna" type="RigidBody2D" groups=["mobs"]]
+collision_layer = 2
+collision_mask = 4
+gravity_scale = 0.0
+max_contacts_reported = 100
+contact_monitor = true
+script = ExtResource("1_8xa3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -7)
+scale = Vector2(0.0266113, 0.0256348)
+sprite_frames = SubResource("SpriteFrames_yy5uw")
+animation = &"vertical"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -7)
+shape = SubResource("CapsuleShape2D_fxn10")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="DeathLuna" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LunaDeathSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+shape = SubResource("CircleShape2D_5vupe")
+
+[node name="DashTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

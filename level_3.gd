@@ -3,6 +3,7 @@ var health
 var num_mob1 = 0
 var num_mob2 = 0
 var num_mob3 = 0
+var num_mob4 = 0
 var rand_num1
 
 # Called when the node enters the scene tree for the first time.
@@ -39,7 +40,7 @@ func _process(delta):
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 		
 	$HUD/CurrentKill.text = str(Global.kill_count)
-	print(Global.kill_count)
+	#print(Global.kill_count)
 	
 	if Global.kill_count == Global.goal:
 		$Fence.hide()
@@ -67,8 +68,13 @@ func _on_mob_timer_timeout():
 	# vector between sola and mob (from mob to sola for direction)
 	var dir = $Sola.position - mob_spawn_location.position
 	var dir_angle = tan(dir.y/dir.x)
-
 	num_mob1 += 1
+
+
+
+
+
+	
 	var mob = preload("res://mob.tscn").instantiate()
 	mob.position = mob_spawn_location.position
 	var mob_pos = mob.position
@@ -77,8 +83,10 @@ func _on_mob_timer_timeout():
 	var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 	mob.linear_velocity = velocity
 	add_child(mob)
-		
-	if num_mob1 > 10: # SPAWNS MOB TYPE 2
+	
+	
+	# SPAWNS MOB TYPE 2
+	if num_mob1 > 10: 
 		num_mob2 += 1
 		print("mob2 spawning")
 		var mob2 = preload("res://mob2.tscn").instantiate()
@@ -88,8 +96,10 @@ func _on_mob_timer_timeout():
 		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
-	
-	if num_mob2 > 10: # SPAWNS MOB TYPE 3
+
+
+	# SPAWNS MOB TYPE 3
+	if num_mob2 > 10: 
 		num_mob3 += 1
 		print("mob3 spawning")
 		var mob3 = preload("res://mob3.tscn").instantiate()
@@ -100,6 +110,20 @@ func _on_mob_timer_timeout():
 		mob3.linear_velocity = velocity3
 		add_child(mob3)
 
+
+
+'''
+# Comment out all other mobs to try 1 v 1 with Luna. Would need health for Luna if she is a boss and can determine her moves based on her life.
+	if num_mob4 < 1: # SPAWNS MOB TYPE 4 - Luna
+		num_mob4 += 1
+		var mob4 = preload("res://luna.tscn").instantiate()
+		mob4.position = mob_spawn_location.position
+		var mob4_pos = mob4.position
+		mob4.rotation = PI/2
+		var velocity4 = mob4_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
+		mob4.linear_velocity = velocity4
+		add_child(mob4)
+'''
 
 
 func _on_start_timer_timeout():
