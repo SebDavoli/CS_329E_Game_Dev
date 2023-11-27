@@ -2,9 +2,11 @@ class_name Mob3
 extends RigidBody2D
 @export var mob2_scene: PackedScene
 var dead = false
+var pause = false
+var pause_count = 0
 var player = null
 var player_chase = false
-var speed = 100
+var speed = 125
 
 var orientation = "right" # way the mob is facing
 var quadrant # where is the mob relative to the player
@@ -44,8 +46,6 @@ func _physics_process(delta):
 	if player_chase:
 		rotation = 0
 		dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
-		angle = atan2(dir_vector.y,dir_vector.x)
-
 
 
 		if abs(dir_vector.x) > abs(dir_vector.y):
@@ -68,17 +68,35 @@ func _physics_process(delta):
 
 
 
-		if dir_vector.length() > 10:
-			# MOVEMENT AND DIRECTION CODE
-			linear_velocity = dir_vector/dir_vector.length()*speed
-			#look_at(player.position)
-		else:
-			linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
+		# Movement dictation
+		if pause == false:
+			# Far away movement
+			if dir_vector.length() > 100:
+				# MOVEMENT AND DIRECTION CODE
+				linear_velocity = dir_vector/dir_vector.length()*speed
+
+			# Close range - can create a variety of attacks if each attack is a function determined by random numbers
+			elif dir_vector.length() > 10 && dir_vector.length() <= 100:
+				linear_velocity = Vector2(0,0)
+				pause = true
+				$DashTimer.start()
+
+			# Recoil after contact with Sola
+			elif dir_vector.length() <= 10:
+				linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
 
 
 
+func _on_dash_timer_timeout():
+	pause_count += 1
+	dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
+	linear_velocity = dir_vector/dir_vector.length()*speed*4
+	# Second time around- unpause
+	if pause_count%2 == 0:
+		pause = false
 
-
+	else: # first time around
+		$DashTimer.start()
 
 
 
@@ -115,3 +133,6 @@ func death():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	pass # Replace with function body.
+
+
+

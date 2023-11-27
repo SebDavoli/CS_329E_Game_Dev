@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_7uqmh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -1.0043, 630.468, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
+"points": PackedVector2Array(0, 0, 0, 0, -55.957, -92.1363, 0, 0, 0, 0, 1149.5, -93.9801, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -57.717, 638.423, 0, 0, 0, 0, -53.3171, -87.2839, 0, 0, 0, 0, -51.5572, -86.4468, 0, 0, 0, 0, -3, -8)
 }
 point_count = 8
 
@@ -45,13 +45,13 @@ one_shot = true
 wait_time = 5.0
 
 [node name="MobPath" type="Path2D" parent="."]
-position = Vector2(-2.99483, 8.2269)
-scale = Vector2(1.00086, 1.02269)
+position = Vector2(-25.4102, -20.7222)
+scale = Vector2(1.1364, 1.1947)
 curve = SubResource("Curve2D_7uqmh")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(-3, -8)
-rotation = 0.00173611
+position = Vector2(-55.957, -92.1363)
+rotation = -0.00152954
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)

@@ -32,8 +32,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tk2hs"]
-radius = 31.0
-height = 76.0
+radius = 21.0
+height = 64.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_85e77"]
 animations = [{
@@ -75,12 +75,12 @@ sprite_frames = SubResource("SpriteFrames_mhvt5")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0)
+position = Vector2(2, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tk2hs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(1, -4)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -88,6 +88,7 @@ position = Vector2(0, 1)
 stream = ExtResource("6_ecxim")
 
 [node name="Shadow1_DeathSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(5.96046e-08, 2.5)
 scale = Vector2(-0.079, 0.079)
 skew = 0.349066
@@ -99,6 +100,7 @@ speed_scale = 10.0
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
 position = Vector2(-18, 3)
 shape = SubResource("CircleShape2D_6upc8")
 

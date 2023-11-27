@@ -74,11 +74,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14yo3"]
-radius = 12.0
-height = 64.0
+radius = 9.0
+height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
-radius = 365.166
+radius = 544.092
 
 [node name="Mob3" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 2
@@ -92,10 +92,11 @@ script = ExtResource("1_5te5o")
 position = Vector2(-3, -21)
 scale = Vector2(-0.116, 0.111)
 sprite_frames = SubResource("SpriteFrames_ixymi")
-animation = &"vertical"
+animation = &"horizontal"
+speed_scale = 1.125
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 3)
+position = Vector2(1, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_14yo3")
 
@@ -113,7 +114,11 @@ visible = false
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_el7pf")
 
+[node name="DashTimer" type="Timer" parent="."]
+process_callback = 0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

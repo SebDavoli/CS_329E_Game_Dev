@@ -71,9 +71,6 @@ func _on_mob_timer_timeout():
 	num_mob1 += 1
 
 
-
-
-
 	
 	var mob = preload("res://mob.tscn").instantiate()
 	mob.position = mob_spawn_location.position
@@ -84,7 +81,7 @@ func _on_mob_timer_timeout():
 	mob.linear_velocity = velocity
 	add_child(mob)
 	
-	
+
 	# SPAWNS MOB TYPE 2
 	if num_mob1 > 10: 
 		num_mob2 += 1
@@ -96,7 +93,6 @@ func _on_mob_timer_timeout():
 		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
-
 
 	# SPAWNS MOB TYPE 3
 	if num_mob2 > 10: 
@@ -111,19 +107,6 @@ func _on_mob_timer_timeout():
 		add_child(mob3)
 
 
-
-'''
-# Comment out all other mobs to try 1 v 1 with Luna. Would need health for Luna if she is a boss and can determine her moves based on her life.
-	if num_mob4 < 1: # SPAWNS MOB TYPE 4 - Luna
-		num_mob4 += 1
-		var mob4 = preload("res://luna.tscn").instantiate()
-		mob4.position = mob_spawn_location.position
-		var mob4_pos = mob4.position
-		mob4.rotation = PI/2
-		var velocity4 = mob4_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
-		mob4.linear_velocity = velocity4
-		add_child(mob4)
-'''
 
 
 func _on_start_timer_timeout():
