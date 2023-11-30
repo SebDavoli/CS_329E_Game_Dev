@@ -80,7 +80,6 @@ func _on_mob_timer_timeout():
 	var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 	mob.linear_velocity = velocity
 	add_child(mob)
-	
 
 	# SPAWNS MOB TYPE 2
 	if num_mob1 > 10: 
@@ -93,9 +92,10 @@ func _on_mob_timer_timeout():
 		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob2.linear_velocity = velocity2
 		add_child(mob2)
-
+	
+	
 	# SPAWNS MOB TYPE 3
-	if num_mob2 > 10: 
+	if num_mob2 >= 10 && num_mob2%2 == 0: 
 		num_mob3 += 1
 		print("mob3 spawning")
 		var mob3 = preload("res://mob3.tscn").instantiate()
@@ -105,7 +105,6 @@ func _on_mob_timer_timeout():
 		var velocity3 = mob3_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 		mob3.linear_velocity = velocity3
 		add_child(mob3)
-
 
 
 

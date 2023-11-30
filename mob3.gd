@@ -39,7 +39,7 @@ func _physics_process(delta):
 	# Checking death condition each loop
 	if dead == true:
 		$AnimatedSprite2D.stop()
-		#$Shadow1_DeathSprite.play("death")
+		$Squirrel_DeathSprite.play("death")
 		death()
 
 
@@ -51,6 +51,7 @@ func _physics_process(delta):
 		if abs(dir_vector.x) > abs(dir_vector.y):
 			$AnimatedSprite2D.play("horizontal")
 			$CollisionShape.rotation_degrees = 90
+
 			if (dir_vector.x) <= 0:
 				scale.x = -1
 			else:
@@ -79,6 +80,7 @@ func _physics_process(delta):
 			elif dir_vector.length() > 10 && dir_vector.length() <= 100:
 				linear_velocity = Vector2(0,0)
 				pause = true
+				$AnimatedSprite2D.stop()
 				$DashTimer.start()
 
 			# Recoil after contact with Sola
@@ -88,9 +90,10 @@ func _physics_process(delta):
 
 
 func _on_dash_timer_timeout():
+	$AnimatedSprite2D.play()
 	pause_count += 1
 	dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
-	linear_velocity = dir_vector/dir_vector.length()*speed*4
+	linear_velocity = dir_vector/dir_vector.length()*speed*3
 	# Second time around- unpause
 	if pause_count%2 == 0:
 		pause = false
@@ -100,20 +103,15 @@ func _on_dash_timer_timeout():
 
 
 
-
-
-
-
-
-
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
-		#$Death3.play()
+		$Death3.play()
 		Global.kill_count += 1
+		$AnimatedSprite2D.visible = false
 		$CollisionShape.visible = false
-		#$Squirrel_DeathSprite.visible = true
+		$Squirrel_DeathSprite.visible = true
 		dead = true
 		$CollisionShape.set_deferred("disabled",true)
 		
@@ -124,10 +122,12 @@ func _on_body_entered(body):
 
 # Function for eliminating Mob instance
 func death():
-	#if $Squirrel_DeathSprite.frame == 3:
-	hide()
-	#if $Death3.playing == false:
-	queue_free()
+	print("death is running")
+	if $Squirrel_DeathSprite.frame == 4:
+		hide()
+		print("penis")
+	if $Death3.playing == false:
+		queue_free()
 
 
 

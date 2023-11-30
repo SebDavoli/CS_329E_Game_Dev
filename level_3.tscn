@@ -51,7 +51,7 @@ curve = SubResource("Curve2D_7uqmh")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(-55.957, -92.1363)
-rotation = -0.00152954
+rotation = -0.00152955
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)

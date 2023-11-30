@@ -1,8 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://3vfudbk317gl"]
+[gd_scene load_steps=22 format=3 uid="uid://3vfudbk317gl"]
 
 [ext_resource type="Script" path="res://mob3.gd" id="1_5te5o"]
 [ext_resource type="Texture2D" uid="uid://dxsnkwrk5yaxr" path="res://Mobs/squirrel_horizontal_sheet.png" id="2_0qtij"]
 [ext_resource type="Texture2D" uid="uid://bwmek1j6218uh" path="res://Mobs/squirrel_vertical_sheet.png" id="3_e5ulh"]
+[ext_resource type="Texture2D" uid="uid://bcsrk5du7citd" path="res://Mobs/squirrel_death_sprite_1.png" id="4_he1gm"]
+[ext_resource type="AudioStream" uid="uid://cufpneikcgtve" path="res://Mobs/mob3 death sound.mp3" id="4_vdr5d"]
+[ext_resource type="Texture2D" uid="uid://jt25xpfluhj8" path="res://Mobs/squirrel_death_sprite_2.png" id="5_7em0u"]
+[ext_resource type="Texture2D" uid="uid://b55opjcmy8tdn" path="res://Mobs/squirrel_death_sprite_3.png" id="6_tjiux"]
+[ext_resource type="Texture2D" uid="uid://dlbyqt1dyeo8v" path="res://Mobs/squirrel_death_sprite_4.png" id="7_rslqd"]
+[ext_resource type="Texture2D" uid="uid://byv8lbcwxfu80" path="res://Mobs/squirrel_death_sprite_5.png" id="8_6w27y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpptt"]
 atlas = ExtResource("2_0qtij")
@@ -75,7 +81,30 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14yo3"]
 radius = 9.0
-height = 58.0
+height = 36.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3paw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_he1gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7em0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tjiux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rslqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6w27y")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_el7pf"]
 radius = 544.092
@@ -96,17 +125,25 @@ animation = &"horizontal"
 speed_scale = 1.125
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(1, 4)
+position = Vector2(-2, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_14yo3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 2)
 
 [node name="Death3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vdr5d")
 
 [node name="Squirrel_DeathSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(-0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_j3paw")
+animation = &"death"
+speed_scale = 5.0
 
 [node name="detection_area" type="Area2D" parent="."]
+position = Vector2(3, -2)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
