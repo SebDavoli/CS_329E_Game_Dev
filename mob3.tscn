@@ -1,78 +1,52 @@
-[gd_scene load_steps=22 format=3 uid="uid://3vfudbk317gl"]
+[gd_scene load_steps=20 format=3 uid="uid://3vfudbk317gl"]
 
 [ext_resource type="Script" path="res://mob3.gd" id="1_5te5o"]
-[ext_resource type="Texture2D" uid="uid://dxsnkwrk5yaxr" path="res://Mobs/squirrel_horizontal_sheet.png" id="2_0qtij"]
-[ext_resource type="Texture2D" uid="uid://bwmek1j6218uh" path="res://Mobs/squirrel_vertical_sheet.png" id="3_e5ulh"]
+[ext_resource type="Texture2D" uid="uid://c1xhhgjnsnl71" path="res://Mobs/squirrel_sprite_1.png" id="2_rgto4"]
+[ext_resource type="Texture2D" uid="uid://cd2g63t18nwvl" path="res://Mobs/squirrel_sprite_02.png" id="3_6xxfp"]
+[ext_resource type="Texture2D" uid="uid://ccs70ke7k2sgt" path="res://Mobs/squirrel_sprite_3.png" id="4_cppft"]
 [ext_resource type="Texture2D" uid="uid://bcsrk5du7citd" path="res://Mobs/squirrel_death_sprite_1.png" id="4_he1gm"]
 [ext_resource type="AudioStream" uid="uid://cufpneikcgtve" path="res://Mobs/mob3 death sound.mp3" id="4_vdr5d"]
 [ext_resource type="Texture2D" uid="uid://jt25xpfluhj8" path="res://Mobs/squirrel_death_sprite_2.png" id="5_7em0u"]
+[ext_resource type="Texture2D" uid="uid://dlu6133qbg2dm" path="res://Mobs/squirrel_sprite_4.png" id="5_pfdwp"]
+[ext_resource type="Texture2D" uid="uid://cbdlv2swi841l" path="res://Mobs/squirrel_sprite_5.png" id="6_en3l3"]
 [ext_resource type="Texture2D" uid="uid://b55opjcmy8tdn" path="res://Mobs/squirrel_death_sprite_3.png" id="6_tjiux"]
+[ext_resource type="Texture2D" uid="uid://dpwbibkm2o4y2" path="res://Mobs/squirrel_vertical_1.png" id="7_qfqk2"]
 [ext_resource type="Texture2D" uid="uid://dlbyqt1dyeo8v" path="res://Mobs/squirrel_death_sprite_4.png" id="7_rslqd"]
 [ext_resource type="Texture2D" uid="uid://byv8lbcwxfu80" path="res://Mobs/squirrel_death_sprite_5.png" id="8_6w27y"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpptt"]
-atlas = ExtResource("2_0qtij")
-region = Rect2(0, 0, 672, 941)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cqfa"]
-atlas = ExtResource("2_0qtij")
-region = Rect2(672, 0, 672, 941)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jj0b"]
-atlas = ExtResource("2_0qtij")
-region = Rect2(1344, 0, 672, 941)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4us6y"]
-atlas = ExtResource("2_0qtij")
-region = Rect2(2151, 0, 717, 941)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gr7f"]
-atlas = ExtResource("2_0qtij")
-region = Rect2(2932, 0, 733, 941)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rfsh"]
-atlas = ExtResource("3_e5ulh")
-region = Rect2(0, 0, 645, 916)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oc1lp"]
-atlas = ExtResource("3_e5ulh")
-region = Rect2(645, 0, 645, 916)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smc3b"]
-atlas = ExtResource("3_e5ulh")
-region = Rect2(1290, 0, 645, 916)
+[ext_resource type="Texture2D" uid="uid://dtrlbi1tbqhvk" path="res://Mobs/squirrel_vertical_2.png" id="8_nbcvf"]
+[ext_resource type="Texture2D" uid="uid://j8ruhd2me2et" path="res://Mobs/squirrel_vertical_3.png" id="9_ihty3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ixymi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tpptt")
+"texture": ExtResource("2_rgto4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7cqfa")
+"texture": ExtResource("3_6xxfp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6jj0b")
+"texture": ExtResource("4_cppft")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4us6y")
+"texture": ExtResource("5_pfdwp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5gr7f")
+"texture": ExtResource("6_en3l3")
 }],
 "loop": true,
 "name": &"horizontal",
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_5rfsh")
+"duration": 1.0,
+"texture": ExtResource("7_qfqk2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oc1lp")
+"texture": ExtResource("8_nbcvf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_smc3b")
+"texture": ExtResource("9_ihty3")
 }],
 "loop": true,
 "name": &"vertical",
@@ -136,6 +110,7 @@ position = Vector2(0, 2)
 stream = ExtResource("4_vdr5d")
 
 [node name="Squirrel_DeathSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-3, -1)
 scale = Vector2(-0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_j3paw")

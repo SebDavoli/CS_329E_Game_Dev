@@ -1,3 +1,4 @@
+Label
 TextureRect
 Timer
 AudioStreamPlayer2D
@@ -6,7 +7,6 @@ CollisionShape2D
 Area2D
 AnimatedSprite2D
 RigidBody2D
-Label
 AudioStreamPlayer
 Sprite2D
 StaticBody2D

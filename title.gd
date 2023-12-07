@@ -1,6 +1,6 @@
 extends Node2D
 
-var timer= 2.5
+var timer= 1.5
 var count_down = false
 
 func _ready():

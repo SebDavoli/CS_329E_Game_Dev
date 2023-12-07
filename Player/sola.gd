@@ -32,26 +32,26 @@ func _process(delta):
 		
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += 1.5
 		$Marker2D.position = Vector2(125, 10)	
 		$FlashLight.rotation_degrees = 135	
 		
 		
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		velocity.x -= 1.5
 		$Marker2D.position = Vector2(-125, -15)
 		$FlashLight.rotation_degrees = 315	
 		
 					
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		velocity.y += 1.5
 		$AnimatedSprite2D.play("walk_down")
 		$Marker2D.position = Vector2(0,125)	
 		$FlashLight.rotation_degrees = 225			
 		
 		
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1	
+		velocity.y -= 1.5
 		$AnimatedSprite2D.play("walk_up")
 		$Marker2D.position = Vector2(0,-125)
 		$FlashLight.rotation_degrees = 45	
@@ -61,6 +61,9 @@ func _process(delta):
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
 	
+#	if velocity.x == 0 and velocity.y == 0:
+#		$AnimatedSprite2D.animation = "idle"
+		
 	if velocity.length() > 0:
 #		print(velocity)
 		velocity = velocity.normalized() * speed

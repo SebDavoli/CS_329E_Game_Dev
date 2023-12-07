@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level_2.gd" id="1_srq5y"]
 [ext_resource type="AudioStream" uid="uid://becs3pmi6s7rj" path="res://Music/all.mp3" id="2_2dihh"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="2_oibbv"]
-[ext_resource type="Texture2D" uid="uid://c8ganhjcqgrfd" path="res://Art/Level 2.png" id="3_1ndvi"]
+[ext_resource type="Texture2D" uid="uid://b8bkt3abgra6k" path="res://Art/Level_2.png" id="4_ghilw"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="5_4254d"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="6_drrrc"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="6_yqxfd"]
@@ -63,14 +63,13 @@ stream = ExtResource("2_2dihh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.458824, 0, 0, 1)
-color = Color(0.176471, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
 offset_right = 1149.0
 offset_bottom = 647.0
-texture = ExtResource("3_1ndvi")
+texture = ExtResource("4_ghilw")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 

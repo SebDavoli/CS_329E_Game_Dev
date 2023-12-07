@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jxaid0s13ejq"]
+[gd_scene load_steps=6 format=3 uid="uid://jxaid0s13ejq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_htbqm"]
 [ext_resource type="Texture2D" uid="uid://dsfjrpu6e34w1" path="res://Art/HP_100.png" id="2_8a3ri"]
 [ext_resource type="Texture2D" uid="uid://bosuwphfdxvnf" path="res://Art/Charge 5.png" id="3_do8gj"]
 [ext_resource type="Texture2D" uid="uid://u5hkos8ebfr6" path="res://Art/Light_Arrow.png" id="4_xyxid"]
+[ext_resource type="Texture2D" uid="uid://dungy7xp874bu" path="res://Mobs/dead.png" id="5_3u0m2"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_htbqm")
@@ -61,13 +62,6 @@ offset_right = 1137.0
 offset_bottom = 106.0
 text = "/"
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 1010.0
-offset_top = 80.0
-offset_right = 1050.0
-offset_bottom = 106.0
-text = "Goal:"
-
 [node name="Arrow" type="TextureRect" parent="."]
 visible = false
 offset_left = 504.0
@@ -75,5 +69,10 @@ offset_top = 69.0
 offset_right = 604.0
 offset_bottom = 169.0
 texture = ExtResource("4_xyxid")
+
+[node name="Dead" type="Sprite2D" parent="."]
+position = Vector2(1021, 93)
+scale = Vector2(0.0296164, 0.0349935)
+texture = ExtResource("5_3u0m2")
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
