@@ -44,9 +44,8 @@ _data = {
 script = ExtResource("1_ht48r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_top = 1.0
-offset_right = 1150.0
-offset_bottom = 647.0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("2_ameys")
 expand_mode = 1
 
@@ -70,10 +69,8 @@ text = "Start"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_right = 0.963542
-anchor_bottom = 0.933642
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 

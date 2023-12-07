@@ -313,3 +313,4 @@ shape = SubResource("RectangleShape2D_8keqv")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="light" from="Sola" to="." method="shine"]
+[connection signal="doom" from="Mob" to="." method="mobdead"]

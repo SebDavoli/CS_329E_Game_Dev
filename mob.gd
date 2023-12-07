@@ -5,6 +5,7 @@ var dead = false
 var player = null
 var player_chase = false
 var speed = 125
+signal doom
 
 func _ready():
 	# Beginning mob animation
@@ -34,6 +35,7 @@ func _physics_process(delta):
 			linear_velocity = Vector2(-dir_vector.x,-dir_vector.y)*speed/2
 	# Checking death condition each loop
 	if dead == true:
+		doom.emit()
 		$AnimatedSprite2D.stop()
 		$Shadow1_DeathSprite.play("death")
 		death()
