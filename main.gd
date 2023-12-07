@@ -6,6 +6,7 @@ var num_mob3 = 0
 var rand_num1
 var rand_num2
 var rand_num3
+var rand_num4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,8 @@ func _ready():
 	rand_num1 = randi() % 8 + 1
 	rand_num2 = randi() % 8 + 1
 	rand_num3 = randi() % 8 + 1
+	rand_num4 = randi() % 8 + 1
+	
 	$Lamps/Lamp/LampLight.hide()
 	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp2/LampLight.hide()
@@ -56,7 +59,9 @@ func _process(delta):
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	print(Global.kill_count)
 	
-	if Global.kill_count == Global.goal:
+	if Global.kill_count >= Global.goal:
+		$MobTimer.stop()
+		$HUD/Arrow.show()
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
 		$Fence2.hide()
@@ -131,33 +136,35 @@ func _on_light_timer_timeout():
 	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 	#Find random lamp to turn on
-	if rand_num1 == 1 or rand_num2 == 1 or rand_num3 == 1:
+	if rand_num1 == 1 or rand_num2 == 1 or rand_num3 == 1 or rand_num4 == 1:
 		$Lamps/Lamp/LampLight.show()
 		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 2 or rand_num2 == 2 or rand_num3 == 2:
+	if rand_num1 == 2 or rand_num2 == 2 or rand_num3 == 2 or rand_num4 == 2:
 		$Lamps/Lamp2/LampLight.show()
 		$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 3 or rand_num2 == 3 or rand_num3 == 3:
+	if rand_num1 == 3 or rand_num2 == 3 or rand_num3 == 3 or rand_num4 == 3:
 		$Lamps/Lamp3/LampLight.show()
 		$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 4 or rand_num2 == 4 or rand_num3 == 4:
+	if rand_num1 == 4 or rand_num2 == 4 or rand_num3 == 4 or rand_num4 == 4:
 		$Lamps/Lamp4/LampLight.show()
 		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 5 or rand_num2 == 5 or rand_num3 == 5:
+	if rand_num1 == 5 or rand_num2 == 5 or rand_num3 == 5 or rand_num4 == 5:
 		$Lamps/Lamp5/LampLight.show()
 		$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 6 or rand_num2 == 6 or rand_num3 == 6:
+	if rand_num1 == 6 or rand_num2 == 6 or rand_num3 == 6 or rand_num4 == 6:
 		$Lamps/Lamp6/LampLight.show()
 		$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 7 or rand_num2 == 7 or rand_num3 == 7:
+	if rand_num1 == 7 or rand_num2 == 7 or rand_num3 == 7 or rand_num4 == 7:
 		$Lamps/Lamp7/LampLight.show()
 		$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 8 or rand_num2 == 8 or rand_num3 == 8:
+	if rand_num1 == 8 or rand_num2 == 8 or rand_num3 == 8 or rand_num4 == 8:
 		$Lamps/Lamp8/LampLight.show()
 		$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = false
+		
 	rand_num1 = randi() % 8 + 1
 	rand_num2 = randi() % 8 + 1
 	rand_num3 = randi() % 8 + 1
+	rand_num4 = randi() % 8 + 1
 
 func _on_flash_timer_timeout():
 	print("Flahslight off")

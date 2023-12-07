@@ -242,6 +242,8 @@ texture = ExtResource("7_0st03")
 position = Vector2(-478, 6.375)
 shape = SubResource("RectangleShape2D_4cpn2")
 
+[node name="DialogueBox2" parent="." instance=ExtResource("6_yqxfd")]
+
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

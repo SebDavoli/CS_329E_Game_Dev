@@ -4,6 +4,7 @@ var num_mob1 = 0
 var num_mob2 = 0
 var rand_num1
 var rand_num2
+var rand_num3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,8 @@ func _ready():
 	
 	rand_num1 = randi() % 6 + 1
 	rand_num2 = randi() % 6 + 1
+	rand_num3 = randi() % 6 + 1
+	
 	$Lamps/Lamp/LampLight.hide()
 	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp2/LampLight.hide()
@@ -36,6 +39,8 @@ func _ready():
 	$Lamps/Lamp6/LampLight.hide()
 	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
 	
+	$DialogueBox.load_dialogue(["I think defeating the monsters open the path...! Maybe this leads me to Luna?"])
+	
 func _process(delta):
 #	print($Sola/FlashLight/CollisionPolygon2D.disabled)
 #	print($FlashTimer.get_time_left())
@@ -46,7 +51,9 @@ func _process(delta):
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	print(Global.kill_count)
 
-	if Global.kill_count == Global.goal:
+	if Global.kill_count >= Global.goal:
+		$MobTimer.stop()
+		$HUD/Arrow.show()
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
 		$Fence2.hide()
@@ -118,26 +125,28 @@ func _on_light_timer_timeout():
 	$Lamps/Lamp6/LampLight.hide()
 	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
 	
-	if rand_num1 == 1 or rand_num2 == 1:
+	if rand_num1 == 1 or rand_num2 == 1 or rand_num3 == 1:
 		$Lamps/Lamp/LampLight.show()
 		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 2 or rand_num2 == 2:
+	if rand_num1 == 2 or rand_num2 == 2 or rand_num3 == 2:
 		$Lamps/Lamp2/LampLight.show()
 		$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 3 or rand_num2 == 3:
+	if rand_num1 == 3 or rand_num2 == 3 or rand_num3 == 3:
 		$Lamps/Lamp3/LampLight.show()
 		$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 4 or rand_num2 == 4:
+	if rand_num1 == 4 or rand_num2 == 4 or rand_num3 == 4:
 		$Lamps/Lamp4/LampLight.show()
 		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 5 or rand_num2 == 5:
+	if rand_num1 == 5 or rand_num2 == 5 or rand_num3 == 5:
 		$Lamps/Lamp5/LampLight.show()
 		$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 6 or rand_num2 == 6:
+	if rand_num1 == 6 or rand_num2 == 6 or rand_num3 == 6:
 		$Lamps/Lamp6/LampLight.show()
 		$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = false
+		
 	rand_num1 = randi() % 6 + 1
 	rand_num2 = randi() % 6 + 1
+	rand_num3 = randi() % 6 + 1
 
 func _on_flash_timer_timeout():
 	print("Flahslight off")

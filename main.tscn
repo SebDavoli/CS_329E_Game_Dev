@@ -46,12 +46,12 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="LightTimer" type="Timer" parent="."]

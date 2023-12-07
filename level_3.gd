@@ -5,6 +5,7 @@ var num_mob2 = 0
 var num_mob3 = 0
 var num_mob4 = 0
 var rand_num1
+var rand_num2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +23,8 @@ func _ready():
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
 
-	rand_num1 = randi() % 6 + 1
+	rand_num1 = randi() % 4 + 1
+	rand_num2 = randi() % 4 + 1
 	
 	$Lamps/Lamp/LampLight.hide()
 	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
@@ -32,6 +34,8 @@ func _ready():
 	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
 	$Lamps/Lamp4/LampLight.hide()
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+	
+	$DialogueBox.load_dialogue(["Luna? Is that you?? Hold on!!"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,7 +46,9 @@ func _process(delta):
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	#print(Global.kill_count)
 	
-	if Global.kill_count == Global.goal:
+	if Global.kill_count >= Global.goal:
+		$MobTimer.stop()
+		$HUD/Arrow.show()
 		$Fence.hide()
 		$Fence/CollisionShape2D.disabled = true
 		$Fence2.hide()
@@ -126,20 +132,21 @@ func _on_light_timer_timeout():
 	$Lamps/Lamp4/LampLight.hide()
 	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
 	
-	if rand_num1 == 1:
+	if rand_num1 == 1 or rand_num2 == 1:
 		$Lamps/Lamp/LampLight.show()
 		$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 2:
+	if rand_num1 == 2 or rand_num2 == 2:
 		$Lamps/Lamp2/LampLight.show()
 		$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 3:
+	if rand_num1 == 3 or rand_num2 == 3:
 		$Lamps/Lamp3/LampLight.show()
 		$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = false
-	if rand_num1 == 4:
+	if rand_num1 == 4 or rand_num2 == 4:
 		$Lamps/Lamp4/LampLight.show()
 		$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = false
 		
 	rand_num1 = randi() % 4 + 1
+	rand_num2 = randi() % 4 + 1
 
 
 func _on_flash_timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvgg1pfn3qigb"]
+[gd_scene load_steps=15 format=3 uid="uid://cvgg1pfn3qigb"]
 
 [ext_resource type="Script" path="res://level_3.gd" id="1_7wba6"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="2_1sulp"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="3_faqr0"]
 [ext_resource type="Texture2D" uid="uid://ddjldoc4ddrn3" path="res://Art/Level3.png" id="4_8ql2y"]
 [ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="7_sldyv"]
+[ext_resource type="Texture2D" uid="uid://cmfk3rshf74f3" path="res://Art/Luna.png" id="8_m0hkm"]
+[ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="9_7scgd"]
 
 [sub_resource type="Curve2D" id="Curve2D_7uqmh"]
 _data = {
@@ -155,6 +157,14 @@ position = Vector2(1058, 85)
 [node name="Lamp4" parent="Lamps" instance=ExtResource("3_0jtv5")]
 position = Vector2(1062, 511)
 
+[node name="Luna" type="TextureRect" parent="."]
+offset_left = 555.0
+offset_top = 5.0
+offset_right = 598.0
+offset_bottom = 46.0
+texture = ExtResource("8_m0hkm")
+expand_mode = 1
+
 [node name="Fence" type="StaticBody2D" parent="."]
 position = Vector2(588, 37)
 collision_layer = 201
@@ -232,6 +242,8 @@ texture = ExtResource("7_sldyv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
 position = Vector2(-474, 15.25)
 shape = SubResource("RectangleShape2D_3br3v")
+
+[node name="DialogueBox" parent="." instance=ExtResource("9_7scgd")]
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
