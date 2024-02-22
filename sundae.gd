@@ -10,8 +10,9 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
+	print("sundae eaten")
+	print(body.get_name())
 	if body.get_name() == "Sola":
 		$Sprite2D.visible = false
 		$CollisionShape2D.set_deferred("disabled",true)

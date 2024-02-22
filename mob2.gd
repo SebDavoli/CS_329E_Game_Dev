@@ -6,7 +6,7 @@ var player = null
 var player_chase = false
 var speed = 150
 var x = 0.0
-var drop = 2
+var drop = 1.0
 var rand_num
 var drop_occurred = false
 
@@ -72,7 +72,7 @@ func _on_body_entered(body):
 # Function for eliminating Mob instance
 func death():
 	if not drop_occurred:
-		rand_num = randi() % 100 + 1
+		rand_num = randf() * 100.0
 		if rand_num <= drop:
 			print("sundae created")
 			var sundae = preload("res://sundae.tscn").instantiate()

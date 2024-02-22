@@ -1,5 +1,6 @@
-RigidBody2D
 CollisionShape2D
+Area2D
+RigidBody2D
 Sprite2D
 AudioStreamPlayer
 Label
@@ -7,7 +8,6 @@ TextureRect
 Timer
 AudioStreamPlayer2D
 VisibleOnScreenNotifier2D
-Area2D
 AnimatedSprite2D
 StaticBody2D
 Button
