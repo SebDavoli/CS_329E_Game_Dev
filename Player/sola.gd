@@ -1,6 +1,7 @@
 extends CharacterBody2D
 signal damage
 signal light
+signal heal
 
 @export var speed = 200
 var viewport_size
@@ -80,6 +81,8 @@ func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "Flashlight":
 		light.emit()
+	if body.is_in_group("sundaes"):
+		heal.emit()
 	if body.get_name() == "LampLight":
 		light.emit()
 	if body.is_in_group("mobs"):

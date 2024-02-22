@@ -6,6 +6,9 @@ var player = null
 var player_chase = false
 var speed = 150
 var x = 0.0
+var drop = 2
+var rand_num
+var drop_occurred = false
 
 func _ready():
 	# Beginning mob animation
@@ -68,6 +71,14 @@ func _on_body_entered(body):
 
 # Function for eliminating Mob instance
 func death():
+	if not drop_occurred:
+		rand_num = randi() % 100 + 1
+		if rand_num <= drop:
+			print("sundae created")
+			var sundae = preload("res://sundae.tscn").instantiate()
+			sundae.position = self.position
+			get_parent().add_child(sundae)
+			drop_occurred = true  # Set the flag to prevent further drops
 	if $Shadow2_DeathSprite.frame == 3:
 		hide()
 	if $Death2.playing == false:

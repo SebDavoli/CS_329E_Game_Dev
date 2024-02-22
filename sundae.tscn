@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dohmqsx65tk15"]
+
+[ext_resource type="Script" path="res://sundae.gd" id="1_jpo6v"]
+[ext_resource type="Texture2D" uid="uid://dk3qpaa8p0iok" path="res://Art/sundae.png" id="2_xispf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2o88d"]
+radius = 7.0
+
+[node name="Sundae" type="RigidBody2D" groups=["sundaes"]]
+collision_layer = 2
+collision_mask = 4
+gravity_scale = 2.66454e-15
+max_contacts_reported = 100
+contact_monitor = true
+script = ExtResource("1_jpo6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10.875, 16.75)
+scale = Vector2(0.0840249, 0.0781249)
+texture = ExtResource("2_xispf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 17)
+shape = SubResource("CapsuleShape2D_2o88d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

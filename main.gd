@@ -79,6 +79,11 @@ func new_game():
 	pass
 #	get_tree().call_group("mobs", "queue_free")
 
+func heal():
+	if health <= 80:
+		health = health + 20
+	$HUD.update_health(health)
+
 func change_health():
 	health = health - 20
 	$HUD.update_health(health)

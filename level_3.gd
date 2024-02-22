@@ -60,6 +60,11 @@ func _process(delta):
 		$Fence5.hide()
 		$Fence5/CollisionShape2D.disabled = true
 
+func heal():
+	if health <= 80:
+		health = health + 20
+	$HUD.update_health(health)
+
 func change_health():
 	health = health - 20
 	$HUD.update_health(health)

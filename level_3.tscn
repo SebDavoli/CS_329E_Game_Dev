@@ -250,4 +250,5 @@ shape = SubResource("RectangleShape2D_3br3v")
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="damage" from="Sola" to="." method="change_health"]
+[connection signal="heal" from="Sola" to="." method="heal"]
 [connection signal="light" from="Sola" to="." method="shine"]

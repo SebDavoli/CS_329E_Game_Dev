@@ -7,6 +7,9 @@ var pause_count = 0
 var player = null
 var player_chase = false
 var speed = 125
+var drop = 3
+var rand_num
+var drop_occurred = false
 
 var orientation = "right" # way the mob is facing
 var quadrant # where is the mob relative to the player
@@ -122,7 +125,14 @@ func _on_body_entered(body):
 
 # Function for eliminating Mob instance
 func death():
-	print("death is running")
+	if not drop_occurred:
+		rand_num = randi() % 100 + 1
+		if rand_num <= drop:
+			print("sundae created")
+			var sundae = preload("res://sundae.tscn").instantiate()
+			sundae.position = self.position
+			get_parent().add_child(sundae)
+			drop_occurred = true  # Set the flag to prevent further drops
 	if $Squirrel_DeathSprite.frame == 4:
 		hide()
 		print("penis")

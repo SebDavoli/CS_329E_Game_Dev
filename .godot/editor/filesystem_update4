@@ -13,3 +13,11 @@ res://win.tscn
 res://tutorial.tscn
 res://dialogue.tscn
 res://title.tscn
+res://sundae.tscn
+res://mob.gd
+res://mob2.gd
+res://mob3.gd
+res://Player/sola.gd
+res://sundae.gd
+res://level_2.gd
+res://level_3.gd
