@@ -21,13 +21,12 @@ func _process(delta):
 		print("DIALOGUE moving to %s" % (executing + 1))
 		if executing + 1 < len(dialogue_array):
 			executing += 1
-			
 			set_text(dialogue_array[executing])
 		else:
 			executing = -1
 			dialogue_array = []
 			hide_dialogue()
-			$Sound.stop()
+			
 	
 func hide_dialogue():
 	label.text = ""
@@ -42,6 +41,5 @@ func set_text(text):
 	label.text = text
 	container.show()
 	while label.visible_characters <= len(text) or current_execution_step != executing:
-		$Sound.play()
 		label.visible_characters += 1
 		await get_tree().create_timer(CHAR_RATE).timeout
