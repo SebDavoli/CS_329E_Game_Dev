@@ -11,7 +11,7 @@ radius = 7.0
 
 [node name="Sundae" type="RigidBody2D" groups=["sundaes"]]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
 gravity_scale = 2.66454e-15
 max_contacts_reported = 100
 contact_monitor = true
