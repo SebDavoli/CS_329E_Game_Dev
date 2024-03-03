@@ -26,7 +26,7 @@ size = Vector2(57.6, 2.85)
 size = Vector2(13.2, 5.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
-size = Vector2(224, 88.5)
+size = Vector2(251, 72.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o3cul")
@@ -192,7 +192,7 @@ scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-475, 10.75)
+position = Vector2(-475, 2.75)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [node name="Fence2" type="StaticBody2D" parent="."]
@@ -206,7 +206,7 @@ scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
-position = Vector2(-475, 10.75)
+position = Vector2(-475, 3)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [node name="Fence3" type="StaticBody2D" parent="."]
@@ -220,7 +220,7 @@ scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
-position = Vector2(-475, 10.75)
+position = Vector2(-477, 4)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [node name="Fence4" type="StaticBody2D" parent="."]
@@ -234,7 +234,7 @@ scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
-position = Vector2(-475, 10.75)
+position = Vector2(-481, 3)
 shape = SubResource("RectangleShape2D_mj6gm")
 
 [node name="Fence5" type="StaticBody2D" parent="."]
@@ -248,9 +248,10 @@ scale = Vector2(0.444125, 0.176939)
 texture = ExtResource("9_fpfp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
-position = Vector2(-475, 10.75)
+position = Vector2(-477.5, 3)
 shape = SubResource("RectangleShape2D_mj6gm")
 
+[connection signal="on" from="." to="Sola" method="flash_on"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

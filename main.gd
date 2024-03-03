@@ -7,9 +7,11 @@ var rand_num1
 var rand_num2
 var rand_num3
 var rand_num4
+signal on
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.current_level = 1
 	Global.kill_count = 0
 	Global.goal = 20
 	$HUD/GoalKill.text = str(Global.goal)
@@ -177,6 +179,7 @@ func _on_flash_timer_timeout():
 	$Sola/FlashLight/CollisionPolygon2D.disabled = true
 
 func shine():
+	on.emit()
 	$Sola/FlashLight.show()
 	print("Flashlight ON")
 	$FlashTimer.start()	

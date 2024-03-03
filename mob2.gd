@@ -55,6 +55,13 @@ func _physics_process(delta):
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):
 	print(body.get_name())
+	if body.get_name() == "Sola":
+		$Death2.play()
+		$AnimatedSprite2D.visible = false
+		$Shadow2_DeathSprite.visible = true
+		drop_occurred = true
+		dead = true
+		$CollisionShape2D.set_deferred("disabled",true)
 	if body.get_name() == "FlashLight":
 		$Death2.play()
 		print("killed")

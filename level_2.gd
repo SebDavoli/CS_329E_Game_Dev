@@ -8,6 +8,7 @@ var rand_num3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.current_level = 2
 	Global.kill_count = 0
 	Global.goal = 40
 	$HUD/GoalKill.text = str(Global.goal)

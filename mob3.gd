@@ -109,6 +109,14 @@ func _on_dash_timer_timeout():
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):
 	print(body.get_name())
+	if body.get_name() == "Sola":
+		$Death3.play()
+		$AnimatedSprite2D.visible = false
+		$Squirrel_DeathSprite.visible = true
+		$CollisionShape.visible = false
+		drop_occurred = true
+		dead = true
+		$CollisionShape.set_deferred("disabled",true)
 	if body.get_name() == "FlashLight":
 		$Death3.play()
 		Global.kill_count += 1

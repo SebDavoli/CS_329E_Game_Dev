@@ -4,8 +4,11 @@ signal Light_Drift_Ready
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-	
+	pass
+
+func _process(delta):
+	if $LampLight/CollisionPolygon2D.disabled == false:
+		$LampLight/AnimationPlayer.play("flicker")
 
 func _on_lamp_light_area_entered(area): 
 	if area.is_in_group("player"):

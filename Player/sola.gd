@@ -19,11 +19,14 @@ var y_max = 400
 func _ready():
 	$FlashLight.show()
 	$AnimatedSprite2D.play("idle")
+	$FlashLight/AnimationPlayer.play("flicker")
 	viewport_size = get_viewport_rect().size
 	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if $FlashLight/CollisionPolygon2D.disabled == false:
+		$FlashLight/AnimationPlayer.play("flicker")	
 	var new_viewport_size = get_viewport_rect().size
 #	camera.zoom *= new_viewport_size / viewport_size
 	viewport_size = new_viewport_size
@@ -125,3 +128,7 @@ func Light_Drift():
 
 func _on_pain_timer_timeout():
 	$AnimatedSprite2D.modulate = Color8(255,255,255,255)
+
+func flash_on():
+	$FlashLight/AnimationPlayer.stop()
+	$FlashLight/AnimationPlayer.play("flicker")

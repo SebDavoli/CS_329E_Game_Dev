@@ -48,6 +48,12 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	print("Mob:")
 	print(body.get_name())
+	if body.get_name() == "Sola":
+		$Death.play()
+		$AnimatedSprite2D.visible = false
+		$Shadow1_DeathSprite.visible = true
+		drop_occurred = true
+		dead = true
 	if body.get_name() == "FlashLight":
 		$Death.play()
 		$AnimatedSprite2D.visible = false

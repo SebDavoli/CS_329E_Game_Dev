@@ -10,6 +10,9 @@ func _on_start_button_pressed():
 	$CanvasLayer.show()
 	$CanvasLayer/AnimationPlayer.play("fade")
 	count_down = true
+	
+func _on_exit_button_pressed():
+	get_tree().quit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

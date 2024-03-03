@@ -1,6 +1,8 @@
 extends Node2D
+
 var kill_count = 0
 var goal = 0
+var current_level = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
