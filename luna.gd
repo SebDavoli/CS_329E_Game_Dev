@@ -27,13 +27,6 @@ func _on_detection_area_body_exited(body):
 		player_chase = false
 
 
-
-
-
-
-
-
-
 func _physics_process(delta):
 	# Checking death condition each loop
 	if dead == true:
@@ -94,12 +87,13 @@ func _on_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "FlashLight":
 		#$DeathLuna.play()
-		print("killed")
-		Global.kill_count += 1
-		$AnimatedSprite2D.visible = false
-		$LunaDeathSprite.visible = true
-		dead = true
-		$CollisionShape2D.set_deferred("disabled",true)
+		#print("killed")
+		#Global.kill_count += 1
+		#$AnimatedSprite2D.visible = false
+		#$LunaDeathSprite.visible = true
+		#dead = true
+		#$CollisionShape2D.set_deferred("disabled",true)
+		pass
 		
 	if body.is_in_group("monster_bounds"):
 		queue_free()

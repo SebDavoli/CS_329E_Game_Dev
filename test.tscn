@@ -1,0 +1,274 @@
+[gd_scene load_steps=17 format=3 uid="uid://bvcayc00x5fl"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2m36v"]
+[ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_33k0o"]
+[ext_resource type="AudioStream" uid="uid://bqbis5cue41lj" path="res://Music/floor+accent+melody.mp3" id="3_jwf8p"]
+[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="4_qfj3u"]
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="5_ssto1"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="6_7sodh"]
+[ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="7_x828m"]
+[ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_vmwyu"]
+[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="9_8osff"]
+[ext_resource type="PackedScene" uid="uid://bn7xng7ollteg" path="res://luna.tscn" id="10_78t73"]
+[ext_resource type="PackedScene" uid="uid://3vfudbk317gl" path="res://mob3.tscn" id="10_xxeng"]
+
+[sub_resource type="Curve2D" id="Curve2D_eeujy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, -8, 0, 0, 0, 0, 1149, -6, 0, 0, 0, 0, 1154, 632.423, 0, 0, 0, 0, 59.9431, 633.401, 0, 0, 0, 0, -1.0043, 630.468, 0, 0, 0, 0, 0.323601, 1.60672, 0, 0, 0, 0, -1, -10, 0, 0, 0, 0, -3, -8)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21i4j"]
+size = Vector2(38.425, 2.87498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx8h3"]
+size = Vector2(57.6, 2.85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vu6c"]
+size = Vector2(13.2, 5.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
+size = Vector2(251, 72.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2m36v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.458824, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("2_33k0o")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LightTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MobPath" type="Path2D" parent="."]
+position = Vector2(-2.99483, 8.2269)
+scale = Vector2(1.00086, 1.02269)
+curve = SubResource("Curve2D_eeujy")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-3, -8)
+rotation = 0.00173611
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(39, 53)
+stream = ExtResource("3_jwf8p")
+
+[node name="HUD" parent="." instance=ExtResource("4_qfj3u")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(579, 346)
+
+[node name="Sola" parent="." instance=ExtResource("5_ssto1")]
+position = Vector2(578, 346)
+
+[node name="Camera2D" type="Camera2D" parent="Sola"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1151
+limit_bottom = 652
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+
+[node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
+position = Vector2(798, -1008)
+scale = Vector2(25, 25)
+disable_mode = 1
+collision_layer = 64
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-36.2, 53.4)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bottom" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.89, 71.2)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Top" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(-8.84001, 35.6)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Right" type="CollisionShape2D" parent="MonsterBounds"]
+position = Vector2(18.56, 53.44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bounds" type="StaticBody2D" parent="." groups=["bounds"]]
+position = Vector2(38, -48)
+scale = Vector2(20, 20)
+disable_mode = 1
+collision_layer = 128
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-3.3, 18.65)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.85, 36.45)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(26.9, 3.65)
+shape = SubResource("RectangleShape2D_hx8h3")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(57.0875, 18.6375)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_21i4j")
+
+[node name="Top2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(4, 5.125)
+shape = SubResource("RectangleShape2D_4vu6c")
+
+[node name="Top3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(48.8, 5.05)
+shape = SubResource("RectangleShape2D_4vu6c")
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(114, 465)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(325, 466)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(827, 481)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(1016, 482)
+
+[node name="Lamp5" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(98, 163)
+
+[node name="Lamp6" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(316, 165)
+
+[node name="Lamp7" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(819, 163)
+
+[node name="Lamp8" parent="Lamps" instance=ExtResource("6_7sodh")]
+position = Vector2(1018, 160)
+
+[node name="DialogueBox" parent="." instance=ExtResource("7_x828m")]
+
+[node name="Next_Level" parent="." instance=ExtResource("8_vmwyu")]
+position = Vector2(591, 0)
+
+[node name="Fence" type="StaticBody2D" parent="."]
+position = Vector2(588, 85)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_8osff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
+position = Vector2(-475, 2.75)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence2" type="StaticBody2D" parent="."]
+position = Vector2(813, 85)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_8osff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
+position = Vector2(-475, 3)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence3" type="StaticBody2D" parent="."]
+position = Vector2(1040, 84)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_8osff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
+position = Vector2(-477, 4)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence4" type="StaticBody2D" parent="."]
+position = Vector2(1269, 86)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_8osff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
+position = Vector2(-481, 3)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Fence5" type="StaticBody2D" parent="."]
+position = Vector2(1504, 87)
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
+position = Vector2(-474.031, 13.7652)
+scale = Vector2(0.444125, 0.176939)
+texture = ExtResource("9_8osff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
+position = Vector2(-477.5, 3)
+shape = SubResource("RectangleShape2D_mj6gm")
+
+[node name="Mob3" parent="." instance=ExtResource("10_xxeng")]
+position = Vector2(552, 168)
+
+[node name="Luna" parent="." instance=ExtResource("10_78t73")]
+position = Vector2(479, 175)
+
+[node name="Mob4" parent="." instance=ExtResource("10_xxeng")]
+position = Vector2(636, 165)
+
+[connection signal="on" from="." to="Sola" method="flash_on"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="damage" from="Sola" to="." method="change_health"]
+[connection signal="heal" from="Sola" to="." method="heal"]
+[connection signal="light" from="Sola" to="." method="shine"]

@@ -18,7 +18,7 @@ func _ready():
 	health = 100
 	$LightTimer.start()
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
+	#$StartTimer.start()
 	$FlashTimer.start()
 
 	$BGM.play()
