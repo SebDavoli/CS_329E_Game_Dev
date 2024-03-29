@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=60 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://c6kg8blb3bitl" path="res://Player/Sola_Forward_Idle.png" id="2_ttlob"]
 [ext_resource type="Script" path="res://Player/sola.gd" id="2_wwx7e"]
@@ -49,10 +49,38 @@
 [ext_resource type="Texture2D" uid="uid://do5i7gbvyruo6" path="res://Player/Backward/Sola_Running_Backwards_16.png" id="46_80ivj"]
 [ext_resource type="Texture2D" uid="uid://bedixsdoqgakj" path="res://Player/Backward/Sola_Running_Backwards_17.png" id="47_2va04"]
 [ext_resource type="AudioStream" uid="uid://dvwlu1m4eiwjj" path="res://Player/girlpain.mp3" id="48_urjou"]
+[ext_resource type="AudioStream" uid="uid://bxbn7ofx1epbm" path="res://Music/SFX/Light_on.mp3" id="50_imcdh"]
+[ext_resource type="AudioStream" uid="uid://clwa683mujp5h" path="res://Music/SFX/Light_off.mp3" id="51_juyau"]
+[ext_resource type="AudioStream" uid="uid://b4oig1mi0k7s6" path="res://Music/SFX/Gulp.mp3" id="52_jwypy"]
+[ext_resource type="AudioStream" uid="uid://hnlsv5dvhiiy" path="res://Music/SFX/Running.mp3" id="53_5xyuk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riry5"]
 radius = 17.0
 height = 50.0
+
+[sub_resource type="Animation" id="Animation_6mhck"]
+resource_name = "run"
+length = 3.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RunningSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.00835511,
+"start_offset": 0.0,
+"stream": ExtResource("53_5xyuk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkjm4"]
+_data = {
+"run": SubResource("Animation_6mhck")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tndsa"]
 animations = [{
@@ -230,6 +258,100 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light_On")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("50_imcdh")
+}],
+"times": PackedFloat32Array(0, 3.2, 3.6, 4, 4.3, 4.5, 4.7, 4.85, 4.95)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Light_Off")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("51_juyau")
+}],
+"times": PackedFloat32Array(3, 3.4, 3.8, 4.2, 4.4, 4.6, 4.8, 4.9, 5)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jup4k"]
 _data = {
@@ -246,11 +368,19 @@ script = ExtResource("2_wwx7e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_riry5")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_gkjm4")
+}
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 scale = Vector2(0.15, 0.136)
 sprite_frames = SubResource("SpriteFrames_tndsa")
-animation = &"idle"
+animation = &"walk_down"
+frame = 6
+frame_progress = 0.777392
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(125, 0)
@@ -265,7 +395,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="FlashLight"]
-visible = false
+modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(45.9625, 63.7455)
 rotation = 2.35619
 scale = Vector2(0.0812073, 0.0823641)
@@ -283,15 +413,30 @@ libraries = {
 "": SubResource("AnimationLibrary_jup4k")
 }
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="Light_On" type="AudioStreamPlayer" parent="FlashLight"]
+volume_db = -5.0
+
+[node name="Light_Off" type="AudioStreamPlayer" parent="FlashLight"]
+volume_db = -5.0
+
+[node name="SolaArea" type="Area2D" parent="." groups=["player"]]
 collision_layer = 0
 collision_mask = 14
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolaArea"]
 shape = SubResource("CapsuleShape2D_riry5")
 
 [node name="PainTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[node name="GulpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("52_jwypy")
+
+[node name="RunningSound" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[connection signal="area_entered" from="SolaArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="SolaArea" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="SolaArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="SolaArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="PainTimer" to="." method="_on_pain_timer_timeout"]

@@ -17,7 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print($Sola/FlashLight/CollisionPolygon2D.disabled)
+	#print($Sola/FlashLight/CollisionPolygon2D.disabled)
+	print($FlashTimer.get_time_left())
 	if count_down==true:
 		timer -= 1 * delta
 	
@@ -44,7 +45,13 @@ func shine():
 	$Flashlight/CollisionShape2D.disabled = true
 	$Sola/FlashLight.show()
 	print("Flashlight ON")
-	$FlashTimer.start()	
+	$Sola/FlashLight/CollisionPolygon2D.disabled = false
+	$FlashTimer.start()
+	$FlashTimer.paused = true
+
+func flicker():
+	$FlashTimer.paused = false
 	
 func mobdead():
+	$Sola/Camera2D/CanvasLayer/TextureRect.hide()
 	$DialogueBox.load_dialogue(["What was that?!", "I guess light does kill the monsters!", "I think I can recharge them through the lamps as well."])

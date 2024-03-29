@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqul01thxosc3"]
+[gd_scene load_steps=8 format=3 uid="uid://cqul01thxosc3"]
 
 [ext_resource type="Script" path="res://Lamp.gd" id="1_f2786"]
 [ext_resource type="Texture2D" uid="uid://d0rsvqehbxr73" path="res://Lamp.png" id="2_h0ah5"]
 [ext_resource type="Texture2D" uid="uid://bby0h3aegyi4s" path="res://Lamp_Light.png" id="3_c6glc"]
+[ext_resource type="AudioStream" uid="uid://bxbn7ofx1epbm" path="res://Music/SFX/Light_on.mp3" id="4_4pd7m"]
+[ext_resource type="AudioStream" uid="uid://clwa683mujp5h" path="res://Music/SFX/Light_off.mp3" id="5_kjnyg"]
 
 [sub_resource type="Animation" id="Animation_gd0vm"]
 resource_name = "flicker"
@@ -19,13 +21,107 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light_On")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_4pd7m")
+}],
+"times": PackedFloat32Array(0, 3.2, 3.6, 4, 4.3, 4.5, 4.7, 4.85, 4.95)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Light_Off")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_kjnyg")
+}],
+"times": PackedFloat32Array(3, 3.4, 3.8, 4.2, 4.4, 4.6, 4.8, 4.9, 5)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxrvw"]
 _data = {
 "flicker": SubResource("Animation_gd0vm")
 }
 
-[node name="Lamp" type="StaticBody2D"]
+[node name="Lamp" type="StaticBody2D" groups=["lamps"]]
 position = Vector2(221, 269)
 collision_layer = 4
 collision_mask = 0
@@ -35,17 +131,19 @@ script = ExtResource("1_f2786")
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_h0ah5")
 
-[node name="LampLight" type="StaticBody2D" parent="."]
+[node name="LampLight" type="StaticBody2D" parent="." groups=["lamps"]]
 collision_layer = 4
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="LampLight"]
 visible = false
+modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(0, 19.25)
 scale = Vector2(0.187, 0.1935)
 texture = ExtResource("3_c6glc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LampLight"]
+visible = false
 build_mode = 1
 polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
 
@@ -53,5 +151,22 @@ polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 
 libraries = {
 "": SubResource("AnimationLibrary_mxrvw")
 }
+
+[node name="Light_On" type="AudioStreamPlayer" parent="LampLight"]
+volume_db = -5.0
+
+[node name="Light_Off" type="AudioStreamPlayer" parent="LampLight"]
+volume_db = -5.0
+
+[node name="ExitArea" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExitArea"]
+visible = false
+scale = Vector2(0.909091, 0.909091)
+build_mode = 1
+polygon = PackedVector2Array(-9, -72, -82, 102, -65, 116, -13, 123, 53, 120, 74, 109, 83, 96, 40, 0, 5, -72)
 
 [connection signal="Light_Drift_Ready" from="." to="." method="_on_light_drift_ready"]

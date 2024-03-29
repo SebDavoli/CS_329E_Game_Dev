@@ -22,7 +22,7 @@ func show_game_over():
 func update_health(health):
 	$HealthLabel.text = str(health)
 	
-	if health == 100:
+	if health >= 100:
 		$Health.texture = ResourceLoader.load("res://Art/Health Bar (100).png")
 	if health == 80:
 		$Health.texture = ResourceLoader.load("res://Art/Health Bar (80).png")

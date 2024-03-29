@@ -1,16 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvcayc00x5fl"]
+[gd_scene load_steps=15 format=3 uid="uid://87g0ds8r8t20"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_2m36v"]
-[ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_33k0o"]
-[ext_resource type="AudioStream" uid="uid://bqbis5cue41lj" path="res://Music/floor+accent+melody.mp3" id="3_jwf8p"]
-[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="4_qfj3u"]
-[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="5_ssto1"]
-[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="6_7sodh"]
-[ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="7_x828m"]
-[ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="8_vmwyu"]
-[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="9_8osff"]
-[ext_resource type="PackedScene" uid="uid://bn7xng7ollteg" path="res://luna.tscn" id="10_78t73"]
-[ext_resource type="PackedScene" uid="uid://3vfudbk317gl" path="res://mob3.tscn" id="10_xxeng"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_merh4"]
+[ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_su3kr"]
+[ext_resource type="AudioStream" uid="uid://bqbis5cue41lj" path="res://Music/BGM/floor+accent+melody.mp3" id="3_2hpnx"]
+[ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="4_16sqf"]
+[ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="5_3fcio"]
+[ext_resource type="Texture2D" uid="uid://ce0os1mvffj2q" path="res://Art/Black gradient.png" id="6_ng6lv"]
+[ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="7_1d65b"]
+[ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="8_533ul"]
+[ext_resource type="PackedScene" uid="uid://d0qr06q1nhta8" path="res://next_level.tscn" id="9_y4k57"]
+[ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="10_8gqae"]
 
 [sub_resource type="Curve2D" id="Curve2D_eeujy"]
 _data = {
@@ -27,11 +26,8 @@ size = Vector2(57.6, 2.85)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vu6c"]
 size = Vector2(13.2, 5.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj6gm"]
-size = Vector2(251, 72.5)
-
-[node name="Main" type="Node2D"]
-script = ExtResource("1_2m36v")
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_merh4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.458824, 0, 0, 1)
@@ -41,7 +37,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_right = 1149.0
 offset_bottom = 647.0
-texture = ExtResource("2_33k0o")
+texture = ExtResource("2_su3kr")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -72,14 +68,15 @@ rotation = 0.00173611
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
-stream = ExtResource("3_jwf8p")
+stream = ExtResource("3_2hpnx")
 
-[node name="HUD" parent="." instance=ExtResource("4_qfj3u")]
+[node name="HUD" parent="." instance=ExtResource("4_16sqf")]
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(579, 346)
 
-[node name="Sola" parent="." instance=ExtResource("5_ssto1")]
+[node name="Sola" parent="." instance=ExtResource("5_3fcio")]
+z_index = 2
 position = Vector2(578, 346)
 
 [node name="Camera2D" type="Camera2D" parent="Sola"]
@@ -91,6 +88,15 @@ limit_bottom = 652
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
+offset_right = 1151.0
+offset_bottom = 657.0
+texture = ExtResource("6_ng6lv")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
 position = Vector2(798, -1008)
@@ -154,115 +160,66 @@ shape = SubResource("RectangleShape2D_4vu6c")
 
 [node name="Lamps" type="Node" parent="."]
 
-[node name="Lamp" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(114, 465)
 
-[node name="Lamp2" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp2" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(325, 466)
 
-[node name="Lamp3" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp3" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(827, 481)
 
-[node name="Lamp4" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp4" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(1016, 482)
 
-[node name="Lamp5" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp5" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(98, 163)
 
-[node name="Lamp6" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp6" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(316, 165)
 
-[node name="Lamp7" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp7" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(819, 163)
 
-[node name="Lamp8" parent="Lamps" instance=ExtResource("6_7sodh")]
+[node name="Lamp8" parent="Lamps" instance=ExtResource("7_1d65b")]
+z_index = 1
 position = Vector2(1018, 160)
 
-[node name="DialogueBox" parent="." instance=ExtResource("7_x828m")]
+[node name="DialogueBox" parent="." instance=ExtResource("8_533ul")]
 
-[node name="Next_Level" parent="." instance=ExtResource("8_vmwyu")]
+[node name="Level_2" parent="." instance=ExtResource("9_y4k57")]
 position = Vector2(591, 0)
 
-[node name="Fence" type="StaticBody2D" parent="."]
-position = Vector2(588, 85)
-collision_layer = 201
-collision_mask = 255
+[node name="Fences" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-474.031, 13.7652)
-scale = Vector2(0.444125, 0.176939)
-texture = ExtResource("9_8osff")
+[node name="Fence" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(309, 83)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-475, 2.75)
-shape = SubResource("RectangleShape2D_mj6gm")
+[node name="Fence2" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(395, 83)
 
-[node name="Fence2" type="StaticBody2D" parent="."]
-position = Vector2(813, 85)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence3" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(480, 83)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
-position = Vector2(-474.031, 13.7652)
-scale = Vector2(0.444125, 0.176939)
-texture = ExtResource("9_8osff")
+[node name="Fence4" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(566, 83)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
-position = Vector2(-475, 3)
-shape = SubResource("RectangleShape2D_mj6gm")
+[node name="Fence5" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(652, 83)
 
-[node name="Fence3" type="StaticBody2D" parent="."]
-position = Vector2(1040, 84)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence6" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(738, 83)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
-position = Vector2(-474.031, 13.7652)
-scale = Vector2(0.444125, 0.176939)
-texture = ExtResource("9_8osff")
+[node name="Fence7" parent="Fences" instance=ExtResource("10_8gqae")]
+position = Vector2(823, 83)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
-position = Vector2(-477, 4)
-shape = SubResource("RectangleShape2D_mj6gm")
-
-[node name="Fence4" type="StaticBody2D" parent="."]
-position = Vector2(1269, 86)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
-position = Vector2(-474.031, 13.7652)
-scale = Vector2(0.444125, 0.176939)
-texture = ExtResource("9_8osff")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
-position = Vector2(-481, 3)
-shape = SubResource("RectangleShape2D_mj6gm")
-
-[node name="Fence5" type="StaticBody2D" parent="."]
-position = Vector2(1504, 87)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
-position = Vector2(-474.031, 13.7652)
-scale = Vector2(0.444125, 0.176939)
-texture = ExtResource("9_8osff")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
-position = Vector2(-477.5, 3)
-shape = SubResource("RectangleShape2D_mj6gm")
-
-[node name="Mob3" parent="." instance=ExtResource("10_xxeng")]
-position = Vector2(552, 168)
-
-[node name="Luna" parent="." instance=ExtResource("10_78t73")]
-position = Vector2(479, 175)
-
-[node name="Mob4" parent="." instance=ExtResource("10_xxeng")]
-position = Vector2(636, 165)
-
-[connection signal="on" from="." to="Sola" method="flash_on"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
@@ -271,4 +228,5 @@ position = Vector2(636, 165)
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="damage" from="Sola" to="." method="change_health"]
 [connection signal="heal" from="Sola" to="." method="heal"]
-[connection signal="light" from="Sola" to="." method="shine"]
+[connection signal="light_enter" from="Sola" to="." method="shine"]
+[connection signal="light_exit" from="Sola" to="." method="flicker"]

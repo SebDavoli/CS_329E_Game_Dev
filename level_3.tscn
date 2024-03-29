@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://level_3.gd" id="1_7wba6"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="2_1sulp"]
-[ext_resource type="AudioStream" uid="uid://bwi227fhyrywd" path="res://Music/all_fast.mp3" id="2_550dx"]
+[ext_resource type="AudioStream" uid="uid://bwi227fhyrywd" path="res://Music/BGM/all_fast.mp3" id="2_550dx"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="3_0jtv5"]
 [ext_resource type="PackedScene" uid="uid://jxaid0s13ejq" path="res://hud.tscn" id="3_faqr0"]
 [ext_resource type="Texture2D" uid="uid://bjyj3g1apmu3v" path="res://Art/Level_3.png" id="4_uh55s"]
-[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="7_sldyv"]
+[ext_resource type="Texture2D" uid="uid://ce0os1mvffj2q" path="res://Art/Black gradient.png" id="6_sngw1"]
 [ext_resource type="Texture2D" uid="uid://cmfk3rshf74f3" path="res://Art/Luna.png" id="8_m0hkm"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="9_7scgd"]
+[ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="10_hvu1h"]
 
 [sub_resource type="Curve2D" id="Curve2D_7uqmh"]
 _data = {
@@ -21,9 +22,6 @@ size = Vector2(38.425, 4.68748)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he0e4"]
 size = Vector2(57.6, 2.85)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3br3v"]
-size = Vector2(241, 76.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr40y"]
 size = Vector2(39, 45)
@@ -77,6 +75,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(559, 559)
 
 [node name="Sola" parent="." instance=ExtResource("2_1sulp")]
+z_index = 2
 position = Vector2(593, 576)
 slide_on_ceiling = false
 
@@ -89,6 +88,14 @@ limit_bottom = 652
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
+offset_right = 1151.0
+offset_bottom = 657.0
+texture = ExtResource("6_sngw1")
+expand_mode = 1
 
 [node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
 position = Vector2(798, -1008)
@@ -142,20 +149,6 @@ position = Vector2(58.05, 19)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_g3dsl")
 
-[node name="Lamps" type="Node" parent="."]
-
-[node name="Lamp" parent="Lamps" instance=ExtResource("3_0jtv5")]
-position = Vector2(91, 77)
-
-[node name="Lamp2" parent="Lamps" instance=ExtResource("3_0jtv5")]
-position = Vector2(100, 504)
-
-[node name="Lamp3" parent="Lamps" instance=ExtResource("3_0jtv5")]
-position = Vector2(1058, 85)
-
-[node name="Lamp4" parent="Lamps" instance=ExtResource("3_0jtv5")]
-position = Vector2(1062, 511)
-
 [node name="Luna" type="TextureRect" parent="."]
 offset_left = 555.0
 offset_top = 5.0
@@ -163,20 +156,6 @@ offset_right = 598.0
 offset_bottom = 46.0
 texture = ExtResource("8_m0hkm")
 expand_mode = 1
-
-[node name="Fence" type="StaticBody2D" parent="."]
-position = Vector2(588, 37)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-475, 14)
-scale = Vector2(0.444, 0.194)
-texture = ExtResource("7_sldyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-474, 4.75)
-shape = SubResource("RectangleShape2D_3br3v")
 
 [node name="Ending" type="StaticBody2D" parent="."]
 position = Vector2(9, -39)
@@ -186,63 +165,66 @@ collision_layer = 3
 position = Vector2(568.5, 65.5)
 shape = SubResource("RectangleShape2D_kr40y")
 
-[node name="Fence2" type="StaticBody2D" parent="."]
-position = Vector2(817, 37)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
-position = Vector2(-475, 14)
-scale = Vector2(0.444, 0.194)
-texture = ExtResource("7_sldyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
-position = Vector2(-476, 4)
-shape = SubResource("RectangleShape2D_3br3v")
-
-[node name="Fence3" type="StaticBody2D" parent="."]
-position = Vector2(1046, 37)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
-position = Vector2(-475, 14)
-scale = Vector2(0.444, 0.194)
-texture = ExtResource("7_sldyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
-position = Vector2(-478, 4)
-shape = SubResource("RectangleShape2D_3br3v")
-
-[node name="Fence4" type="StaticBody2D" parent="."]
-position = Vector2(1275, 36)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
-position = Vector2(-475, 14)
-scale = Vector2(0.444, 0.194)
-texture = ExtResource("7_sldyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
-position = Vector2(-480, 5)
-shape = SubResource("RectangleShape2D_3br3v")
-
-[node name="Fence5" type="StaticBody2D" parent="."]
-position = Vector2(1503, 36)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
-position = Vector2(-475, 14)
-scale = Vector2(0.444, 0.194)
-texture = ExtResource("7_sldyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
-position = Vector2(-473.5, 5)
-shape = SubResource("RectangleShape2D_3br3v")
-
 [node name="DialogueBox" parent="." instance=ExtResource("9_7scgd")]
+
+[node name="Fences" type="Node" parent="."]
+
+[node name="Fence" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(65, 55)
+
+[node name="Fence2" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(151, 55)
+
+[node name="Fence3" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(236, 55)
+
+[node name="Fence4" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(322, 55)
+
+[node name="Fence5" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(408, 55)
+
+[node name="Fence6" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(494, 55)
+
+[node name="Fence7" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(579, 55)
+
+[node name="Fence8" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(666, 55)
+
+[node name="Fence9" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(752, 55)
+
+[node name="Fence10" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(837, 55)
+
+[node name="Fence11" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(923, 55)
+
+[node name="Fence12" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(1009, 55)
+
+[node name="Fence13" parent="Fences" instance=ExtResource("10_hvu1h")]
+position = Vector2(1095, 55)
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("3_0jtv5")]
+z_index = 1
+position = Vector2(91, 77)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("3_0jtv5")]
+z_index = 1
+position = Vector2(100, 504)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("3_0jtv5")]
+z_index = 1
+position = Vector2(1058, 85)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("3_0jtv5")]
+z_index = 1
+position = Vector2(1062, 511)
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
@@ -251,4 +233,5 @@ shape = SubResource("RectangleShape2D_3br3v")
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="damage" from="Sola" to="." method="change_health"]
 [connection signal="heal" from="Sola" to="." method="heal"]
-[connection signal="light" from="Sola" to="." method="shine"]
+[connection signal="light_enter" from="Sola" to="." method="shine"]
+[connection signal="light_exit" from="Sola" to="." method="flicker"]

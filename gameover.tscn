@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8wp3rxn0ub47"]
 
 [ext_resource type="Script" path="res://gameover.gd" id="1_7dxrh"]
-[ext_resource type="AudioStream" uid="uid://kvcl14ym71rg" path="res://Music/Scream.mp3" id="2_3al6y"]
+[ext_resource type="AudioStream" uid="uid://kvcl14ym71rg" path="res://Music/SFX/Scream.mp3" id="2_3al6y"]
 [ext_resource type="Texture2D" uid="uid://bnumlie4r1rl6" path="res://Art/Sola_Death.png" id="3_pl07e"]
 
 [node name="Node2D" type="Node2D"]
@@ -48,7 +48,7 @@ offset_left = 512.0
 offset_top = 548.0
 offset_right = 676.0
 offset_bottom = 602.0
-text = "Back to Main"
+text = "Back to Title"
 
 [connection signal="pressed" from="RetryButton1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="RetryButton2" to="." method="_on_retry_button_2_pressed"]

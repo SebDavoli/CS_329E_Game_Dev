@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d8nkndsuti40"]
+
+[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="1_lpemi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly8qj"]
+size = Vector2(85.125, 43)
+
+[node name="Fence" type="StaticBody2D" groups=["fence"]]
+collision_layer = 201
+collision_mask = 255
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.2, 0.15)
+texture = ExtResource("1_lpemi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.4375, 1.5)
+shape = SubResource("RectangleShape2D_ly8qj")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqodo3hbxu5b7"]
 
 [ext_resource type="Script" path="res://win.gd" id="1_ajvww"]
-[ext_resource type="AudioStream" uid="uid://cbm0ctulmewun" path="res://Music/Clear.mp3" id="2_38mnv"]
+[ext_resource type="AudioStream" uid="uid://cbm0ctulmewun" path="res://Music/SFX/Clear.mp3" id="2_38mnv"]
 [ext_resource type="Texture2D" uid="uid://bvka2injb4nry" path="res://Art/ending.png" id="3_faopn"]
 
 [node name="Node2D" type="Node2D"]
@@ -21,10 +21,10 @@ scale = Vector2(0.996528, 0.993827)
 texture = ExtResource("3_faopn")
 
 [node name="RetryButton" type="Button" parent="."]
-offset_left = 806.0
-offset_top = 429.0
-offset_right = 971.0
-offset_bottom = 483.0
+offset_left = 805.0
+offset_top = 366.0
+offset_right = 970.0
+offset_bottom = 420.0
 text = "Retry"
 
 [node name="MenuButton" type="Button" parent="."]
@@ -32,7 +32,25 @@ offset_left = 807.0
 offset_top = 499.0
 offset_right = 971.0
 offset_bottom = 553.0
-text = "Back to Main"
+text = "Back to Title"
+
+[node name="CreditButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 806.0
+offset_top = 432.0
+offset_right = 971.0
+offset_bottom = 487.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits
+"
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]

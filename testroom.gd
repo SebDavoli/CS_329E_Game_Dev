@@ -13,16 +13,16 @@ signal on
 func _ready():
 	Global.current_level = 1
 	Global.kill_count = 0
-	Global.goal = 20
+	Global.goal = 2000
 	$HUD/GoalKill.text = str(Global.goal)
-	health = 100
-	$LightTimer.start()
+	health = 10000
+	#$LightTimer.start()
 	$Sola.start($StartPosition.position)
-	#$StartTimer.start()
+	$StartTimer.start()
 	$FlashTimer.start()
 
 	$BGM.play()
-	$Next_Level.show()
+	$Level_2.show()
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
 	
@@ -32,22 +32,22 @@ func _ready():
 	rand_num3 = randi() % 8 + 1
 	rand_num4 = randi() % 8 + 1
 	
-	$Lamps/Lamp/LampLight.hide()
-	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp2/LampLight.hide()
-	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp3/LampLight.hide()
-	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp4/LampLight.hide()
-	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp5/LampLight.hide()
-	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp6/LampLight.hide()
-	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp7/LampLight.hide()
-	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
-	$Lamps/Lamp8/LampLight.hide()
-	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp/LampLight.hide()
+#	$Lamps/Lamp/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp2/LampLight.hide()
+#	$Lamps/Lamp2/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp3/LampLight.hide()
+#	$Lamps/Lamp3/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp4/LampLight.hide()
+#	$Lamps/Lamp4/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp5/LampLight.hide()
+#	$Lamps/Lamp5/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp6/LampLight.hide()
+#	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp7/LampLight.hide()
+#	$Lamps/Lamp7/LampLight/CollisionPolygon2D.disabled = true
+#	$Lamps/Lamp8/LampLight.hide()
+#	$Lamps/Lamp8/LampLight/CollisionPolygon2D.disabled = true
 	
 	$DialogueBox.load_dialogue(["Ahhh! More monsters!"])
 	
@@ -59,23 +59,28 @@ func _process(delta):
 		$Sola/FlashLight/CollisionPolygon2D.disabled = false
 	
 	$HUD/CurrentKill.text = str(Global.kill_count)
-	print(Global.kill_count)
+	#print(Global.kill_count)
+	
+	#print($FlashTimer.get_time_left())
 	
 	if Global.kill_count >= Global.goal:
+		get_tree().call_group("mobs", "queue_free")
+		$Sola/Camera2D/CanvasLayer/TextureRect.hide()
 		$MobTimer.stop()
 		$HUD/Arrow.show()
-		$Fence.hide()
-		$Fence/CollisionShape2D.disabled = true
-		$Fence2.hide()
-		$Fence2/CollisionShape2D.disabled = true
-		$Fence3.hide()
-		$Fence3/CollisionShape2D.disabled = true
-		$Fence4.hide()
-		$Fence4/CollisionShape2D.disabled = true
-		$Fence5.hide()
-		$Fence5/CollisionShape2D.disabled = true
-		
-	
+		$Fences/Fence.hide()
+		$Fences/Fence/CollisionShape2D.disabled = true
+		$Fences/Fence2.hide()
+		$Fences/Fence2/CollisionShape2D.disabled = true
+		$Fences/Fence3.hide()
+		$Fences/Fence3/CollisionShape2D.disabled = true
+		$Fences/Fence4.hide()
+		$Fences/Fence4/CollisionShape2D.disabled = true
+		$Fences/Fence5.hide()
+		$Fences/Fence5/CollisionShape2D.disabled = true
+		$Fences/Fence6.hide()
+		$Fences/Fence6/CollisionShape2D.disabled = true
+		$Fences/Fence7.hide()
 	
 func new_game():
 	pass
@@ -179,7 +184,10 @@ func _on_flash_timer_timeout():
 	$Sola/FlashLight/CollisionPolygon2D.disabled = true
 
 func shine():
-	on.emit()
 	$Sola/FlashLight.show()
-	print("Flashlight ON")
-	$FlashTimer.start()	
+	$Sola/FlashLight/CollisionPolygon2D.disabled = false
+	$FlashTimer.start()
+	$FlashTimer.paused = true
+
+func flicker():
+	$FlashTimer.paused = false

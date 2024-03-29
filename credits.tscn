@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://db3l16vyauv73"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_g1syv"]
+[ext_resource type="AudioStream" uid="uid://jsokoka05aw8" path="res://Music/BGM/floor+pad.mp3" id="2_xba56"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_g1syv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="Names" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 74.0
+offset_right = 860.0
+offset_bottom = 677.0
+theme_override_font_sizes/font_size = 20
+text = "Paul Toprac
+
+
+Skyler Kweon
+Rachel Cannon
+Sebastian Davoli
+Kalem Edlin
+
+
+Skyler Kweon
+
+
+Rachel Cannon
+Sebastian Davoli
+
+
+Kalem Edlin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xba56")
+autoplay = true
+
+[node name="Credits2" type="Label" parent="."]
+offset_left = 477.0
+offset_top = 5.0
+offset_right = 649.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 36
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EP" type="Label" parent="."]
+offset_left = 342.0
+offset_top = 50.0
+offset_right = 810.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 36
+text = "Executive Producer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GD" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 149.0
+offset_right = 713.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 36
+text = "Game Developer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GD2" type="Label" parent="."]
+offset_left = 394.0
+offset_top = 325.0
+offset_right = 764.0
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 36
+text = "Game Designer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="Label" parent="."]
+offset_left = 506.0
+offset_top = 422.0
+offset_right = 639.0
+offset_bottom = 494.0
+theme_override_font_sizes/font_size = 36
+text = "Artist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AE" type="Label" parent="."]
+offset_left = 385.0
+offset_top = 539.0
+offset_right = 753.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 36
+text = "Audio Engineer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 888.0
+offset_top = 557.0
+offset_right = 1107.0
+offset_bottom = 622.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back To Title"
+
+[connection signal="pressed" from="TitleButton" to="." method="_on_title_button_pressed"]

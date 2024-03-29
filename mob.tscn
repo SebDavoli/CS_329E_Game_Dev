@@ -82,8 +82,6 @@ shape = SubResource("CapsuleShape2D_tk2hs")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1, -4)
 
-[node name="Area2D" type="Area2D" parent="."]
-
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ecxim")
 

@@ -46,14 +46,15 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	print("Mob:")
-	print(body.get_name())
+	#print("Mob:")
+	#print(body.get_name())
 	if body.get_name() == "Sola":
 		$Death.play()
 		$AnimatedSprite2D.visible = false
 		$Shadow1_DeathSprite.visible = true
 		drop_occurred = true
 		dead = true
+		$CollisionShape2D.set_deferred("disabled",true)
 	if body.get_name() == "FlashLight":
 		$Death.play()
 		$AnimatedSprite2D.visible = false
@@ -72,7 +73,7 @@ func death():
 	if not drop_occurred:
 		rand_num = randf() * 100.0
 		if rand_num <= drop:
-			print("sundae created")
+			#print("sundae created")
 			var sundae = preload("res://sundae.tscn").instantiate()
 			sundae.position = self.position
 			get_parent().add_child(sundae)
@@ -81,5 +82,3 @@ func death():
 		hide()
 	if $Death.playing == false:
 		queue_free()
-
-

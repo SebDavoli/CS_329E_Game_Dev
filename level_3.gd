@@ -46,20 +46,39 @@ func _process(delta):
 		
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	#print(Global.kill_count)
+	print($FlashTimer.get_time_left())
 	
 	if Global.kill_count >= Global.goal:
+		get_tree().call_group("mobs", "queue_free")
+		$Sola/Camera2D/CanvasLayer/TextureRect.hide()
 		$MobTimer.stop()
 		$HUD/Arrow.show()
-		$Fence.hide()
-		$Fence/CollisionShape2D.disabled = true
-		$Fence2.hide()
-		$Fence2/CollisionShape2D.disabled = true
-		$Fence3.hide()
-		$Fence3/CollisionShape2D.disabled = true
-		$Fence4.hide()
-		$Fence4/CollisionShape2D.disabled = true
-		$Fence5.hide()
-		$Fence5/CollisionShape2D.disabled = true
+		$Fences/Fence.hide()
+		$Fences/Fence/CollisionShape2D.disabled = true
+		$Fences/Fence2.hide()
+		$Fences/Fence2/CollisionShape2D.disabled = true
+		$Fences/Fence3.hide()
+		$Fences/Fence3/CollisionShape2D.disabled = true
+		$Fences/Fence4.hide()
+		$Fences/Fence4/CollisionShape2D.disabled = true
+		$Fences/Fence5.hide()
+		$Fences/Fence5/CollisionShape2D.disabled = true
+		$Fences/Fence6.hide()
+		$Fences/Fence6/CollisionShape2D.disabled = true
+		$Fences/Fence7.hide()
+		$Fences/Fence7/CollisionShape2D.disabled = true
+		$Fences/Fence8.hide()
+		$Fences/Fence8/CollisionShape2D.disabled = true
+		$Fences/Fence9.hide()
+		$Fences/Fence9/CollisionShape2D.disabled = true
+		$Fences/Fence10.hide()
+		$Fences/Fence10/CollisionShape2D.disabled = true
+		$Fences/Fence11.hide()
+		$Fences/Fence11/CollisionShape2D.disabled = true
+		$Fences/Fence12.hide()
+		$Fences/Fence12/CollisionShape2D.disabled = true
+		$Fences/Fence13.hide()
+		$Fences/Fence13/CollisionShape2D.disabled = true
 
 func heal():
 	if health <= 80:
@@ -162,6 +181,9 @@ func _on_flash_timer_timeout():
 
 func shine():
 	$Sola/FlashLight.show()
-	print("Flashlight ON")
-	$FlashTimer.start()	
+	$Sola/FlashLight/CollisionPolygon2D.disabled = false
+	$FlashTimer.start()
+	$FlashTimer.paused = true
 
+func flicker():
+	$FlashTimer.paused = false

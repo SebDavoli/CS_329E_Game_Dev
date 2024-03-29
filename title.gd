@@ -10,6 +10,10 @@ func _on_start_button_pressed():
 	$CanvasLayer.show()
 	$CanvasLayer/AnimationPlayer.play("fade")
 	count_down = true
+
+func _on_credit_button_pressed():
+	get_tree().change_scene_to_file("res://credits.tscn")
+
 	
 func _on_exit_button_pressed():
 	get_tree().quit()
@@ -22,3 +26,4 @@ func _process(delta):
 	
 	if timer <= 0:
 		get_tree().change_scene_to_file("res://tutorial.tscn")
+

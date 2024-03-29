@@ -108,7 +108,7 @@ func _on_dash_timer_timeout():
 
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):
-	print(body.get_name())
+	#print(body.get_name())
 	if body.get_name() == "Sola":
 		$Death3.play()
 		$AnimatedSprite2D.visible = false
@@ -136,14 +136,13 @@ func death():
 	if not drop_occurred:
 		rand_num = randf() * 100.0
 		if rand_num <= drop:
-			print("sundae created")
+			#print("sundae created")
 			var sundae = preload("res://sundae.tscn").instantiate()
 			sundae.position = self.position
 			get_parent().add_child(sundae)
 			drop_occurred = true  # Set the flag to prevent further drops
 	if $Squirrel_DeathSprite.frame == 4:
 		hide()
-		print("penis")
 	if $Death3.playing == false:
 		queue_free()
 
@@ -151,6 +150,3 @@ func death():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	pass # Replace with function body.
-
-
-

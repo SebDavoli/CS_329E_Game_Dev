@@ -3,21 +3,19 @@
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kbik5"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_jegm8"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="3_v5u6r"]
-[ext_resource type="AudioStream" uid="uid://b265i1fma5bjt" path="res://Music/floor.mp3" id="4_26wdh"]
-[ext_resource type="Texture2D" uid="uid://cajxb1xexrt0d" path="res://Art/fence.png" id="6_p3psq"]
+[ext_resource type="Texture2D" uid="uid://ce0os1mvffj2q" path="res://Art/Black gradient.png" id="4_qfaqn"]
+[ext_resource type="AudioStream" uid="uid://b265i1fma5bjt" path="res://Music/BGM/floor.mp3" id="5_3hvh6"]
 [ext_resource type="PackedScene" uid="uid://bil714p7qk0ja" path="res://mob.tscn" id="7_vb6ay"]
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="9_phcuk"]
 [ext_resource type="Texture2D" uid="uid://daf3o3d5c5sjl" path="res://Art/Flashlight.png" id="9_s3a40"]
+[ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="11_lofsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmxd"]
 size = Vector2(38.425, 2.87498)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veryu"]
 size = Vector2(57.6, 2.85)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8keqv"]
-size = Vector2(217, 83.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf3eh"]
 size = Vector2(50, 648.5)
@@ -50,6 +48,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(42, 349)
 
 [node name="Sola" parent="." instance=ExtResource("3_v5u6r")]
+z_index = 2
 position = Vector2(43, 347)
 
 [node name="Camera2D" type="Camera2D" parent="Sola"]
@@ -61,6 +60,16 @@ limit_bottom = 652
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 1163.0
+offset_bottom = 654.0
+texture = ExtResource("4_qfaqn")
+expand_mode = 1
 
 [node name="MonsterBounds" type="StaticBody2D" parent="." groups=["monster_bounds"]]
 position = Vector2(798, -1008)
@@ -116,36 +125,8 @@ shape = SubResource("RectangleShape2D_lxmxd")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(39, 53)
-stream = ExtResource("4_26wdh")
+stream = ExtResource("5_3hvh6")
 volume_db = -3.793
-
-[node name="Fence" type="StaticBody2D" parent="."]
-position = Vector2(586, 272)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
-
-[node name="Fence2" type="StaticBody2D" parent="."]
-position = Vector2(570, 437)
-collision_layer = 201
-collision_mask = 255
-
-[node name="Sprite2D" type="Sprite2D" parent="Fence2"]
-position = Vector2(-14.5, 0)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence2"]
-position = Vector2(-13, -5)
-shape = SubResource("RectangleShape2D_8keqv")
 
 [node name="Level_1" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -158,11 +139,6 @@ shape = SubResource("RectangleShape2D_xf3eh")
 position = Vector2(674, 328)
 scale = Vector2(-1, -1)
 collision_mask = 12
-
-[node name="Lamps" type="Node" parent="."]
-
-[node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
-position = Vector2(575, 278)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -188,6 +164,7 @@ vertical_alignment = 1
 [node name="DialogueBox" parent="." instance=ExtResource("9_phcuk")]
 
 [node name="Flashlight" type="StaticBody2D" parent="."]
+z_index = 1
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Flashlight"]
@@ -199,118 +176,99 @@ texture = ExtResource("9_s3a40")
 position = Vector2(189, 345)
 shape = SubResource("RectangleShape2D_gti6q")
 
-[node name="Fence3" type="StaticBody2D" parent="."]
-position = Vector2(806, 272)
-collision_layer = 201
-collision_mask = 255
+[node name="Fences" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence3"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(22, 278)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence3"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence2" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(108, 278)
 
-[node name="Fence4" type="StaticBody2D" parent="."]
-position = Vector2(1025, 273)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence3" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(193, 278)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence4"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence4" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(279, 278)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence4"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence5" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(365, 278)
 
-[node name="Fence5" type="StaticBody2D" parent="."]
-position = Vector2(1243, 272)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence6" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(451, 278)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence5"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence7" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(536, 278)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence5"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence8" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(623, 278)
 
-[node name="Fence6" type="StaticBody2D" parent="."]
-position = Vector2(1464, 271)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence9" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(709, 278)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence6"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence10" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(794, 278)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence6"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence11" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(880, 278)
 
-[node name="Fence7" type="StaticBody2D" parent="."]
-position = Vector2(592, 439)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence12" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(966, 278)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence7"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence13" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(1052, 278)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence7"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence14" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(30, 405)
 
-[node name="Fence8" type="StaticBody2D" parent="."]
-position = Vector2(811, 440)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence15" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(116, 405)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence8"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence16" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(201, 405)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence8"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence17" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(287, 405)
 
-[node name="Fence9" type="StaticBody2D" parent="."]
-position = Vector2(1254, 444)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence18" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(373, 405)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence9"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence19" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(459, 405)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence9"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence20" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(544, 405)
 
-[node name="Fence10" type="StaticBody2D" parent="."]
-position = Vector2(1471, 445)
-collision_layer = 201
-collision_mask = 255
+[node name="Fence21" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(631, 405)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fence10"]
-position = Vector2(-476, -11)
-scale = Vector2(0.444, 0.177)
-texture = ExtResource("6_p3psq")
+[node name="Fence22" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(717, 405)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence10"]
-position = Vector2(-476.5, -9.625)
-shape = SubResource("RectangleShape2D_8keqv")
+[node name="Fence23" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(802, 405)
+
+[node name="Fence24" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(888, 405)
+
+[node name="Fence25" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(974, 405)
+
+[node name="Fence26" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(1060, 405)
+
+[node name="Fence27" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(1138, 278)
+
+[node name="Fence28" parent="Fences" instance=ExtResource("11_lofsd")]
+position = Vector2(1148, 405)
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
+z_index = 1
+position = Vector2(575, 278)
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
-[connection signal="light" from="Sola" to="." method="shine"]
+[connection signal="light_enter" from="Sola" to="." method="shine"]
+[connection signal="light_exit" from="Sola" to="." method="flicker"]
 [connection signal="doom" from="Mob" to="." method="mobdead"]

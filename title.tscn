@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://82y3a6eo2g0m"]
+[gd_scene load_steps=7 format=3 uid="uid://82y3a6eo2g0m"]
 
 [ext_resource type="Script" path="res://title.gd" id="1_ht48r"]
 [ext_resource type="Texture2D" uid="uid://dgmn7b62yt4yr" path="res://Art/Speedway Survival Title Screen.png" id="2_ameys"]
+[ext_resource type="AudioStream" uid="uid://o6esomeilww1" path="res://Music/BGM/pad+lead.mp3" id="3_n4gq6"]
 
 [sub_resource type="Animation" id="Animation_45xl5"]
 length = 0.001
@@ -40,7 +41,7 @@ _data = {
 "fade": SubResource("Animation_3fk4e")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Title" type="Node2D"]
 script = ExtResource("1_ht48r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -48,38 +49,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_ameys")
 expand_mode = 1
-
-[node name="StartButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 488.0
-offset_top = 428.0
-offset_right = 707.0
-offset_bottom = 505.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Start"
-
-[node name="ExitButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 488.0
-offset_top = 525.0
-offset_right = 707.0
-offset_bottom = 602.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Exit"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -97,5 +66,60 @@ libraries = {
 "": SubResource("AnimationLibrary_xf54t")
 }
 
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 481.0
+offset_top = 396.0
+offset_right = 700.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+
+[node name="CreditButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 482.0
+offset_top = 476.0
+offset_right = 701.0
+offset_bottom = 541.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits
+"
+
+[node name="ExitButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 481.0
+offset_top = 554.0
+offset_right = 700.0
+offset_bottom = 619.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n4gq6")
+volume_db = -10.0
+autoplay = true
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

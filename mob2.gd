@@ -54,7 +54,7 @@ func _physics_process(delta):
 
 # Any 2D body the mob collides with is identified and processed here
 func _on_body_entered(body):
-	print(body.get_name())
+	#print(body.get_name())
 	if body.get_name() == "Sola":
 		$Death2.play()
 		$AnimatedSprite2D.visible = false
@@ -64,7 +64,7 @@ func _on_body_entered(body):
 		$CollisionShape2D.set_deferred("disabled",true)
 	if body.get_name() == "FlashLight":
 		$Death2.play()
-		print("killed")
+		#print("killed")
 		Global.kill_count += 1
 		$AnimatedSprite2D.visible = false
 		$Shadow2_DeathSprite.visible = true
@@ -81,7 +81,7 @@ func death():
 	if not drop_occurred:
 		rand_num = randf() * 100.0
 		if rand_num <= drop:
-			print("sundae created")
+			#print("sundae created")
 			var sundae = preload("res://sundae.tscn").instantiate()
 			sundae.position = self.position
 			get_parent().add_child(sundae)
@@ -90,4 +90,3 @@ func death():
 		hide()
 	if $Death2.playing == false:
 		queue_free()
-

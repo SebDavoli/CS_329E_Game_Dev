@@ -1,6 +1,7 @@
 extends CharacterBody2D
 signal damage
-signal light
+signal light_enter
+signal light_exit
 signal heal
 
 @export var speed = 200
@@ -19,7 +20,7 @@ var y_max = 400
 func _ready():
 	$FlashLight.show()
 	$AnimatedSprite2D.play("idle")
-	$FlashLight/AnimationPlayer.play("flicker")
+	#$FlashLight/AnimationPlayer.play("flicker")
 	viewport_size = get_viewport_rect().size
 	hide()
 
@@ -72,22 +73,27 @@ func _process(delta):
 #		print(velocity)
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
+		$AnimationPlayer.play("run")
 	else:
 		$AnimatedSprite2D.stop()
+		$AnimationPlayer.stop()
 
 	# Implementing and Limiting player movement
 	move_and_collide(velocity * delta)
 	$FlashLight.position = $Marker2D.position
 	
 func _on_body_entered(body):
-	print("Sola: ")
-	print(body.get_name())
+	#print("Sola: ")
+	#print(body.get_name())
 	if body.get_name() == "Flashlight":
-		light.emit()
+		light_enter.emit()
 	if body.is_in_group("sundaes"):
 		heal.emit()
-	if body.get_name() == "LampLight":
-		light.emit()
+		$GulpSound.play()
+	if body.is_in_group("lamps"):
+		light_enter.emit()
+		print("body entering")
+		flash_on()
 	if body.is_in_group("mobs"):
 		damage.emit()
 		$PainEffect.play()
@@ -95,8 +101,8 @@ func _on_body_entered(body):
 		$PainTimer.start()
 	if body.get_name() == "Level_1":
 		get_tree().call_group("mobs", "queue_free")
-		get_tree().change_scene_to_file("res://main.tscn")
-	if body.get_name() == "Next_Level":
+		get_tree().change_scene_to_file("res://level_1.tscn")
+	if body.get_name() == "Level_2":
 		get_tree().call_group("mobs", "queue_free")
 		get_tree().change_scene_to_file("res://level_2.tscn")
 	if body.get_name() == "Level_3":
@@ -131,4 +137,12 @@ func _on_pain_timer_timeout():
 
 func flash_on():
 	$FlashLight/AnimationPlayer.stop()
+	
+func flash_off():
 	$FlashLight/AnimationPlayer.play("flicker")
+
+func _on_area_2d_area_exited(area):
+	if area.get_name() == "ExitArea":
+		print("area exiting")
+		light_exit.emit()
+		flash_off()
