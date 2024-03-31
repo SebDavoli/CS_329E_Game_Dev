@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/pad+lead.mp3-9d55bbd36b60adcf08cbdd0f00b04ce3
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

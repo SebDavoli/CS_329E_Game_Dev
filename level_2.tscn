@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bak0wq7qpvfkq"]
+[gd_scene load_steps=15 format=3 uid="uid://bak0wq7qpvfkq"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_srq5y"]
 [ext_resource type="AudioStream" uid="uid://becs3pmi6s7rj" path="res://Music/BGM/all.mp3" id="2_2dihh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ce0os1mvffj2q" path="res://Art/Black gradient.png" id="6_mnwns"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="6_yqxfd"]
 [ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="9_hlstx"]
+[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/SFX/monster.mp3" id="10_omi3m"]
 
 [sub_resource type="Curve2D" id="Curve2D_jdr6p"]
 _data = {
@@ -92,10 +93,10 @@ editor_draw_limits = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
 
 [node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
-offset_left = -2.0
+offset_left = -8.0
 offset_top = -2.0
-offset_right = 1152.0
-offset_bottom = 662.0
+offset_right = 1158.0
+offset_bottom = 661.0
 texture = ExtResource("6_mnwns")
 expand_mode = 1
 
@@ -228,6 +229,10 @@ position = Vector2(1005, 22)
 
 [node name="Fence13" parent="Fences" instance=ExtResource("9_hlstx")]
 position = Vector2(1091, 22)
+
+[node name="Alldead" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(116, 345)
+stream = ExtResource("10_omi3m")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

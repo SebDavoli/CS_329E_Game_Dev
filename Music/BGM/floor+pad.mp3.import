@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/floor+pad.mp3-feb47a7e8a846e0a18575424c034b1d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

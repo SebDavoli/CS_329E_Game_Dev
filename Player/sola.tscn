@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://4ehixoj5k31m"]
+[gd_scene load_steps=61 format=3 uid="uid://4ehixoj5k31m"]
 
 [ext_resource type="Texture2D" uid="uid://c6kg8blb3bitl" path="res://Player/Sola_Forward_Idle.png" id="2_ttlob"]
 [ext_resource type="Script" path="res://Player/sola.gd" id="2_wwx7e"]
@@ -53,6 +53,7 @@
 [ext_resource type="AudioStream" uid="uid://clwa683mujp5h" path="res://Music/SFX/Light_off.mp3" id="51_juyau"]
 [ext_resource type="AudioStream" uid="uid://b4oig1mi0k7s6" path="res://Music/SFX/Gulp.mp3" id="52_jwypy"]
 [ext_resource type="AudioStream" uid="uid://hnlsv5dvhiiy" path="res://Music/SFX/Running.mp3" id="53_5xyuk"]
+[ext_resource type="Texture2D" uid="uid://daf3o3d5c5sjl" path="res://Art/Flashlight.png" id="54_holfy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riry5"]
 radius = 17.0
@@ -378,9 +379,7 @@ libraries = {
 position = Vector2(1, 0)
 scale = Vector2(0.15, 0.136)
 sprite_frames = SubResource("SpriteFrames_tndsa")
-animation = &"walk_down"
-frame = 6
-frame_progress = 0.777392
+animation = &"idle"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(125, 0)
@@ -418,6 +417,12 @@ volume_db = -5.0
 
 [node name="Light_Off" type="AudioStreamPlayer" parent="FlashLight"]
 volume_db = -5.0
+
+[node name="Flash" type="Sprite2D" parent="FlashLight"]
+position = Vector2(71.5322, 88.4478)
+rotation = -2.35619
+scale = Vector2(0.0448914, 0.0431102)
+texture = ExtResource("54_holfy")
 
 [node name="SolaArea" type="Area2D" parent="." groups=["player"]]
 collision_layer = 0

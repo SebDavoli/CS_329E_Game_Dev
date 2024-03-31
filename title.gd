@@ -27,3 +27,5 @@ func _process(delta):
 	if timer <= 0:
 		get_tree().change_scene_to_file("res://tutorial.tscn")
 
+func _on_endless_button_pressed():
+	get_tree().change_scene_to_file("res://endless.tscn")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd1e7gwah34sa"]
+
+[ext_resource type="Script" path="res://endless_gameover.gd" id="1_jec6s"]
+[ext_resource type="AudioStream" uid="uid://kvcl14ym71rg" path="res://Music/SFX/Scream.mp3" id="2_yra3k"]
+[ext_resource type="Texture2D" uid="uid://bnumlie4r1rl6" path="res://Art/Sola_Death.png" id="3_ri273"]
+
+[node name="Endless_Gameover" type="Node2D"]
+script = ExtResource("1_jec6s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.490196, 0, 0.0392157, 1)
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yra3k")
+
+[node name="SolaDeath" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.478431)
+position = Vector2(576, 214)
+scale = Vector2(0.446045, 0.423584)
+texture = ExtResource("3_ri273")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 98.0
+offset_right = 1010.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 151
+text = "GAME OVER"
+
+[node name="RetryButton" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 481.0
+offset_right = 676.0
+offset_bottom = 535.0
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 548.0
+offset_right = 676.0
+offset_bottom = 602.0
+text = "Back to Title"
+
+[node name="Score" type="Label" parent="."]
+offset_left = 514.0
+offset_top = 355.0
+offset_right = 678.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 30
+text = "Score: 0000"
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+offset_left = 438.0
+offset_top = 410.0
+offset_right = 677.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 30
+text = "High Score: 0000"
+vertical_alignment = 1
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

@@ -5,6 +5,7 @@ var num_mob2 = 0
 var rand_num1
 var rand_num2
 var rand_num3
+var clear_played_once = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,7 +41,7 @@ func _ready():
 	$Lamps/Lamp6/LampLight.hide()
 	$Lamps/Lamp6/LampLight/CollisionPolygon2D.disabled = true
 	
-	$DialogueBox.load_dialogue(["I think defeating the monsters open the path...! Maybe this leads me to Luna?"])
+	$DialogueBox.load_dialogue(["Defeating the monsters opened the path...! Maybe this would lead me to Luna!"])
 	
 func _process(delta):
 #	print($Sola/FlashLight/CollisionPolygon2D.disabled)
@@ -85,6 +86,9 @@ func _process(delta):
 		$Fences/Fence12/CollisionShape2D.disabled = true
 		$Fences/Fence13.hide()
 		$Fences/Fence13/CollisionShape2D.disabled = true
+		if not clear_played_once:
+			$Alldead.play()
+			clear_played_once = true
 
 func heal():
 	if health <= 80:

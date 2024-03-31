@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/floor+accent_fast.mp3-c6540202717bfffaca0e6c5
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

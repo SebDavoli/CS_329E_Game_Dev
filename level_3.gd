@@ -6,6 +6,7 @@ var num_mob3 = 0
 var num_mob4 = 0
 var rand_num1
 var rand_num2
+var clear_played_once = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -79,6 +80,10 @@ func _process(delta):
 		$Fences/Fence12/CollisionShape2D.disabled = true
 		$Fences/Fence13.hide()
 		$Fences/Fence13/CollisionShape2D.disabled = true
+		if not clear_played_once:
+			$Alldead.play()
+			clear_played_once = true
+			
 
 func heal():
 	if health <= 80:

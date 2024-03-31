@@ -8,22 +8,25 @@ var rand_num2
 var rand_num3
 var rand_num4
 var dialogue_loaded = false
-var clear_played_once = false
+var bgm2_executed = false
+var bgm3_executed = false
+var previous_kill_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.current_level = 1
 	Global.kill_count = 0
-	Global.goal = 20
-	$HUD/GoalKill.text = str(Global.goal)
+#	Global.goal = 20
+#	$HUD/GoalKill.text = str(Global.goal)
 	health = 100
+	$HUD/Label.hide()
+	$HUD/GoalKill.hide()
 	$Sola.start($StartPosition.position)
 	$StartTimer.start()
 	$LightTimer.start()
 	$FlashTimer.start()
-	$DialogueBox.load_dialogue(["Ahhh! More monsters!"])
+	$DialogueBox.load_dialogue(["Nowhere to run...might as well fight till my death..!"])
 	$BGM.play()
-	$Level_2.show()
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
 	
@@ -53,6 +56,7 @@ func _ready():
 	
 	
 func _process(delta):
+	print($MobTimer.wait_time)
 #	print($Sola/FlashLight/CollisionPolygon2D.disabled)
 #	print($FlashTimer.get_time_left())
 	$HUD.update_charge($FlashTimer.get_time_left())
@@ -62,29 +66,42 @@ func _process(delta):
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	#print(Global.kill_count)
 	
-	print($FlashTimer.get_time_left())
+#	print($FlashTimer.get_time_left())
 	
-	if Global.kill_count >= Global.goal:
-		get_tree().call_group("mobs", "queue_free")
-		$Sola/Camera2D/CanvasLayer/TextureRect.hide()
-		$MobTimer.stop()
-		$HUD/Arrow.show()
-		$Fences/Fence.hide()
-		$Fences/Fence/CollisionShape2D.disabled = true
-		$Fences/Fence2.hide()
-		$Fences/Fence2/CollisionShape2D.disabled = true
-		$Fences/Fence3.hide()
-		$Fences/Fence3/CollisionShape2D.disabled = true
-		$Fences/Fence4.hide()
-		$Fences/Fence4/CollisionShape2D.disabled = true
-		$Fences/Fence5.hide()
-		$Fences/Fence5/CollisionShape2D.disabled = true
-		$Fences/Fence6.hide()
-		$Fences/Fence6/CollisionShape2D.disabled = true
-		$Fences/Fence7.hide()
-		if not clear_played_once:
-			$Alldead.play()
-			clear_played_once = true
+	# Check if kill_count is a multiple of 10 and if the function has not been executed yet
+	if Global.kill_count % 10 == 0 and Global.kill_count != previous_kill_count:
+		# Call your function here
+		increase_speed()
+		previous_kill_count = Global.kill_count
+	
+	if Global.kill_count % 50 == 49 and not bgm2_executed:
+		$BGM.stop()
+		$BGM2.play()
+		bgm2_executed = true
+	
+	if Global.kill_count % 100 == 99 and not bgm3_executed:
+		$BGM2.stop()
+		$BGM3.play()
+		bgm3_executed = true
+	
+#	if Global.kill_count >= Global.goal:
+#		get_tree().call_group("mobs", "queue_free")
+#		$Sola/Camera2D/CanvasLayer/TextureRect.hide()
+#		$MobTimer.stop()
+#		$HUD/Arrow.show()
+#		$Fences/Fence.hide()
+#		$Fences/Fence/CollisionShape2D.disabled = true
+#		$Fences/Fence2.hide()
+#		$Fences/Fence2/CollisionShape2D.disabled = true
+#		$Fences/Fence3.hide()
+#		$Fences/Fence3/CollisionShape2D.disabled = true
+#		$Fences/Fence4.hide()
+#		$Fences/Fence4/CollisionShape2D.disabled = true
+#		$Fences/Fence5.hide()
+#		$Fences/Fence5/CollisionShape2D.disabled = true
+#		$Fences/Fence6.hide()
+#		$Fences/Fence6/CollisionShape2D.disabled = true
+#		$Fences/Fence7.hide()
 	
 func new_game():
 	pass
@@ -100,7 +117,7 @@ func change_health():
 	$HUD.update_health(health)
 	if health <= 0:
 		$Sola.queue_free()
-		get_tree().change_scene_to_file("res://gameover.tscn")
+		get_tree().change_scene_to_file("res://endless_gameover.tscn")
 #		$Sola.hide()
 #		$Sola/CollisionShape2D.set_deferred("disabled",true)
 
@@ -123,6 +140,30 @@ func _on_mob_timer_timeout():
 	var velocity = mob_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
 	mob.linear_velocity = velocity
 	add_child(mob)
+	
+	# SPAWNS MOB TYPE 2
+	if Global.kill_count >= 50: 
+		num_mob2 += 1
+		print("mob2 spawning")
+		var mob2 = preload("res://mob2.tscn").instantiate()
+		mob2.position = mob_spawn_location.position
+		var mob2_pos = mob2.position
+		mob2.rotation = dir_angle
+		var velocity2 = mob2_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
+		mob2.linear_velocity = velocity2
+		add_child(mob2)
+	
+	# SPAWNS MOB TYPE 3
+	if Global.kill_count >= 100: 
+		num_mob3 += 1
+		print("mob3 spawning")
+		var mob3 = preload("res://mob3.tscn").instantiate()
+		mob3.position = mob_spawn_location.position
+		var mob3_pos = mob3.position
+		mob3.rotation = PI/2
+		var velocity3 = mob3_pos.direction_to($Sola.position) * randf_range(150.0,250.0) 
+		mob3.linear_velocity = velocity3
+		add_child(mob3)
 
 func _on_start_timer_timeout():
 	$MobTimer.start()
@@ -180,6 +221,12 @@ func _on_light_timer_timeout():
 	rand_num2 = randi() % 8 + 1
 	rand_num3 = randi() % 8 + 1
 	rand_num4 = randi() % 8 + 1
+	if Global.kill_count >= 150:
+		rand_num2 = 0
+	if Global.kill_count >= 100:
+		rand_num3 = 0
+	if Global.kill_count >= 50:
+		rand_num4 = 0
 
 func _on_flash_timer_timeout():
 	#print("Flahslight off")
@@ -194,3 +241,6 @@ func shine():
 
 func flicker():
 	$FlashTimer.paused = false
+
+func increase_speed():
+	$MobTimer.wait_time -= 0.1

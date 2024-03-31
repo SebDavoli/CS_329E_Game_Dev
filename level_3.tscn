@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvgg1pfn3qigb"]
+[gd_scene load_steps=16 format=3 uid="uid://cvgg1pfn3qigb"]
 
 [ext_resource type="Script" path="res://level_3.gd" id="1_7wba6"]
 [ext_resource type="PackedScene" uid="uid://4ehixoj5k31m" path="res://Player/sola.tscn" id="2_1sulp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cmfk3rshf74f3" path="res://Art/Luna.png" id="8_m0hkm"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="9_7scgd"]
 [ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="10_hvu1h"]
+[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/SFX/monster.mp3" id="11_udctq"]
 
 [sub_resource type="Curve2D" id="Curve2D_7uqmh"]
 _data = {
@@ -92,7 +93,9 @@ editor_draw_limits = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
 
 [node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
-offset_right = 1151.0
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 1160.0
 offset_bottom = 657.0
 texture = ExtResource("6_sngw1")
 expand_mode = 1
@@ -225,6 +228,10 @@ position = Vector2(1058, 85)
 [node name="Lamp4" parent="Lamps" instance=ExtResource("3_0jtv5")]
 z_index = 1
 position = Vector2(1062, 511)
+
+[node name="Alldead" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(116, 345)
+stream = ExtResource("11_udctq")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

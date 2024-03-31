@@ -66,21 +66,37 @@ libraries = {
 "": SubResource("AnimationLibrary_xf54t")
 }
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StoryButton" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 481.0
-offset_top = 396.0
-offset_right = 700.0
-offset_bottom = 461.0
+offset_left = 476.0
+offset_top = 433.0
+offset_right = 676.0
+offset_bottom = 464.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Start"
+text = "Story Mode"
+
+[node name="EndlessButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 478.0
+offset_top = 479.0
+offset_right = 678.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Endless Mode"
 
 [node name="CreditButton" type="Button" parent="."]
 anchors_preset = 7
@@ -88,10 +104,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 482.0
-offset_top = 476.0
-offset_right = 701.0
-offset_bottom = 541.0
+offset_left = 479.0
+offset_top = 526.0
+offset_right = 679.0
+offset_bottom = 557.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -106,9 +122,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 481.0
-offset_top = 554.0
-offset_right = 700.0
-offset_bottom = 619.0
+offset_top = 570.0
+offset_right = 681.0
+offset_bottom = 601.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -120,6 +136,7 @@ stream = ExtResource("3_n4gq6")
 volume_db = -10.0
 autoplay = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StoryButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="EndlessButton" to="." method="_on_endless_button_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c72bvjudup5gt"]
+[gd_scene load_steps=16 format=3 uid="uid://c72bvjudup5gt"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kbik5"]
 [ext_resource type="Texture2D" uid="uid://cefr1psk7w3m5" path="res://Art/Speedway.png" id="2_jegm8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqul01thxosc3" path="res://Lamp.tscn" id="8_40col"]
 [ext_resource type="PackedScene" uid="uid://csethspg6l3lt" path="res://dialogue.tscn" id="9_phcuk"]
 [ext_resource type="Texture2D" uid="uid://daf3o3d5c5sjl" path="res://Art/Flashlight.png" id="9_s3a40"]
+[ext_resource type="AudioStream" uid="uid://cknage2mjqs2a" path="res://Music/SFX/monster.mp3" id="11_kx363"]
 [ext_resource type="PackedScene" uid="uid://d8nkndsuti40" path="res://fence.tscn" id="11_lofsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxmxd"]
@@ -45,11 +46,11 @@ texture = ExtResource("2_jegm8")
 metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(42, 349)
+position = Vector2(116, 345)
 
 [node name="Sola" parent="." instance=ExtResource("3_v5u6r")]
 z_index = 2
-position = Vector2(43, 347)
+position = Vector2(116, 345)
 
 [node name="Camera2D" type="Camera2D" parent="Sola"]
 zoom = Vector2(2, 2)
@@ -66,8 +67,8 @@ editor_draw_limits = true
 [node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
 offset_left = -2.0
 offset_top = -1.0
-offset_right = 1163.0
-offset_bottom = 654.0
+offset_right = 1166.0
+offset_bottom = 652.0
 texture = ExtResource("4_qfaqn")
 expand_mode = 1
 
@@ -157,7 +158,7 @@ offset_top = 172.0
 offset_right = 849.0
 offset_bottom = 453.0
 theme_override_font_sizes/font_size = 50
-text = "Where Am I..?"
+text = "Luna..! Where are you!?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -165,6 +166,7 @@ vertical_alignment = 1
 
 [node name="Flashlight" type="StaticBody2D" parent="."]
 z_index = 1
+position = Vector2(90, 0)
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Flashlight"]
@@ -267,6 +269,10 @@ position = Vector2(1148, 405)
 [node name="Lamp" parent="Lamps" instance=ExtResource("8_40col")]
 z_index = 1
 position = Vector2(575, 278)
+
+[node name="Alldead" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(116, 345)
+stream = ExtResource("11_kx363")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="light_enter" from="Sola" to="." method="shine"]

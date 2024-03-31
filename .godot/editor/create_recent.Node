@@ -1,7 +1,8 @@
+AudioStreamPlayer2D
+Label
 Button
 AudioStreamPlayer
 RichTextLabel
-Label
 ColorRect
 TextureRect
 AnimationPlayer
@@ -17,7 +18,6 @@ CanvasLayer
 CollisionShape2D
 RigidBody2D
 Timer
-AudioStreamPlayer2D
 VisibleOnScreenNotifier2D
 AnimatedSprite2D
 Mob

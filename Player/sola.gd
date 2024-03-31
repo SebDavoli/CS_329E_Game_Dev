@@ -22,7 +22,8 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	#$FlashLight/AnimationPlayer.play("flicker")
 	viewport_size = get_viewport_rect().size
-	hide()
+#	hide()
+	$Marker2D.position = Vector2(130,28)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,27 +39,27 @@ func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1.5
-		$Marker2D.position = Vector2(125, 10)	
+		$Marker2D.position = Vector2(125, 30)	
 		$FlashLight.rotation_degrees = 135	
 		
 		
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1.5
-		$Marker2D.position = Vector2(-125, -15)
+		$Marker2D.position = Vector2(-125, 5)
 		$FlashLight.rotation_degrees = 315	
 		
 					
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1.5
 		$AnimatedSprite2D.play("walk_down")
-		$Marker2D.position = Vector2(0,125)	
+		$Marker2D.position = Vector2(0,135)	
 		$FlashLight.rotation_degrees = 225			
 		
 		
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1.5
 		$AnimatedSprite2D.play("walk_up")
-		$Marker2D.position = Vector2(0,-125)
+		$Marker2D.position = Vector2(0,-110)
 		$FlashLight.rotation_degrees = 45	
 	
 	if velocity.x != 0:	

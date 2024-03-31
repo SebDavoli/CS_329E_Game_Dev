@@ -14,6 +14,7 @@ func _ready():
 	$BGM.play()
 	$DialogueBox.hide_dialogue()
 	$Sola.movement_disabled = true
+	$Sola/FlashLight/Flash.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,7 +31,7 @@ func _process(delta):
 		$CanvasLayer/Message.modulate.a -= 1*delta
 		if $DialogueBox.executing == -1:
 			if !initial_dialogue_loaded:
-				$DialogueBox.load_dialogue(["Luna! Where are you!? Please be safe..", "Is that a flashlight? Could this protect me from the monsters?"])
+				$DialogueBox.load_dialogue(["Oh Luna....Please be safe..","I want to go look for her..but there's no way I can...","Wait...is that a flashlight??","Hmm....","Maybe I should give it a try..!"])
 				initial_dialogue_loaded = true
 			else: 
 				$Sola.movement_disabled = false	
@@ -41,6 +42,7 @@ func _on_flash_timer_timeout():
 	$Sola/FlashLight/CollisionPolygon2D.disabled = true
 
 func shine():
+	$Sola/FlashLight/Flash.show()
 	$Flashlight.hide()
 	$Flashlight/CollisionShape2D.disabled = true
 	$Sola/FlashLight.show()
@@ -53,5 +55,6 @@ func flicker():
 	$FlashTimer.paused = false
 	
 func mobdead():
+	$Alldead.play()
 	$Sola/Camera2D/CanvasLayer/TextureRect.hide()
-	$DialogueBox.load_dialogue(["What was that?!", "I guess light does kill the monsters!", "I think I can recharge them through the lamps as well."])
+	$DialogueBox.load_dialogue(["Yes!","The light does kill the monsters!", "Good thing I studied about shadow magic last semester.", "I think the flashlight recharges through touching the streetlight as well.","Okie. Let's head towards Speedway!!"])
