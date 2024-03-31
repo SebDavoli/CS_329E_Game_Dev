@@ -93,6 +93,9 @@ editor_draw_limits = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
 
 [node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_top = -0.00462963
+anchor_right = 0.00434028
 offset_right = 1151.0
 offset_bottom = 657.0
 texture = ExtResource("6_f456s")
