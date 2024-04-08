@@ -91,7 +91,6 @@ editor_draw_limits = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Sola/Camera2D"]
 
 [node name="TextureRect" type="TextureRect" parent="Sola/Camera2D/CanvasLayer"]
-visible = false
 offset_right = 1151.0
 offset_bottom = 657.0
 texture = ExtResource("6_bhjo7")
@@ -188,6 +187,7 @@ position = Vector2(1018, 160)
 visible = false
 
 [node name="Level_2" parent="." instance=ExtResource("9_3dqyi")]
+visible = false
 position = Vector2(591, 0)
 
 [node name="Fences" type="Node" parent="."]

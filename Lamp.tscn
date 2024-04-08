@@ -136,14 +136,12 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="LampLight"]
-visible = false
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(0, 19.25)
 scale = Vector2(0.187, 0.1935)
 texture = ExtResource("3_c6glc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LampLight"]
-visible = false
 build_mode = 1
 polygon = PackedVector2Array(-6, -58, -74, 98, -61, 108, -15, 114, 49, 111, 70, 103, 76, 98, 3, -58)
 
@@ -159,12 +157,12 @@ volume_db = -5.0
 volume_db = -5.0
 
 [node name="ExitArea" type="Area2D" parent="."]
+visible = false
 scale = Vector2(1.1, 1.1)
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ExitArea"]
-visible = false
 scale = Vector2(0.909091, 0.909091)
 build_mode = 1
 polygon = PackedVector2Array(-9, -72, -82, 102, -65, 116, -13, 123, 53, 120, 74, 109, 83, 96, 40, 0, 5, -72)

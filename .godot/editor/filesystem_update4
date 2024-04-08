@@ -1,5 +1,8 @@
-res://tutorial.tscn
+res://Lamp.tscn
 res://level_1.gd
+res://testroom.tscn
+res://fence.tscn
+res://tutorial.tscn
 res://level_1.tscn
 res://level_2.tscn
 res://level_3.tscn
