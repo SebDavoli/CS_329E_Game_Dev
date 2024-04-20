@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://csethspg6l3lt"]
+[gd_scene load_steps=7 format=3 uid="uid://csethspg6l3lt"]
 
 [ext_resource type="Script" path="res://dialogue.gd" id="1_rf4bd"]
 [ext_resource type="Texture2D" uid="uid://dmtn5rsgfihys" path="res://Player/Sola_Cutout (2).png" id="2_mcp2g"]
 [ext_resource type="FontFile" uid="uid://bl61oesj2hyr" path="res://Art/dialogue_font.ttf" id="2_vq2jh"]
+[ext_resource type="AudioStream" uid="uid://dbjrymb0cprhy" path="res://Music/SFX/typewriter.mp3" id="4_caijd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2k2eb"]
 bg_color = Color(0, 0, 0, 1)
@@ -90,5 +91,8 @@ text = "Press space to continue"
 
 [node name="ProcessingTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Typewriter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_caijd")
 
 [connection signal="timeout" from="ProcessingTimer" to="." method="_on_processing_timer_timeout"]

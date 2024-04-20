@@ -153,15 +153,15 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_g3dsl")
 
 [node name="Luna" type="TextureRect" parent="."]
-offset_left = 555.0
-offset_top = 5.0
-offset_right = 598.0
-offset_bottom = 46.0
+offset_left = 562.0
+offset_top = 30.0
+offset_right = 605.0
+offset_bottom = 71.0
 texture = ExtResource("8_m0hkm")
 expand_mode = 1
 
 [node name="Ending" type="StaticBody2D" parent="."]
-position = Vector2(9, -39)
+position = Vector2(16, -14)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ending"]
@@ -188,13 +188,13 @@ position = Vector2(322, 55)
 position = Vector2(408, 55)
 
 [node name="Fence6" parent="Fences" instance=ExtResource("10_hvu1h")]
-position = Vector2(494, 55)
+position = Vector2(494, 70)
 
 [node name="Fence7" parent="Fences" instance=ExtResource("10_hvu1h")]
-position = Vector2(579, 55)
+position = Vector2(580, 92)
 
 [node name="Fence8" parent="Fences" instance=ExtResource("10_hvu1h")]
-position = Vector2(666, 55)
+position = Vector2(666, 71)
 
 [node name="Fence9" parent="Fences" instance=ExtResource("10_hvu1h")]
 position = Vector2(752, 55)
@@ -242,3 +242,4 @@ stream = ExtResource("11_udctq")
 [connection signal="heal" from="Sola" to="." method="heal"]
 [connection signal="light_enter" from="Sola" to="." method="shine"]
 [connection signal="light_exit" from="Sola" to="." method="flicker"]
+[connection signal="all_dialogues_read" from="DialogueBox" to="." method="_on_dialogue_box_all_dialogues_read"]

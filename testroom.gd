@@ -16,11 +16,12 @@ func _ready():
 	Global.goal = 2000
 	$HUD/GoalKill.text = str(Global.goal)
 	health = 10000
-	#$LightTimer.start()
+	
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
-	$FlashTimer.start()
-
+	
+	$Sola.movement_disabled = true
+	$Sola/FlashLight.hide()
+	
 	$BGM.play()
 	$Level_2.show()
 	$Sola.camera = $Sola/Camera2D
@@ -191,3 +192,11 @@ func shine():
 
 func flicker():
 	$FlashTimer.paused = false
+
+func finished_reading():
+	$StartTimer.start()
+	#$LightTimer.start()
+	$FlashTimer.start()
+	$Sola/FlashLight.show()
+	$Sola/FlashLight/CollisionPolygon2D.disabled == false
+	$Sola.movement_disabled = false

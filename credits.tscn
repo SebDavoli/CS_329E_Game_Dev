@@ -169,4 +169,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back To Title"
 
+[node name="ES" type="Label" parent="."]
+offset_left = 473.0
+offset_top = 480.0
+offset_right = 756.0
+offset_bottom = 552.0
+theme_override_font_sizes/font_size = 36
+text = "Extra Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AEName2" type="Label" parent="."]
+offset_left = 549.0
+offset_top = 538.0
+offset_right = 687.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 20
+text = "Artlist.io"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="TitleButton" to="." method="_on_title_button_pressed"]

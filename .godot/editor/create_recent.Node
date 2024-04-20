@@ -1,7 +1,7 @@
+AudioStreamPlayer
 AudioStreamPlayer2D
 Label
 Button
-AudioStreamPlayer
 RichTextLabel
 ColorRect
 TextureRect
@@ -12,13 +12,3 @@ CollisionPolygon2D
 Area2D
 Sprite2D
 PointLight2D
-DirectionalLight2D
-SpotLight3D
-CanvasLayer
-CollisionShape2D
-RigidBody2D
-Timer
-VisibleOnScreenNotifier2D
-AnimatedSprite2D
-Mob
-Marker2D

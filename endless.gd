@@ -22,10 +22,12 @@ func _ready():
 	$HUD/Label.hide()
 	$HUD/GoalKill.hide()
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
-	$LightTimer.start()
-	$FlashTimer.start()
+	
+	$Sola.movement_disabled = true
+	$Sola/FlashLight.hide()
+	
 	$DialogueBox.load_dialogue(["Nowhere to run...might as well fight till my death..!"])
+	
 	$BGM.play()
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
@@ -244,3 +246,12 @@ func flicker():
 
 func increase_speed():
 	$MobTimer.wait_time -= 0.1
+
+
+func _on_dialogue_box_all_dialogues_read():
+	$StartTimer.start()
+	$LightTimer.start()
+	$FlashTimer.start()
+	$Sola/FlashLight.show()
+	$Sola/FlashLight/CollisionPolygon2D.disabled == false
+	$Sola.movement_disabled = false

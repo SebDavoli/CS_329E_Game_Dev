@@ -187,8 +187,6 @@ collision_layer = 3
 position = Vector2(575, -14)
 shape = SubResource("RectangleShape2D_gg3q6")
 
-[node name="DialogueBox2" parent="." instance=ExtResource("6_yqxfd")]
-
 [node name="Fences" type="Node" parent="."]
 
 [node name="Fence" parent="Fences" instance=ExtResource("9_hlstx")]
@@ -243,3 +241,4 @@ stream = ExtResource("10_omi3m")
 [connection signal="heal" from="Sola" to="." method="heal"]
 [connection signal="light_enter" from="Sola" to="." method="shine"]
 [connection signal="light_exit" from="Sola" to="." method="flicker"]
+[connection signal="all_dialogues_read" from="DialogueBox" to="." method="_on_dialogue_box_all_dialogues_read"]

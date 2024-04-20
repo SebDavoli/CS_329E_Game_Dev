@@ -15,10 +15,10 @@ func _ready():
 	Global.goal = 60
 	$HUD/GoalKill.text = str(Global.goal)
 	health = 100
-	$LightTimer.start()
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
-	$FlashTimer.start()
+	
+	$Sola.movement_disabled = true
+	$Sola/FlashLight.hide()
 	
 	$BGM.play()
 	$Ending.show()
@@ -47,7 +47,7 @@ func _process(delta):
 		
 	$HUD/CurrentKill.text = str(Global.kill_count)
 	#print(Global.kill_count)
-	print($FlashTimer.get_time_left())
+	#print($FlashTimer.get_time_left())
 	
 	if Global.kill_count >= Global.goal:
 		get_tree().call_group("mobs", "queue_free")
@@ -192,3 +192,12 @@ func shine():
 
 func flicker():
 	$FlashTimer.paused = false
+
+
+func _on_dialogue_box_all_dialogues_read():
+	$StartTimer.start()
+	$LightTimer.start()
+	$FlashTimer.start()
+	$Sola/FlashLight.show()
+	$Sola/FlashLight/CollisionPolygon2D.disabled == false
+	$Sola.movement_disabled = false

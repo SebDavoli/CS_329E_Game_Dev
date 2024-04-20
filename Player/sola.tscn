@@ -48,7 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://dy2asj7fjfnmu" path="res://Player/Backward/Sola_Running_Backwards_15.png" id="45_820vn"]
 [ext_resource type="Texture2D" uid="uid://do5i7gbvyruo6" path="res://Player/Backward/Sola_Running_Backwards_16.png" id="46_80ivj"]
 [ext_resource type="Texture2D" uid="uid://bedixsdoqgakj" path="res://Player/Backward/Sola_Running_Backwards_17.png" id="47_2va04"]
-[ext_resource type="AudioStream" uid="uid://dvwlu1m4eiwjj" path="res://Player/girlpain.mp3" id="48_urjou"]
+[ext_resource type="AudioStream" uid="uid://dvwlu1m4eiwjj" path="res://Music/SFX/girlpain.mp3" id="49_bmybf"]
 [ext_resource type="AudioStream" uid="uid://bxbn7ofx1epbm" path="res://Music/SFX/Light_on.mp3" id="50_imcdh"]
 [ext_resource type="AudioStream" uid="uid://clwa683mujp5h" path="res://Music/SFX/Light_off.mp3" id="51_juyau"]
 [ext_resource type="AudioStream" uid="uid://b4oig1mi0k7s6" path="res://Music/SFX/Gulp.mp3" id="52_jwypy"]
@@ -385,7 +385,7 @@ animation = &"idle"
 position = Vector2(125, 0)
 
 [node name="PainEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("48_urjou")
+stream = ExtResource("49_bmybf")
 
 [node name="FlashLight" type="StaticBody2D" parent="."]
 position = Vector2(125, 13)

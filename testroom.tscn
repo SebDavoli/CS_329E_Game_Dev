@@ -184,7 +184,6 @@ position = Vector2(819, 163)
 position = Vector2(1018, 160)
 
 [node name="DialogueBox" parent="." instance=ExtResource("8_f1ney")]
-visible = false
 
 [node name="Level_2" parent="." instance=ExtResource("9_3dqyi")]
 visible = false
@@ -230,3 +229,4 @@ position = Vector2(823, 83)
 [connection signal="heal" from="Sola" to="." method="heal"]
 [connection signal="light_enter" from="Sola" to="." method="shine"]
 [connection signal="light_exit" from="Sola" to="." method="flicker"]
+[connection signal="all_dialogues_read" from="DialogueBox" to="." method="finished_reading"]

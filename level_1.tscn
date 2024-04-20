@@ -240,3 +240,4 @@ stream = ExtResource("11_dbibt")
 [connection signal="heal" from="Sola" to="." method="heal"]
 [connection signal="light_enter" from="Sola" to="." method="shine"]
 [connection signal="light_exit" from="Sola" to="." method="flicker"]
+[connection signal="all_dialogues_read" from="DialogueBox" to="." method="_on_dialogue_box_all_dialogues_read"]

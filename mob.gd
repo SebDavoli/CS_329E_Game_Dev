@@ -4,7 +4,7 @@ extends RigidBody2D
 var dead = false
 var player = null
 var player_chase = false
-var speed = 125
+var speed = randi_range(100,150)
 signal doom
 var drop = 0.5
 var rand_num
@@ -28,6 +28,7 @@ func _on_detection_area_body_exited(body):
 
 
 func _physics_process(delta):
+	print(speed)
 	if player_chase:
 		var dir_vector = Vector2((player.position.x-position.x),(player.position.y-position.y))
 		if dir_vector.length() > 30:

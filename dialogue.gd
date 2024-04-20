@@ -7,6 +7,8 @@ var MAX_SHOW = 5.00
 var executing = -1
 var dialogue_array = []
 
+signal all_dialogues_read
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide_dialogue()
@@ -17,16 +19,18 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if $ProcessingTimer.is_stopped() and len(dialogue_array) > 0 and (Input.is_action_pressed("next_dialogue") or executing == -1):
+		$Typewriter.stop()
+		$Typewriter.play()
 		$ProcessingTimer.start()
 		print("DIALOGUE moving to %s" % (executing + 1))
 		if executing + 1 < len(dialogue_array):
 			executing += 1
-			set_text(dialogue_array[executing])
+			set_text(dialogue_array[executing])	
 		else:
 			executing = -1
 			dialogue_array = []
 			hide_dialogue()
-			
+			emit_signal("all_dialogues_read") # Emit signal when all dialogues are read
 	
 func hide_dialogue():
 	label.text = ""

@@ -18,14 +18,15 @@ func _ready():
 	$HUD/GoalKill.text = str(Global.goal)
 	health = 100
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
-	$LightTimer.start()
-	$FlashTimer.start()
+
 	$DialogueBox.load_dialogue(["Ahhh! More monsters!"])
 	$BGM.play()
 	$Level_2.show()
 	$Sola.camera = $Sola/Camera2D
 	$HUD.update_health(health)
+	
+	$Sola.movement_disabled = true
+	$Sola/FlashLight.hide()
 	
 	#random number set, lamp disabled at start of the game
 	rand_num1 = randi() % 8 + 1
@@ -194,3 +195,12 @@ func shine():
 
 func flicker():
 	$FlashTimer.paused = false
+
+
+func _on_dialogue_box_all_dialogues_read():
+	$StartTimer.start()
+	$LightTimer.start()
+	$FlashTimer.start()
+	$Sola/FlashLight.show()
+	$Sola/FlashLight/CollisionPolygon2D.disabled == false
+	$Sola.movement_disabled = false

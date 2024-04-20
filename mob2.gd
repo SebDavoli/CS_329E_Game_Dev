@@ -4,7 +4,7 @@ extends RigidBody2D
 var dead = false
 var player = null
 var player_chase = false
-var speed = 150
+var speed = randi_range(125,150)
 var x = 0.0
 var drop = 1.0
 var rand_num

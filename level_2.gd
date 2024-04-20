@@ -14,10 +14,10 @@ func _ready():
 	Global.goal = 40
 	$HUD/GoalKill.text = str(Global.goal)
 	health = 100
-	$LightTimer.start()
 	$Sola.start($StartPosition.position)
-	$StartTimer.start()
-	$FlashTimer.start()
+	
+	$Sola.movement_disabled = true
+	$Sola/FlashLight.hide()
 	
 	$BGM.play()
 	$Level_3.show()
@@ -191,3 +191,12 @@ func shine():
 
 func flicker():
 	$FlashTimer.paused = false
+
+
+func _on_dialogue_box_all_dialogues_read():
+	$StartTimer.start()
+	$LightTimer.start()
+	$FlashTimer.start()
+	$Sola/FlashLight.show()
+	$Sola/FlashLight/CollisionPolygon2D.disabled == false
+	$Sola.movement_disabled = false

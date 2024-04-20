@@ -6,7 +6,7 @@ var pause = false
 var pause_count = 0
 var player = null
 var player_chase = false
-var speed = 125
+var speed = 150
 var drop = 1.5
 var rand_num
 var drop_occurred = false

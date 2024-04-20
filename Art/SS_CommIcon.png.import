@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djas0qhax3w7b"
-path="res://.godot/imported/Outside_B.png-b78747672061622d8bd6f551cd4681ef.ctex"
+uid="uid://dynvkl1sv3b5o"
+path="res://.godot/imported/SS_CommIcon.png-18727bf4d1606759641d34a862ad6ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/Outside_B.png"
-dest_files=["res://.godot/imported/Outside_B.png-b78747672061622d8bd6f551cd4681ef.ctex"]
+source_file="res://Art/SS_CommIcon.png"
+dest_files=["res://.godot/imported/SS_CommIcon.png-18727bf4d1606759641d34a862ad6ed9.ctex"]
 
 [params]
 

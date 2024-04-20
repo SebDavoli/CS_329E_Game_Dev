@@ -278,3 +278,4 @@ stream = ExtResource("11_kx363")
 [connection signal="light_enter" from="Sola" to="." method="shine"]
 [connection signal="light_exit" from="Sola" to="." method="flicker"]
 [connection signal="doom" from="Mob" to="." method="mobdead"]
+[connection signal="all_dialogues_read" from="DialogueBox" to="." method="_on_dialogue_box_all_dialogues_read"]
